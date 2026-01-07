@@ -141,6 +141,56 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
+  // Magnetic micro-move for hero buttons (desktop only)
+  var prefersReducedMotion =
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var heroButtons = document.querySelectorAll(".fixmi-home-page .hero-btn");
+
+  if (!prefersReducedMotion && heroButtons.length) {
+    var maxMove = 6;
+
+    heroButtons.forEach(function (button) {
+      var rafId = null;
+
+      var setOffset = function (x, y) {
+        button.style.setProperty("--hero-mx", x + "px");
+        button.style.setProperty("--hero-my", y + "px");
+      };
+
+      var handleMove = function (event) {
+        if (event.pointerType === "touch") {
+          return;
+        }
+        var rect = button.getBoundingClientRect();
+        if (!rect.width || !rect.height) {
+          return;
+        }
+        var relX = event.clientX - rect.left;
+        var relY = event.clientY - rect.top;
+        var moveX = ((relX - rect.width / 2) / (rect.width / 2)) * maxMove;
+        var moveY = ((relY - rect.height / 2) / (rect.height / 2)) * maxMove;
+
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+        }
+        rafId = requestAnimationFrame(function () {
+          setOffset(moveX.toFixed(2), moveY.toFixed(2));
+        });
+      };
+
+      var reset = function () {
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+        }
+        setOffset(0, 0);
+      };
+
+      button.addEventListener("pointermove", handleMove);
+      button.addEventListener("pointerleave", reset);
+      button.addEventListener("pointerdown", reset);
+    });
+  }
+
   // Global flag: ketika user klik teks layanan, animasi scroll tidak menimpa pilihan
   window.__FIXMI_MANUAL_LOCK = window.__FIXMI_MANUAL_LOCK || false;
 

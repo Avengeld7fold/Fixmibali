@@ -14,6 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
 <!-- Black Ops One font -->
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&amp;display=swap" rel="stylesheet"/>
@@ -31,14 +32,18 @@
 }
 
 body.fixmi-home-page {
-  --admin-bg: #f7f0e6;
-  --admin-glow: rgba(255, 191, 130, 0.18);
-  --admin-sidebar-bg: #fff9f0;
-  --admin-border: #efe4d5;
-  --admin-text: #2b2f36;
-  --admin-shadow: 0 18px 40px rgba(35, 23, 12, 0.08);
+  --admin-bg: #f7f9fb;
+  --admin-glow: rgba(242, 106, 33, 0.12);
+  --admin-sidebar-bg: #f7f9fb;
+  --admin-border: #eef1f6;
+  --admin-text: #2f3b52;
+  --admin-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  --home-accent: #f26a21;
+  --home-accent-soft: #ffe2c9;
+  --home-heading: #2e3440;
+  --home-muted: #7c889b;
 
-  background: radial-gradient(1200px 640px at -10% -10%, var(--admin-glow) 0%, transparent 60%), var(--admin-bg);
+  background: var(--admin-bg);
   color: var(--admin-text);
   min-height: 100vh;
 }
@@ -50,18 +55,18 @@ body.fixmi-home-page .hero-section {
 }
 
 body.fixmi-home-page .hero-section::before {
-  background-image: radial-gradient(1200px 640px at -10% -10%, var(--admin-glow) 0%, transparent 60%);
-  opacity: 1;
+  background-image: none;
+  opacity: 0;
 }
 
 body.fixmi-home-page .before-after-section,
 body.fixmi-home-page .service-banner-section,
-body.fixmi-home-page .advantages-section,
-body.fixmi-home-page .contact-section {
+body.fixmi-home-page .advantages-section {
   background-color: var(--admin-sidebar-bg);
 }
 
 body.fixmi-home-page .contact-section {
+  background-color: #ffffff;
   border-top-color: var(--admin-border);
 }
 </style></head>
@@ -80,24 +85,18 @@ body.fixmi-home-page .contact-section {
 <div class="row align-items-center gy-4">
 <!-- Left copy -->
 <div class="col-lg-6 hero-left">
-<h1 class="hero-title-main mb-1">FIXMI BALI</h1>
-<h2 class="hero-title-sub mb-3">Phone Service</h2>
-<p class="hero-text mb-3">
+<h1 class="hero-title-main mb-1 hero-reveal delay-1"><span class="hero-title-word">FIXMI</span><span class="hero-title-word">BALI</span></h1>
+<h2 class="hero-title-sub mb-3 hero-reveal delay-2">Phone Service</h2>
+<p class="hero-text mb-3 hero-reveal delay-3">
             Service gadget cepat, transparan, dan bergaransi. Kami handle Android, iPhone, Macbook, dan laptop.
           </p>
-<ul class="list-unstyled d-grid gap-2 mb-4 hero-benefits">
+<ul class="list-unstyled d-grid gap-2 mb-4 hero-benefits hero-reveal delay-4">
 <li class="d-flex align-items-start gap-2"><i class="bi bi-check-circle-fill text-success"></i><span>Free biaya pengecekan + estimasi sebelum pengerjaan</span></li>
 <li class="d-flex align-items-start gap-2"><i class="bi bi-check-circle-fill text-success"></i><span>Teknisi berpengalaman untuk hardware &amp; software</span></li>
 <li class="d-flex align-items-start gap-2"><i class="bi bi-check-circle-fill text-success"></i><span>Sparepart ready stok &amp; opsi kualitas sesuai kebutuhan</span></li>
 </ul>
-<div class="d-flex flex-wrap gap-2 mb-4 hero-trust">
-<span class="badge rounded-pill text-bg-light hero-trust-pill">Sejak 2016</span>
-<span class="badge rounded-pill text-bg-light hero-trust-pill">Garansi service</span>
-<span class="badge rounded-pill text-bg-light hero-trust-pill">Harga transparan</span>
-<span class="badge rounded-pill text-bg-light hero-trust-pill">Fast response WA</span>
-</div>
-<h6 class="hero-hardware-title mb-3">Hardware Repair Expert</h6>
-<div class="row g-3 hero-services mb-4">
+<h6 class="hero-hardware-title mb-3 hero-reveal delay-5">Hardware Repair Expert</h6>
+<div class="row g-3 hero-services mb-4 hero-reveal delay-6">
 <div class="col-sm-6">
 <div class="hero-service">
 <div class="hero-service-icon hero-service-icon-green">
@@ -131,7 +130,7 @@ body.fixmi-home-page .contact-section {
 </div>
 </div>
 </div>
-<div class="d-flex flex-wrap gap-2">
+<div class="d-flex flex-wrap gap-2 hero-cta hero-reveal delay-7">
 <a class="btn btn-dark hero-btn" href="{{ route('pricelist') }}">Cek Pricelist</a>
 <a class="btn btn-success hero-btn" id="heroWhatsappLink" href="{{ $whatsAppLink }}" target="_blank" rel="noopener">Chat WhatsApp</a>
 <button class="btn btn-outline-dark hero-btn" id="konsultasiGratisBtn" type="button">Konsultasi Gratis</button>
@@ -139,7 +138,7 @@ body.fixmi-home-page .contact-section {
 </div>
 <!-- Right slider -->
 <div class="col-lg-6 hero-right">
-<div class="carousel slide hero-photo-frame" data-bs-interval="4500" data-bs-ride="carousel" id="heroCarousel">
+<div class="carousel slide hero-photo-frame hero-reveal delay-4" data-bs-interval="4500" data-bs-ride="carousel" id="heroCarousel">
 <div class="carousel-inner">
 <div class="carousel-item active">
 <img alt="Fixmi Technician 1" class="d-block w-100 hero-photo-img" src="/assets/img/hero-1.jpeg" decoding="async" fetchpriority="high"/>

@@ -1179,6 +1179,535 @@ body.fixmi-home-page .faq-section {
   background-color: var(--admin-sidebar-bg);
 }
 
+body.fixmi-home-page .fixmi-navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--admin-border, #eef1f6);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+body.fixmi-home-page .fixmi-navbar .nav-link {
+  color: var(--home-heading, #2f3b52);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+
+body.fixmi-home-page .fixmi-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: -0.45rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--home-accent, #f26a21), #ff8f43);
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+body.fixmi-home-page .fixmi-navbar .nav-link:hover,
+body.fixmi-home-page .fixmi-navbar .nav-link:focus,
+body.fixmi-home-page .fixmi-navbar .nav-link.active {
+  color: var(--home-accent, #f26a21) !important;
+}
+
+body.fixmi-home-page .fixmi-navbar .nav-link:hover,
+body.fixmi-home-page .fixmi-navbar .nav-link:focus {
+  transform: translateY(-1px);
+}
+
+body.fixmi-home-page .fixmi-navbar .nav-link:hover::after,
+body.fixmi-home-page .fixmi-navbar .nav-link:focus::after,
+body.fixmi-home-page .fixmi-navbar .nav-link.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+body.fixmi-home-page .fixmi-offcanvas-nav {
+  background-color: #ffffff;
+  color: var(--home-heading, #2f3b52);
+  box-shadow: -10px 0 26px rgba(15, 23, 42, 0.12);
+}
+
+body.fixmi-home-page .fixmi-offcanvas-menu-pill {
+  background-color: var(--home-accent, #f26a21);
+}
+
+body.fixmi-home-page .fixmi-offcanvas-nav .btn-close {
+  filter: none;
+  opacity: 0.7;
+}
+
+body.fixmi-home-page .fixmi-offcanvas-nav .btn-close:hover,
+body.fixmi-home-page .fixmi-offcanvas-nav .btn-close:focus {
+  opacity: 1;
+}
+
+body.fixmi-home-page .fixmi-offcanvas-nav .nav-link {
+  color: var(--home-heading, #2f3b52);
+  font-weight: 500;
+}
+
+body.fixmi-home-page .fixmi-offcanvas-nav .nav-link:hover,
+body.fixmi-home-page .fixmi-offcanvas-nav .nav-link:focus {
+  background-color: rgba(242, 106, 33, 0.12);
+  color: var(--home-accent, #f26a21);
+}
+
+body.fixmi-home-page .fixmi-offcanvas-contact-btn {
+  background-color: var(--home-heading, #2f3b52);
+  color: #ffffff;
+}
+
+body.fixmi-home-page .fixmi-offcanvas-contact-btn:hover,
+body.fixmi-home-page .fixmi-offcanvas-contact-btn:focus {
+  filter: brightness(1.02);
+}
+
+body.fixmi-home-page .fixmi-offcanvas-email {
+  color: var(--home-muted, #7c889b);
+}
+
+body.fixmi-home-page .hero-title-main,
+body.fixmi-home-page .hero-title-sub {
+  font-family: "Space Grotesk", "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  text-shadow: none;
+}
+
+body.fixmi-home-page .hero-title-main {
+  color: var(--home-heading, #2f3b52);
+  font-size: 3.5rem;
+  letter-spacing: 0.18em;
+  line-height: 1.04;
+}
+
+body.fixmi-home-page .hero-title-word {
+  display: inline-block;
+  margin-right: 0.45em;
+}
+
+body.fixmi-home-page .hero-title-word:last-child {
+  margin-right: 0;
+}
+
+body.fixmi-home-page .hero-title-sub {
+  color: var(--home-muted, #7c889b);
+  font-style: normal;
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+body.fixmi-home-page .hero-section {
+  font-family: "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body.fixmi-home-page .hero-left {
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .hero-text {
+  color: var(--home-muted, #7c889b);
+  font-size: 1.03rem;
+  line-height: 1.85;
+}
+
+body.fixmi-home-page .hero-benefits {
+  font-size: 0.96rem;
+}
+
+body.fixmi-home-page .hero-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroReveal 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+body.fixmi-home-page .hero-reveal.delay-1 {
+  animation-delay: 0.05s;
+}
+
+body.fixmi-home-page .hero-reveal.delay-2 {
+  animation-delay: 0.12s;
+}
+
+body.fixmi-home-page .hero-reveal.delay-3 {
+  animation-delay: 0.2s;
+}
+
+body.fixmi-home-page .hero-reveal.delay-4 {
+  animation-delay: 0.28s;
+}
+
+body.fixmi-home-page .hero-reveal.delay-5 {
+  animation-delay: 0.36s;
+}
+
+body.fixmi-home-page .hero-reveal.delay-6 {
+  animation-delay: 0.44s;
+}
+
+body.fixmi-home-page .hero-reveal.delay-7 {
+  animation-delay: 0.52s;
+}
+
+body.fixmi-home-page #heroCarousel .carousel-item.active .hero-photo-img {
+  animation: heroKenBurns 4.5s ease-in-out both;
+}
+
+body.fixmi-home-page .hero-hardware-title {
+  color: var(--home-heading, #2f3b52);
+  font-family: "Space Grotesk", "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+body.fixmi-home-page .hero-service {
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .hero-service-icon {
+  background: #fff2e4;
+  color: var(--home-accent, #f26a21);
+  box-shadow: 0 12px 22px rgba(242, 106, 33, 0.2);
+  animation: heroFloat 4.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+body.fixmi-home-page .hero-services .col-sm-6:nth-child(2) .hero-service-icon {
+  animation-delay: 0.35s;
+}
+
+body.fixmi-home-page .hero-services .col-sm-6:nth-child(3) .hero-service-icon {
+  animation-delay: 0.7s;
+}
+
+body.fixmi-home-page .hero-services .col-sm-6:nth-child(4) .hero-service-icon {
+  animation-delay: 1.05s;
+}
+
+body.fixmi-home-page .hero-service-icon-green,
+body.fixmi-home-page .hero-service-icon-blue,
+body.fixmi-home-page .hero-service-icon-orange,
+body.fixmi-home-page .hero-service-icon-cyan {
+  background: #fff2e4;
+}
+
+body.fixmi-home-page .hero-service-label {
+  color: var(--home-heading, #2f3b52);
+  font-family: "Space Grotesk", "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+body.fixmi-home-page .hero-photo-frame {
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid var(--admin-border, #eef1f6);
+  background-color: #ffffff;
+  box-shadow: 0 20px 36px rgba(15, 23, 42, 0.12);
+}
+
+body.fixmi-home-page .btn-success {
+  background-color: var(--home-accent, #f26a21);
+  border-color: var(--home-accent, #f26a21);
+}
+
+body.fixmi-home-page .btn-success:hover,
+body.fixmi-home-page .btn-success:focus {
+  background-color: #ff7c34;
+  border-color: #ff7c34;
+}
+
+body.fixmi-home-page .btn-outline-dark {
+  color: var(--home-heading, #2f3b52);
+  border-color: var(--admin-border, #eef1f6);
+}
+
+body.fixmi-home-page .btn-outline-dark:hover,
+body.fixmi-home-page .btn-outline-dark:focus {
+  color: var(--home-heading, #2f3b52);
+  background-color: #fffaf5;
+  border-color: var(--home-accent-soft, #ffe2c9);
+}
+
+body.fixmi-home-page .hero-btn {
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  font-family: "Space Grotesk", "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  --hero-mx: 0px;
+  --hero-my: 0px;
+  --hero-lift: 0px;
+  transform: translate(var(--hero-mx), var(--hero-my)) translateY(var(--hero-lift));
+  will-change: transform;
+}
+
+body.fixmi-home-page .hero-btn:hover,
+body.fixmi-home-page .hero-btn:focus-visible {
+  --hero-lift: -1px;
+}
+
+body.fixmi-home-page .hero-btn:active,
+body.fixmi-home-page .hero-btn.active {
+  --hero-lift: 0px;
+}
+
+body.fixmi-home-page .hero-btn.btn-dark {
+  background-color: var(--home-heading, #2f3b52);
+  border-color: var(--home-heading, #2f3b52);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(47, 59, 82, 0.18);
+}
+
+body.fixmi-home-page .hero-btn.btn-dark:hover,
+body.fixmi-home-page .hero-btn.btn-dark:focus-visible {
+  background-color: #1f2937;
+  border-color: #1f2937;
+  color: #ffe2c9;
+}
+
+body.fixmi-home-page .hero-btn.btn-dark:active,
+body.fixmi-home-page .hero-btn.btn-dark.active {
+  background-color: #111827;
+  border-color: #111827;
+  color: #ffffff;
+}
+
+body.fixmi-home-page .hero-btn.btn-success {
+  background-color: var(--home-accent, #f26a21);
+  border-color: var(--home-accent, #f26a21);
+  color: #ffffff;
+  box-shadow: 0 14px 26px rgba(242, 106, 33, 0.24);
+}
+
+body.fixmi-home-page .hero-btn.btn-success:hover,
+body.fixmi-home-page .hero-btn.btn-success:focus-visible {
+  background-color: #ffe2c9;
+  border-color: #ffd2b0;
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .hero-btn.btn-success:active,
+body.fixmi-home-page .hero-btn.btn-success.active {
+  background-color: #d95510;
+  border-color: #d95510;
+  color: #ffffff;
+}
+
+body.fixmi-home-page .hero-btn.btn-outline-dark {
+  background-color: #ffffff;
+  border-color: var(--home-heading, #2f3b52);
+  color: var(--home-heading, #2f3b52);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+}
+
+body.fixmi-home-page .hero-btn.btn-outline-dark:hover,
+body.fixmi-home-page .hero-btn.btn-outline-dark:focus-visible {
+  background-color: var(--home-heading, #2f3b52);
+  border-color: var(--home-heading, #2f3b52);
+  color: #ffe2c9;
+}
+
+body.fixmi-home-page .hero-btn.btn-outline-dark:active,
+body.fixmi-home-page .hero-btn.btn-outline-dark.active {
+  background-color: #1f2937;
+  border-color: #1f2937;
+  color: #ffffff;
+}
+
+body.fixmi-home-page .section-title {
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .text-muted {
+  color: var(--home-muted, #7c889b) !important;
+}
+
+body.fixmi-home-page .hero-benefits i {
+  color: var(--home-accent, #f26a21) !important;
+}
+
+body.fixmi-home-page .scroll-hint {
+  color: var(--home-muted, #7c889b);
+}
+
+body.fixmi-home-page .quick-service-card {
+  border-color: var(--admin-border, #eef1f6);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
+}
+
+body.fixmi-home-page .quick-service-card:hover {
+  border-color: var(--home-accent-soft, #ffe2c9);
+  box-shadow: 0 20px 36px rgba(15, 23, 42, 0.12);
+  transform: translateY(-4px);
+}
+
+body.fixmi-home-page .quick-service-icon {
+  background: #fff2e4;
+  color: var(--home-accent, #f26a21);
+  box-shadow: 0 10px 18px rgba(242, 106, 33, 0.18);
+}
+
+body.fixmi-home-page .quick-service-title {
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .quick-service-subtitle {
+  color: var(--home-muted, #7c889b);
+}
+
+body.fixmi-home-page .process-card,
+body.fixmi-home-page .testimonial-card {
+  border-color: var(--admin-border, #eef1f6);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
+}
+
+body.fixmi-home-page .process-icon {
+  background: #fff2e4;
+  color: var(--home-accent, #f26a21);
+  box-shadow: 0 10px 18px rgba(242, 106, 33, 0.16);
+}
+
+body.fixmi-home-page .process-title {
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .process-desc {
+  color: var(--home-muted, #7c889b);
+}
+
+body.fixmi-home-page .testimonial-avatar {
+  background-color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .testimonial-name {
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .testimonial-meta,
+body.fixmi-home-page .testimonial-text {
+  color: var(--home-muted, #7c889b);
+}
+
+body.fixmi-home-page .fixmi-accordion .accordion-button:not(.collapsed) {
+  background-color: #fff2e4;
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .fixmi-accordion .accordion-body {
+  color: var(--home-muted, #7c889b);
+}
+
+@media (max-width: 991.98px) {
+  body.fixmi-home-page .fixmi-navbar .nav-link::after {
+    display: none;
+  }
+
+  body.fixmi-home-page .fixmi-navbar .nav-link:hover,
+  body.fixmi-home-page .fixmi-navbar .nav-link:focus {
+    transform: none;
+    background-color: rgba(242, 106, 33, 0.08);
+  }
+}
+
+@media (max-width: 767.98px) {
+  body.fixmi-home-page .hero-title-main {
+    font-size: 2.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  body.fixmi-home-page .hero-title-sub {
+    font-size: 1.25rem;
+  }
+
+  body.fixmi-home-page .hero-text {
+    font-size: 0.96rem;
+  }
+
+  body.fixmi-home-page .hero-btn {
+    font-size: 0.83rem;
+  }
+
+  body.fixmi-home-page .hero-cta {
+    display: none !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  body.fixmi-home-page .hero-title-main {
+    font-size: 2.3rem;
+    letter-spacing: 0.1em;
+  }
+
+  body.fixmi-home-page .hero-title-sub {
+    font-size: 1.08rem;
+  }
+}
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroKenBurns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes heroFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.fixmi-home-page .hero-reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  body.fixmi-home-page #heroCarousel .carousel-item.active .hero-photo-img,
+  body.fixmi-home-page .hero-service-icon {
+    animation: none;
+  }
+
+  body.fixmi-home-page .hero-btn {
+    --hero-mx: 0px;
+    --hero-my: 0px;
+    --hero-lift: 0px;
+    transform: none;
+    transition: none;
+  }
+}
+
 .hero-benefits i {
   margin-top: 2px;
 }
