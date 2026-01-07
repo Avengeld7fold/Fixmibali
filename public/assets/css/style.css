@@ -4041,8 +4041,13 @@ body.fixmi-home-page .service-price-title {
     scroll-padding-inline: 1rem;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(15, 23, 42, 0.18) transparent;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .service-card-grid::-webkit-scrollbar {
+    width: 0;
+    height: 0;
   }
 
   .service-card {
@@ -4103,16 +4108,8 @@ body.fixmi-home-page .service-price-title {
   }
 
   .service-card-grid::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  .service-card-grid::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .service-card-grid::-webkit-scrollbar-thumb {
-    background: rgba(15, 23, 42, 0.18);
-    border-radius: 999px;
+    width: 0;
+    height: 0;
   }
 
   .service-card {

@@ -67,25 +67,25 @@
   <div class="offcanvas-body d-flex flex-column">
     <ul class="navbar-nav flex-grow-1 mb-4">
       <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" @if(request()->routeIs('home')) aria-current="page" @endif href="{{ route('home') }}" data-bs-dismiss="offcanvas">{{ __('site.nav.home') }}</a>
+        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" @if(request()->routeIs('home')) aria-current="page" @endif href="{{ route('home') }}">{{ __('site.nav.home') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('pricelist*') ? 'active' : '' }}" @if(request()->routeIs('pricelist*')) aria-current="page" @endif href="{{ route('pricelist') }}" data-bs-dismiss="offcanvas">{{ __('site.nav.pricelist') }}</a>
+        <a class="nav-link {{ request()->routeIs('pricelist*') ? 'active' : '' }}" @if(request()->routeIs('pricelist*')) aria-current="page" @endif href="{{ route('pricelist') }}">{{ __('site.nav.pricelist') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('promo') ? 'active' : '' }}" @if(request()->routeIs('promo')) aria-current="page" @endif href="{{ route('promo') }}" data-bs-dismiss="offcanvas">{{ __('site.nav.promo') }}</a>
+        <a class="nav-link {{ request()->routeIs('promo') ? 'active' : '' }}" @if(request()->routeIs('promo')) aria-current="page" @endif href="{{ route('promo') }}">{{ __('site.nav.promo') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('gallery') ? 'active' : '' }}" @if(request()->routeIs('gallery')) aria-current="page" @endif href="{{ route('gallery') }}" data-bs-dismiss="offcanvas">{{ __('site.nav.gallery') }}</a>
+        <a class="nav-link {{ request()->routeIs('gallery') ? 'active' : '' }}" @if(request()->routeIs('gallery')) aria-current="page" @endif href="{{ route('gallery') }}">{{ __('site.nav.gallery') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="https://app.fixmibali.com" data-bs-dismiss="offcanvas">{{ __('site.nav.tracking') }}</a>
+        <a class="nav-link" href="https://app.fixmibali.com/welcome/status?code=123456">{{ __('site.nav.tracking') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" @if(request()->routeIs('contact')) aria-current="page" @endif href="{{ route('contact') }}" data-bs-dismiss="offcanvas">{{ __('site.nav.contact') }}</a>
+        <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" @if(request()->routeIs('contact')) aria-current="page" @endif href="{{ route('contact') }}">{{ __('site.nav.contact') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" @if(request()->routeIs('about')) aria-current="page" @endif href="{{ route('about') }}" data-bs-dismiss="offcanvas">{{ __('site.nav.about') }}</a>
+        <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" @if(request()->routeIs('about')) aria-current="page" @endif href="{{ route('about') }}">{{ __('site.nav.about') }}</a>
       </li>
     </ul>
 
@@ -94,7 +94,6 @@
       <a
         href="{{ route('contact') }}"
         class="btn fixmi-offcanvas-contact-btn mb-2"
-        data-bs-dismiss="offcanvas"
       >
         {{ __('site.nav.contact') }}
       </a>
