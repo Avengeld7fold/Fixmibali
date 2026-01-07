@@ -7,26 +7,45 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GalleryRepairController;
 use App\Http\Controllers\PricelistController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 Route::view('/', 'home')->name('home');
+Route::get('/set-locale/{locale}', function (string $locale, Request $request) {
+    $locale = Str::lower($locale);
+    if (! in_array($locale, ['id', 'en'], true)) {
+        abort(404);
+    }
+
+    $redirect = (string) $request->query('redirect', '/');
+    $redirectPath = parse_url($redirect, PHP_URL_PATH) ?: '/';
+    if (! Str::startsWith($redirectPath, '/')) {
+        $redirectPath = '/';
+    }
+
+    $cookieName = config('fixmi.locale.cookie', 'fixmi_locale');
+    $cookie = cookie($cookieName, $locale, 60 * 24 * 365, null, null, null, false, false, 'Lax');
+
+    return redirect($redirectPath)->withCookie($cookie);
+})->name('locale.set');
 Route::get('/pricelist', [PricelistController::class, 'show'])->name('pricelist');
 Route::get('/pricelist/ipad', [PricelistController::class, 'showIpad'])->name('pricelist.ipad');
 Route::get('/pricelist/macbook', [PricelistController::class, 'showMacbook'])->name('pricelist.macbook');
 Route::get('/pricelist/iwatch', [PricelistController::class, 'showIwatch'])->name('pricelist.iwatch');
 Route::get('/pricelist/android', [PricelistController::class, 'showAndroid'])->name('pricelist.android');
 Route::view('/promo', 'placeholder', [
-    'title' => 'Promo',
-    'description' => 'Placeholder sementara untuk promo. Konten asli akan diisi setelah migrasi.',
+    'title_key' => 'site.placeholder.promo_title',
+    'description_key' => 'site.placeholder.promo_desc',
 ])->name('promo');
 Route::get('/gallery', [GalleryRepairController::class, 'index'])->name('gallery');
 Route::view('/contact', 'placeholder', [
-    'title' => 'Contact Us',
-    'description' => 'Placeholder sementara untuk halaman kontak. Informasi lengkap akan ditambahkan.',
+    'title_key' => 'site.placeholder.contact_title',
+    'description_key' => 'site.placeholder.contact_desc',
 ])->name('contact');
 Route::view('/about', 'placeholder', [
-    'title' => 'About US',
-    'description' => 'Placeholder sementara untuk informasi tentang Fixmi Bali.',
+    'title_key' => 'site.placeholder.about_title',
+    'description_key' => 'site.placeholder.about_desc',
 ])->name('about');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])

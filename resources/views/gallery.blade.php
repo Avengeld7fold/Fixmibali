@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Gallery Repair - FIXMI Bali</title>
+    <title>{{ __('site.gallery.page_title') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link rel="icon" type="image/png" href="/assets/img/favinco.png"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&amp;display=swap" rel="stylesheet"/>
     <link href="/assets/css/style.css" rel="stylesheet"/>
@@ -20,6 +21,42 @@
         flex-wrap: wrap;
         gap: 14px;
         align-items: flex-start;
+        transition: opacity 0.3s ease;
+        }
+
+        .gallery-justified:not(.is-ready) .gallery-item {
+            width: 210px;
+            height: 160px;
+        }
+
+        .gallery-justified:not(.is-ready) .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 575.98px) {
+            .gallery-justified {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .gallery-item {
+                width: auto !important;
+                height: auto !important;
+            }
+
+            .gallery-card {
+                border-radius: 14px;
+                aspect-ratio: 4 / 5;
+            }
+
+            .gallery-button,
+            .gallery-image {
+                width: 100%;
+                height: 100%;
+            }
         }
 
         .gallery-item {
@@ -31,7 +68,7 @@
             overflow: hidden;
             background: #fff;
             box-shadow: 0 0.75rem 1.5rem rgba(15, 23, 42, 0.08);
-            border: 1px solid rgba(15, 23, 42, 0.08);
+            border: 1px solid var(--admin-border, rgba(15, 23, 42, 0.08));
             transition: transform 0.18s ease, box-shadow 0.18s ease;
             height: 100%;
         }
@@ -54,22 +91,94 @@
             display: block;
             width: 100%;
             height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .gallery-modal-image {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            object-position: center;
+            background-color: transparent;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #galleryModal .modal-content {
+            position: relative;
+        }
+
+        #galleryModal .modal-body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 2;
+            width: 38px;
+            height: 38px;
+            border: 0;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.85);
+            color: #111111;
+            font-size: 1.6rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .gallery-modal-close:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 575.98px) {
+            #galleryModal .modal-dialog {
+                margin: 1rem;
+                max-width: calc(100% - 2rem);
+            }
+
+            #galleryModal .modal-body {
+                padding: 0;
+            }
+
+            .gallery-modal-image {
+                max-height: 80vh;
+                border-radius: 1rem;
+            }
+
+            .modal-backdrop {
+                background-color: transparent;
+            }
+
+            .modal-backdrop.show {
+                opacity: 0;
+            }
         }
     </style>
 </head>
-<body>
+<body class="fixmi-home-page fixmi-gallery-page fixmi-whatsapp-mobile">
 @include('partials.nav')
 
-<section class="py-5">
+<section class="py-5 gallery-section">
     <div class="container">
         <div class="text-center mb-4">
-            <h2 class="section-title">Gallery Repair</h2>
-            <p class="text-muted mb-0">Galeri hasil perbaikan yang diupload dari dashboard administrator.</p>
+            <h2 class="section-title">{{ __('site.gallery.title') }}</h2>
+            <p class="text-muted mb-0">{{ __('site.gallery.subtitle') }}</p>
         </div>
 
         @if (count($images) === 0)
             <div class="text-center py-5">
-                <p class="mb-0">Belum ada gambar yang ditampilkan.</p>
+                <p class="mb-0">{{ __('site.gallery.empty') }}</p>
             </div>
         @else
                 <div id="galleryJustified" class="gallery-justified">
@@ -100,17 +209,23 @@
     </div>
 </section>
 
+@include('partials.footer')
+
 <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content bg-transparent border-0">
+            <button type="button" class="gallery-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             <div class="modal-body p-0">
-                <img id="galleryModalImage" src="" alt="" class="img-fluid w-100 rounded-4 shadow-lg" style="max-height: 85vh; object-fit: contain;">
+                <img id="galleryModalImage" src="" alt="" class="img-fluid rounded-4 shadow-lg gallery-modal-image">
             </div>
         </div>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/app.js"></script>
 <script>
     (function () {
         const modal = document.getElementById('galleryModal');
@@ -159,6 +274,8 @@
             return 230;
         };
 
+        const isMobileGrid = () => (window.innerWidth || 0) < 576;
+
         const layout = () => {
             const gap = 14;
             const items = Array.from(container.querySelectorAll('.gallery-item'));
@@ -166,6 +283,15 @@
 
             const containerWidth = container.clientWidth;
             if (!containerWidth) return;
+
+            if (isMobileGrid()) {
+                items.forEach((item) => {
+                    item.style.width = '';
+                    item.style.height = '';
+                });
+                container.classList.add('is-ready');
+                return;
+            }
 
             const rowTarget = targetRowHeight();
             const minRow = 160;
@@ -219,6 +345,8 @@
                     flushRow(isLast);
                 }
             }
+
+            container.classList.add('is-ready');
         };
 
         const ensureLoaded = async () => {

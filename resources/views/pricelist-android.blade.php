@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Pricelist Android - FIXMI Bali</title>
+<title>{{ __('site.pricelist.page_title_android') }}</title>
 <link rel="icon" type="image/png" href="/assets/img/favinco.png"/>
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -13,24 +13,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
 <!-- Black Ops One font -->
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&amp;display=swap" rel="stylesheet"/>
 <!-- Custom CSS -->
 <link href="/assets/css/style.css" rel="stylesheet"/>
 </head>
-<body class="fixmi-pricelist-page">
+<body class="fixmi-home-page fixmi-pricelist-page fixmi-whatsapp-mobile">
 @include('partials.nav')
 
 <section class="service-listing-section">
 <div class="container">
 <div class="service-listing-header text-center">
-<h2 class="service-listing-title">Layanan Service</h2>
+<h2 class="service-listing-title">{{ __('site.pricelist.section_title') }}</h2>
 <p class="service-listing-subtitle">
-Beberapa layanan yang kami sediakan berdasarkan perangkat,
-dan diskon 10% off khusus member di Fixmi Bali.
+{{ __('site.pricelist.section_subtitle') }}
 </p>
-<button class="service-listing-pill" type="button">Klik untuk detailnya.</button>
+<button class="service-listing-pill" type="button">{{ __('site.pricelist.section_pill') }}</button>
 </div>
 
 @include('partials.pricelist-cards', ['activeService' => 'android'])
@@ -58,7 +58,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-xiaomi-mi-lcd" aria-expanded="false" aria-controls="android-xiaomi-mi-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-xiaomi-mi-lcd">
@@ -70,7 +70,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-xiaomi-mi-battery" aria-expanded="false" aria-controls="android-xiaomi-mi-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-xiaomi-mi-battery">
@@ -93,7 +93,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-xiaomi-redmi-lcd" aria-expanded="false" aria-controls="android-xiaomi-redmi-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-xiaomi-redmi-lcd">
@@ -105,7 +105,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-xiaomi-redmi-battery" aria-expanded="false" aria-controls="android-xiaomi-redmi-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-xiaomi-redmi-battery">
@@ -128,7 +128,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-xiaomi-poco-lcd" aria-expanded="false" aria-controls="android-xiaomi-poco-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-xiaomi-poco-lcd">
@@ -140,7 +140,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-xiaomi-poco-battery" aria-expanded="false" aria-controls="android-xiaomi-poco-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-xiaomi-poco-battery">
@@ -179,7 +179,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-samsung-galaxy-a-lcd" aria-expanded="false" aria-controls="android-samsung-galaxy-a-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-samsung-galaxy-a-lcd">
@@ -191,7 +191,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-samsung-galaxy-a-battery" aria-expanded="false" aria-controls="android-samsung-galaxy-a-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-samsung-galaxy-a-battery">
@@ -214,7 +214,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-samsung-galaxy-m-lcd" aria-expanded="false" aria-controls="android-samsung-galaxy-m-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-samsung-galaxy-m-lcd">
@@ -226,7 +226,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-samsung-galaxy-m-battery" aria-expanded="false" aria-controls="android-samsung-galaxy-m-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-samsung-galaxy-m-battery">
@@ -249,7 +249,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-samsung-galaxy-note-lcd" aria-expanded="false" aria-controls="android-samsung-galaxy-note-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-samsung-galaxy-note-lcd">
@@ -261,7 +261,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-samsung-galaxy-note-battery" aria-expanded="false" aria-controls="android-samsung-galaxy-note-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-samsung-galaxy-note-battery">
@@ -284,7 +284,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-samsung-galaxy-s-lcd" aria-expanded="false" aria-controls="android-samsung-galaxy-s-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-samsung-galaxy-s-lcd">
@@ -296,7 +296,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-samsung-galaxy-s-battery" aria-expanded="false" aria-controls="android-samsung-galaxy-s-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-samsung-galaxy-s-battery">
@@ -319,7 +319,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-samsung-galaxy-tab-lcd" aria-expanded="false" aria-controls="android-samsung-galaxy-tab-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-samsung-galaxy-tab-lcd">
@@ -331,7 +331,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-samsung-galaxy-tab-battery" aria-expanded="false" aria-controls="android-samsung-galaxy-tab-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-samsung-galaxy-tab-battery">
@@ -354,7 +354,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-samsung-galaxy-z-lcd" aria-expanded="false" aria-controls="android-samsung-galaxy-z-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-samsung-galaxy-z-lcd">
@@ -366,7 +366,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-samsung-galaxy-z-battery" aria-expanded="false" aria-controls="android-samsung-galaxy-z-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-samsung-galaxy-z-battery">
@@ -397,7 +397,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-realme-lcd" aria-expanded="false" aria-controls="android-realme-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-realme-lcd">
@@ -409,7 +409,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-realme-battery" aria-expanded="false" aria-controls="android-realme-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-realme-battery">
@@ -437,7 +437,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-infinix-lcd" aria-expanded="false" aria-controls="android-infinix-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-infinix-lcd">
@@ -449,7 +449,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-infinix-battery" aria-expanded="false" aria-controls="android-infinix-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-infinix-battery">
@@ -477,7 +477,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-oppo-lcd" aria-expanded="false" aria-controls="android-oppo-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-oppo-lcd">
@@ -489,7 +489,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-oppo-battery" aria-expanded="false" aria-controls="android-oppo-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-oppo-battery">
@@ -517,7 +517,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-vivo-lcd" aria-expanded="false" aria-controls="android-vivo-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-vivo-lcd">
@@ -529,7 +529,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-vivo-battery" aria-expanded="false" aria-controls="android-vivo-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-vivo-battery">
@@ -557,7 +557,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-asus-lcd" aria-expanded="false" aria-controls="android-asus-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-asus-lcd">
@@ -569,7 +569,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-asus-battery" aria-expanded="false" aria-controls="android-asus-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-asus-battery">
@@ -597,7 +597,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-google-pixel-lcd" aria-expanded="false" aria-controls="android-google-pixel-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-google-pixel-lcd">
@@ -609,7 +609,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-google-pixel-battery" aria-expanded="false" aria-controls="android-google-pixel-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-google-pixel-battery">
@@ -637,7 +637,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-lcd" aria-expanded="false" aria-controls="android-huawei-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian LCD</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-huawei-lcd">
@@ -649,7 +649,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <div class="service-sublist-block">
 <button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-battery" aria-expanded="false" aria-controls="android-huawei-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
-<span class="service-sublist-entry-text">Harga Pergantian Battery</span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
 <div class="collapse service-sublist-panel" id="android-huawei-battery">
@@ -665,6 +665,8 @@ dan diskon 10% off khusus member di Fixmi Bali.
 </div>
 </div>
 </section>
+
+@include('partials.footer')
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

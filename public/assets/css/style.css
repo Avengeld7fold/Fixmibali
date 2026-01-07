@@ -5,6 +5,23 @@ body {
   background-color: #f5f5f5;
 }
 
+body.fixmi-home-page {
+  --admin-bg: #f7f9fb;
+  --admin-glow: rgba(242, 106, 33, 0.12);
+  --admin-sidebar-bg: #f7f9fb;
+  --admin-border: #eef1f6;
+  --admin-text: #2f3b52;
+  --admin-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  --home-accent: #f26a21;
+  --home-accent-soft: #ffe2c9;
+  --home-heading: #2e3440;
+  --home-muted: #7c889b;
+  background: var(--admin-bg);
+  color: var(--admin-text);
+  min-height: 100vh;
+  font-family: "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
 /* Navbar styling */
 .fixmi-navbar {
   background-color: #f6f6f8;
@@ -40,6 +57,140 @@ body {
   height: 3px;
   background-color: #e69b3a;
   border-radius: 999px;
+}
+
+/* Language modal */
+body.lang-modal-open {
+  overflow: hidden;
+}
+
+.fixmi-lang-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1095;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(15, 23, 42, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.fixmi-lang-modal.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fixmi-lang-card {
+  width: min(440px, 92vw);
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid var(--admin-border, #eef1f6);
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.18);
+  padding: 2rem 1.85rem;
+  text-align: center;
+}
+
+.fixmi-lang-title {
+  font-family: "Space Grotesk", "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.65rem;
+  color: var(--home-heading, #2f3b52);
+  margin-bottom: 0.35rem;
+}
+
+.fixmi-lang-subtitle {
+  color: var(--home-muted, #7c889b);
+  font-size: 0.98rem;
+  margin-bottom: 1.5rem;
+}
+
+.fixmi-lang-options {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.fixmi-lang-option {
+  border: 1px solid var(--admin-border, #eef1f6);
+  border-radius: 16px;
+  padding: 0.85rem 1rem;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-family: "Space Grotesk", "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--home-heading, #2f3b52);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.fixmi-lang-option:hover,
+.fixmi-lang-option:focus-visible {
+  border-color: var(--home-accent, #f26a21);
+  background: #fff4ea;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(242, 106, 33, 0.16);
+}
+
+.fixmi-lang-flag {
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.fixmi-lang-flag img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.fixmi-lang-label {
+  flex: 1;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.fixmi-lang-check {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  color: #94a3b8;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.fixmi-lang-option.is-selected .fixmi-lang-check {
+  opacity: 1;
+  transform: scale(1);
+  background: var(--home-accent, #f26a21);
+  color: #ffffff;
+}
+
+.fixmi-lang-option.is-selected {
+  border-color: var(--home-accent, #f26a21);
+  background: #fff4ea;
+}
+
+@media (max-width: 575.98px) {
+  .fixmi-lang-card {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .fixmi-lang-title {
+    font-size: 1.45rem;
+  }
 }
 
 /* Hero section */
@@ -1574,11 +1725,19 @@ body.fixmi-home-page .contact-section .map-card-mobile {
   }
 }
 
+body.fixmi-home-page .before-after-section,
+body.fixmi-home-page .service-banner-section,
+body.fixmi-home-page .advantages-section,
 body.fixmi-home-page .quick-services-section,
 body.fixmi-home-page .process-section,
 body.fixmi-home-page .testimonials-section,
 body.fixmi-home-page .faq-section {
-  background-color: var(--admin-sidebar-bg);
+  background-color: var(--admin-sidebar-bg, #f7f9fb);
+}
+
+body.fixmi-home-page .contact-section {
+  background-color: #ffffff;
+  border-top-color: var(--admin-border, #eef1f6);
 }
 
 body.fixmi-home-page .fixmi-navbar {
@@ -1719,6 +1878,14 @@ body.fixmi-home-page .hero-title-sub {
 
 body.fixmi-home-page .hero-section {
   font-family: "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--admin-sidebar-bg, #f7f9fb);
+  background-image: none;
+  color: var(--admin-text, #2f3b52);
+}
+
+body.fixmi-home-page .hero-section::before {
+  background-image: none;
+  opacity: 0;
 }
 
 body.fixmi-home-page .hero-left {
@@ -1940,6 +2107,8 @@ body.fixmi-home-page .hero-btn.btn-outline-dark.active {
 }
 
 body.fixmi-home-page .section-title {
+  font-family: "Space Grotesk", "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: -0.02em;
   color: var(--home-heading, #2f3b52);
 }
 
@@ -3291,11 +3460,11 @@ body.fixmi-home-page .fixmi-sticky-cta .btn-success.active {
 }
 
 @media (max-width: 991.98px) {
-  body.fixmi-home-page {
+  body.fixmi-home-page.has-sticky-cta {
     padding-bottom: 78px;
   }
 
-  body.fixmi-home-page .contact-section::after {
+  body.fixmi-home-page.has-sticky-cta .contact-section::after {
     content: "";
     position: absolute;
     left: 0;
@@ -3310,7 +3479,7 @@ body.fixmi-home-page .fixmi-sticky-cta .btn-success.active {
    SERVICE LISTING (PRICELIST PAGE)
    =======================================================*/
 .fixmi-pricelist-page {
-  background-color: #f7f9fb;
+  background-color: var(--admin-bg, #f7f9fb);
 }
 
 .service-listing-section {
@@ -3320,6 +3489,13 @@ body.fixmi-home-page .fixmi-sticky-cta .btn-success.active {
 .service-listing-header {
   max-width: 640px;
   margin: 0 auto 2.5rem;
+}
+
+body.fixmi-home-page .service-listing-title,
+body.fixmi-home-page .service-card-title,
+body.fixmi-home-page .service-price-title {
+  font-family: "Space Grotesk", "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--home-heading, #2f3b52);
 }
 
 .service-listing-title {
@@ -3777,7 +3953,7 @@ body.fixmi-home-page .fixmi-sticky-cta .btn-success.active {
   .service-price-trigger {
     padding: 0.8rem 1rem;
     gap: 0.75rem;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
 
   .service-price-icon {
@@ -3792,12 +3968,12 @@ body.fixmi-home-page .fixmi-sticky-cta .btn-success.active {
   }
 
   .service-price-toggle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .service-price-content {
     padding: 0.75rem 1rem 0.9rem;
-    font-size: 0.9rem;
+    font-size: 0.82rem;
   }
 
   .service-sublist {
@@ -3807,6 +3983,7 @@ body.fixmi-home-page .fixmi-sticky-cta .btn-success.active {
   .service-sublist-item {
     padding: 0.7rem 0.9rem;
     border-radius: 12px;
+    font-size: 0.84rem;
   }
 
   .service-sublist-panel-inner {
@@ -3821,6 +3998,7 @@ body.fixmi-home-page .fixmi-sticky-cta .btn-success.active {
   .service-sublist-entry {
     padding: 0.65rem 0.85rem;
     border-radius: 10px;
+    font-size: 0.82rem;
   }
 
   .service-sublist-panel {
@@ -3829,12 +4007,20 @@ body.fixmi-home-page .fixmi-sticky-cta .btn-success.active {
 
   .service-price-table {
     min-width: 640px;
-    font-size: 0.85rem;
+    font-size: 0.78rem;
   }
 
   .service-price-table th,
   .service-price-table td {
     padding: 0.65rem 0.7rem;
+  }
+
+  .service-price-th-title {
+    font-size: 0.68rem;
+  }
+
+  .service-price-th-sub {
+    font-size: 0.62rem;
   }
 }
 
@@ -4046,6 +4232,12 @@ body.fixmi-home-page .fixmi-sticky-cta .btn-success.active {
     display: none;
   }
 
+  body.fixmi-whatsapp-mobile .whatsapp-float {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   body.fixmi-home-page .contact-section .footer-block {
     margin-bottom: 0.9rem;
   }
@@ -4171,4 +4363,481 @@ body.fixmi-home-page .fixmi-sticky-cta .btn-success.active {
   .hero-service-label {
     white-space: normal;
   }
+}
+
+/* Theme toggle + dark mode */
+.theme-toggle {
+  position: fixed;
+  right: 1.25rem;
+  bottom: calc(1.25rem + 72px);
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+  color: #1f2937;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.18);
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  z-index: 1201;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(15, 23, 42, 0.24);
+}
+
+.theme-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(242, 106, 33, 0.3),
+    0 12px 24px rgba(15, 23, 42, 0.2);
+}
+
+.theme-toggle-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+  display: inline-flex;
+}
+
+.theme-toggle-moon {
+  display: none;
+}
+
+body.modal-open .theme-toggle {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 575.98px) {
+  .theme-toggle {
+    right: 1rem;
+    bottom: calc(1rem + 64px);
+    width: 46px;
+    height: 46px;
+  }
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-theme="dark"] body {
+  background-color: #0f1115;
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] body.fixmi-home-page {
+  --admin-bg: #0f1115;
+  --admin-glow: rgba(15, 17, 21, 0.6);
+  --admin-sidebar-bg: #121826;
+  --admin-border: #253041;
+  --admin-text: #e6edf3;
+  --admin-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  --home-accent: #f26a21;
+  --home-accent-soft: rgba(242, 106, 33, 0.18);
+  --home-heading: #f8fafc;
+  --home-muted: #a3b0c2;
+  background: #0f1115;
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .text-muted {
+  color: #a3b0c2 !important;
+}
+
+html[data-theme="dark"] .text-dark,
+html[data-theme="dark"] .text-black,
+html[data-theme="dark"] .text-body {
+  color: #e6edf3 !important;
+}
+
+html[data-theme="dark"] .text-secondary {
+  color: #a3b0c2 !important;
+}
+
+html[data-theme="dark"] .bg-white,
+html[data-theme="dark"] .bg-light {
+  background-color: #141a23 !important;
+}
+
+html[data-theme="dark"] .border,
+html[data-theme="dark"] .border-light,
+html[data-theme="dark"] .border-white {
+  border-color: #253041 !important;
+}
+
+html[data-theme="dark"] .card {
+  background-color: #141a23;
+  border-color: #253041;
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  background: rgba(20, 26, 35, 0.95);
+  border-color: #2a3442;
+  color: #f8fafc;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] .theme-toggle-sun {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-toggle-moon {
+  display: inline-flex;
+}
+
+html[data-theme="dark"] .fixmi-navbar {
+  background-color: #121826;
+  border-bottom-color: #253041;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .fixmi-navbar .nav-link {
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .fixmi-navbar .nav-link.active,
+html[data-theme="dark"] .fixmi-navbar .nav-link:hover,
+html[data-theme="dark"] .fixmi-navbar .nav-link:focus {
+  color: #ffb870;
+}
+
+html[data-theme="dark"] .fixmi-navbar .navbar-toggler {
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .fixmi-offcanvas-nav {
+  background-color: #0f1115;
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .fixmi-offcanvas-nav .nav-link {
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .fixmi-offcanvas-nav .nav-link:hover,
+html[data-theme="dark"] body.fixmi-home-page .fixmi-offcanvas-nav .nav-link:focus {
+  color: #ffb870;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .fixmi-sticky-cta {
+  background: rgba(18, 24, 38, 0.92);
+  border-top-color: #253041;
+  box-shadow: 0 -12px 28px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .btn-dark {
+  background-color: #f8fafc;
+  border-color: #f8fafc;
+  color: #0f1115;
+}
+
+html[data-theme="dark"] .btn-dark:hover,
+html[data-theme="dark"] .btn-dark:focus {
+  background-color: #ffe2c9;
+  border-color: #ffe2c9;
+  color: #1f2937;
+}
+
+html[data-theme="dark"] .btn-outline-dark {
+  background-color: transparent;
+  border-color: #f8fafc;
+  color: #f8fafc;
+}
+
+html[data-theme="dark"] .btn-outline-dark:hover,
+html[data-theme="dark"] .btn-outline-dark:focus {
+  background-color: #f8fafc;
+  border-color: #f8fafc;
+  color: #0f1115;
+}
+
+html[data-theme="dark"] .btn-outline-secondary {
+  border-color: #2a3442;
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .btn-outline-secondary:hover,
+html[data-theme="dark"] .btn-outline-secondary:focus {
+  background-color: #1b2430;
+  border-color: #2a3442;
+  color: #f8fafc;
+}
+
+html[data-theme="dark"] .btn-light {
+  background-color: #1b2430;
+  border-color: #2a3442;
+  color: #f8fafc;
+}
+
+html[data-theme="dark"] .btn-light:hover,
+html[data-theme="dark"] .btn-light:focus {
+  background-color: #253041;
+  border-color: #2f3b52;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .btn-outline-light {
+  border-color: #2a3442;
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .btn-outline-light:hover,
+html[data-theme="dark"] .btn-outline-light:focus {
+  background-color: #1b2430;
+  border-color: #2a3442;
+  color: #f8fafc;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .hero-btn.btn-dark {
+  background-color: #f8fafc;
+  border-color: #f8fafc;
+  color: #0f1115;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .hero-btn.btn-dark:hover,
+html[data-theme="dark"] body.fixmi-home-page .hero-btn.btn-dark:focus-visible {
+  background-color: #ffe2c9;
+  border-color: #ffe2c9;
+  color: #1f2937;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .hero-btn.btn-dark:active,
+html[data-theme="dark"] body.fixmi-home-page .hero-btn.btn-dark.active {
+  background-color: #e2e8f0;
+  border-color: #e2e8f0;
+  color: #0f1115;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .hero-btn.btn-outline-dark {
+  background-color: transparent;
+  border-color: #f8fafc;
+  color: #f8fafc;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .hero-btn.btn-outline-dark:hover,
+html[data-theme="dark"] body.fixmi-home-page .hero-btn.btn-outline-dark:focus-visible {
+  background-color: #f8fafc;
+  border-color: #f8fafc;
+  color: #0f1115;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .hero-btn.btn-outline-dark:active,
+html[data-theme="dark"] body.fixmi-home-page .hero-btn.btn-outline-dark.active {
+  background-color: #e2e8f0;
+  border-color: #e2e8f0;
+  color: #0f1115;
+}
+
+html[data-theme="dark"] .hero-trust-pill {
+  color: #e6edf3;
+  border-color: #253041;
+  background-color: #141a23;
+}
+
+html[data-theme="dark"] .process-icon {
+  background: #1c2430;
+  color: #ffb870;
+}
+
+html[data-theme="dark"] .footer-copy {
+  color: #a3b0c2;
+}
+
+html[data-theme="dark"] .fixmi-lang-card {
+  background: #141a23;
+  border-color: #253041;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .fixmi-lang-option {
+  background: #141a23;
+  border-color: #253041;
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .fixmi-lang-option:hover,
+html[data-theme="dark"] .fixmi-lang-option:focus-visible {
+  background: #1b2430;
+  border-color: #ffb870;
+}
+
+html[data-theme="dark"] .fixmi-lang-option.is-selected {
+  background: #1b2430;
+  border-color: #ffb870;
+}
+
+html[data-theme="dark"] .fixmi-lang-check {
+  background: #1b2430;
+  color: #8aa1bf;
+}
+
+html[data-theme="dark"] .fixmi-lang-flag {
+  background: #1b2430;
+  border-color: #253041;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section {
+  background-color: #0f1115;
+  border-top-color: #253041;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn {
+  background-color: #141a23;
+  border-color: #2a3442;
+  color: #ffb870;
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn:hover,
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn:focus-visible {
+  background-color: #1c2633;
+  border-color: #ffb870;
+  color: #f8fafc;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .footer-social-link {
+  background-color: #141a23;
+  border-color: #253041;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .map-card {
+  background-color: #121826 !important;
+  border-color: #253041;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .map-card iframe {
+  border-color: #253041 !important;
+}
+
+html[data-theme="dark"] .gallery-card,
+html[data-theme="dark"] .service-card,
+html[data-theme="dark"] .service-price-item,
+html[data-theme="dark"] .service-sublist-item,
+html[data-theme="dark"] .service-sublist-entry,
+html[data-theme="dark"] .service-price-table-wrap,
+html[data-theme="dark"] body.fixmi-home-page .testimonial-card,
+html[data-theme="dark"] body.fixmi-home-page .process-card,
+html[data-theme="dark"] body.fixmi-home-page .quick-service-card,
+html[data-theme="dark"] .fixmi-accordion .accordion-item {
+  background-color: #141a23;
+  border-color: #253041;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .quick-service-card {
+  background: linear-gradient(180deg, #141a23 0%, #10161f 100%);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .quick-service-card::after {
+  background: radial-gradient(
+    120% 120% at 12% 0%,
+    rgba(255, 255, 255, 0.08),
+    transparent 62%
+  );
+}
+
+html[data-theme="dark"] body.fixmi-home-page .quick-service-icon {
+  background: #1c2430;
+  border-color: #2a3442;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .testimonial-source {
+  background: #1b2430;
+  border-color: #253041;
+}
+
+html[data-theme="dark"] .service-listing-title,
+html[data-theme="dark"] .service-card-title {
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .service-listing-subtitle {
+  color: #a3b0c2;
+}
+
+html[data-theme="dark"] .service-listing-pill {
+  background-color: #141a23;
+  color: #e6edf3;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] .service-price-trigger {
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .service-price-trigger:hover {
+  background: #1b2430;
+  color: #f8fafc;
+}
+
+html[data-theme="dark"] .service-price-icon {
+  background-color: #1b2532;
+  color: #ffb870;
+}
+
+html[data-theme="dark"] .service-price-icon.is-brand {
+  background-color: #141a23;
+  border-color: #253041;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme="dark"] .service-price-body {
+  border-top-color: #2b3646;
+}
+
+html[data-theme="dark"] .service-price-content {
+  color: #b7c2d0;
+}
+
+html[data-theme="dark"] .service-sublist-item,
+html[data-theme="dark"] .service-sublist-entry {
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .service-sublist-item:hover,
+html[data-theme="dark"] .service-sublist-entry:hover {
+  background: #1b2430;
+  border-color: #ffb870;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] .service-sublist-icon,
+html[data-theme="dark"] .service-sublist-entry-icon {
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .service-price-table {
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .service-price-table th,
+html[data-theme="dark"] .service-price-table td {
+  border-color: #2b3646;
+}
+
+html[data-theme="dark"] .service-price-table th {
+  background: #1b2430;
+}
+
+html[data-theme="dark"] .service-price-empty {
+  color: #a3b0c2;
+}
+
+html[data-theme="dark"] .fixmi-accordion .accordion-button:not(.collapsed) {
+  background-color: rgba(242, 106, 33, 0.18);
+  color: #f8fafc;
+}
+
+html[data-theme="dark"] .fixmi-accordion .accordion-body {
+  color: #b7c2d0;
 }

@@ -2,39 +2,39 @@
 $activeService = $activeService ?? 'iphone';
 $services = [
     'iphone' => [
-        'title' => 'Service iPhone',
+        'title' => __('site.pricelist.cards.iphone'),
         'image' => '/assets/img/iphone.webp',
         'route' => 'pricelist',
         'iconClass' => 'is-iphone',
-        'alt' => 'Service iPhone',
+        'alt' => __('site.pricelist.cards.iphone_alt'),
     ],
     'ipad' => [
-        'title' => 'Service iPad',
+        'title' => __('site.pricelist.cards.ipad'),
         'image' => '/assets/img/ipad.webp',
         'route' => 'pricelist.ipad',
         'iconClass' => 'is-ipad',
-        'alt' => 'Service iPad',
+        'alt' => __('site.pricelist.cards.ipad_alt'),
     ],
     'macbook' => [
-        'title' => 'Service Macbook',
+        'title' => __('site.pricelist.cards.macbook'),
         'image' => '/assets/img/macbook.webp',
         'route' => 'pricelist.macbook',
         'iconClass' => 'is-macbook',
-        'alt' => 'Service Macbook',
+        'alt' => __('site.pricelist.cards.macbook_alt'),
     ],
     'iwatch' => [
-        'title' => 'Service iWatch',
+        'title' => __('site.pricelist.cards.iwatch'),
         'image' => '/assets/img/iwatch.webp',
         'route' => 'pricelist.iwatch',
         'iconClass' => 'is-iwatch',
-        'alt' => 'Service iWatch',
+        'alt' => __('site.pricelist.cards.iwatch_alt'),
     ],
     'android' => [
-        'title' => 'Service Android',
+        'title' => __('site.pricelist.cards.android'),
         'image' => '/assets/img/android.webp',
         'route' => 'pricelist.android',
         'iconClass' => 'is-android',
-        'alt' => 'Service Android',
+        'alt' => __('site.pricelist.cards.android_alt'),
     ],
 ];
 @endphp

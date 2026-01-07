@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Pricelist Macbook - FIXMI Bali</title>
+<title>{{ __('site.pricelist.page_title_macbook') }}</title>
 <link rel="icon" type="image/png" href="/assets/img/favinco.png"/>
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -13,24 +13,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
 <!-- Black Ops One font -->
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&amp;display=swap" rel="stylesheet"/>
 <!-- Custom CSS -->
 <link href="/assets/css/style.css" rel="stylesheet"/>
 </head>
-<body class="fixmi-pricelist-page">
+<body class="fixmi-home-page fixmi-pricelist-page fixmi-whatsapp-mobile">
 @include('partials.nav')
 
 <section class="service-listing-section">
 <div class="container">
 <div class="service-listing-header text-center">
-<h2 class="service-listing-title">Layanan Service</h2>
+<h2 class="service-listing-title">{{ __('site.pricelist.section_title') }}</h2>
 <p class="service-listing-subtitle">
-Beberapa layanan yang kami sediakan berdasarkan perangkat,
-dan diskon 10% off khusus member di Fixmi Bali.
+{{ __('site.pricelist.section_subtitle') }}
 </p>
-<button class="service-listing-pill" type="button">Klik untuk detailnya.</button>
+<button class="service-listing-pill" type="button">{{ __('site.pricelist.section_pill') }}</button>
 </div>
 
 @include('partials.pricelist-cards', ['activeService' => 'macbook'])
@@ -41,7 +41,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <span class="service-price-icon">
 <i class="bi bi-laptop"></i>
 </span>
-<span class="service-price-title">Price LCD Macbook</span>
+<span class="service-price-title">{{ __('site.pricelist.macbook.lcd') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
 <div class="collapse service-price-body" id="priceLcdMacbook">
@@ -56,7 +56,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <span class="service-price-icon">
 <i class="bi bi-battery-full"></i>
 </span>
-<span class="service-price-title">Price Battery Macbook</span>
+<span class="service-price-title">{{ __('site.pricelist.macbook.battery') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
 <div class="collapse service-price-body" id="priceBatteryMacbook">
@@ -71,7 +71,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <span class="service-price-icon">
 <i class="bi bi-keyboard"></i>
 </span>
-<span class="service-price-title">Price Keyboard Macbook</span>
+<span class="service-price-title">{{ __('site.pricelist.macbook.keyboard') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
 <div class="collapse service-price-body" id="priceKeyboardMacbook">
@@ -86,7 +86,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <span class="service-price-icon">
 <i class="bi bi-volume-up"></i>
 </span>
-<span class="service-price-title">Price Speaker Macbook</span>
+<span class="service-price-title">{{ __('site.pricelist.macbook.speaker') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
 <div class="collapse service-price-body" id="priceSpeakerMacbook">
@@ -101,7 +101,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <span class="service-price-icon">
 <i class="bi bi-mouse"></i>
 </span>
-<span class="service-price-title">Price Touch Pad Macbook</span>
+<span class="service-price-title">{{ __('site.pricelist.macbook.touchpad') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
 <div class="collapse service-price-body" id="priceTouchpadMacbook">
@@ -116,7 +116,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <span class="service-price-icon">
 <i class="bi bi-hdd"></i>
 </span>
-<span class="service-price-title">Price SSD / Penyimpanan Storage Macbook</span>
+<span class="service-price-title">{{ __('site.pricelist.macbook.storage') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
 <div class="collapse service-price-body" id="priceStorageMacbook">
@@ -128,6 +128,8 @@ dan diskon 10% off khusus member di Fixmi Bali.
 </div>
 </div>
 </section>
+
+@include('partials.footer')
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

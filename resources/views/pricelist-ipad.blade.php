@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Pricelist iPad - FIXMI Bali</title>
+<title>{{ __('site.pricelist.page_title_ipad') }}</title>
 <link rel="icon" type="image/png" href="/assets/img/favinco.png"/>
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -13,24 +13,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
 <!-- Black Ops One font -->
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&amp;display=swap" rel="stylesheet"/>
 <!-- Custom CSS -->
 <link href="/assets/css/style.css" rel="stylesheet"/>
 </head>
-<body class="fixmi-pricelist-page">
+<body class="fixmi-home-page fixmi-pricelist-page fixmi-whatsapp-mobile">
 @include('partials.nav')
 
 <section class="service-listing-section">
 <div class="container">
 <div class="service-listing-header text-center">
-<h2 class="service-listing-title">Layanan Service</h2>
+<h2 class="service-listing-title">{{ __('site.pricelist.section_title') }}</h2>
 <p class="service-listing-subtitle">
-Beberapa layanan yang kami sediakan berdasarkan perangkat,
-dan diskon 10% off khusus member di Fixmi Bali.
+{{ __('site.pricelist.section_subtitle') }}
 </p>
-<button class="service-listing-pill" type="button">Klik untuk detailnya.</button>
+<button class="service-listing-pill" type="button">{{ __('site.pricelist.section_pill') }}</button>
 </div>
 
 @include('partials.pricelist-cards', ['activeService' => 'ipad'])
@@ -41,7 +41,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <span class="service-price-icon">
 <i class="bi bi-tablet"></i>
 </span>
-<span class="service-price-title">Price LCD Replacement iPad</span>
+<span class="service-price-title">{{ __('site.pricelist.ipad.lcd') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
 <div class="collapse service-price-body" id="priceLcdReplacementIpad">
@@ -56,7 +56,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <span class="service-price-icon">
 <i class="bi bi-hand-index-thumb"></i>
 </span>
-<span class="service-price-title">Price Touchscreen iPad</span>
+<span class="service-price-title">{{ __('site.pricelist.ipad.touchscreen') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
 <div class="collapse service-price-body" id="priceTouchscreenIpad">
@@ -71,7 +71,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <span class="service-price-icon">
 <i class="bi bi-battery-full"></i>
 </span>
-<span class="service-price-title">Price Battery iPad</span>
+<span class="service-price-title">{{ __('site.pricelist.ipad.battery') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
 <div class="collapse service-price-body" id="priceBatteryIpad">
@@ -86,7 +86,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <span class="service-price-icon">
 <i class="bi bi-plug"></i>
 </span>
-<span class="service-price-title">Price Flexibel Charger iPad</span>
+<span class="service-price-title">{{ __('site.pricelist.ipad.charger') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
 <div class="collapse service-price-body" id="priceFlexChargerIpad">
@@ -101,7 +101,7 @@ dan diskon 10% off khusus member di Fixmi Bali.
 <span class="service-price-icon">
 <i class="bi bi-toggle2-on"></i>
 </span>
-<span class="service-price-title">Price Flex On/Off iPad</span>
+<span class="service-price-title">{{ __('site.pricelist.ipad.onoff') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
 <div class="collapse service-price-body" id="priceFlexOnOffIpad">
@@ -113,6 +113,8 @@ dan diskon 10% off khusus member di Fixmi Bali.
 </div>
 </div>
 </section>
+
+@include('partials.footer')
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

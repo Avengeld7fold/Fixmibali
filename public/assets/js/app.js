@@ -1,5 +1,44 @@
 // Custom JS for FIXMI landing page (optional future interactions)
 document.addEventListener("DOMContentLoaded", function () {
+  var themeStorageKey = "fixmi_theme";
+  var themeToggle = document.getElementById("themeToggle");
+  var themeRoot = document.documentElement;
+
+  var applyTheme = function (theme) {
+    if (theme === "dark") {
+      themeRoot.setAttribute("data-theme", "dark");
+    } else {
+      themeRoot.setAttribute("data-theme", "light");
+    }
+
+    if (themeToggle) {
+      var isDark = theme === "dark";
+      themeToggle.setAttribute("aria-pressed", isDark ? "true" : "false");
+      themeToggle.setAttribute(
+        "title",
+        isDark ? "Switch to light mode" : "Switch to dark mode"
+      );
+    }
+  };
+
+  var storedTheme = null;
+  try {
+    storedTheme = localStorage.getItem(themeStorageKey);
+  } catch (e) {}
+
+  applyTheme(storedTheme || "light");
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      var current = themeRoot.getAttribute("data-theme");
+      var next = current === "dark" ? "light" : "dark";
+      applyTheme(next);
+      try {
+        localStorage.setItem(themeStorageKey, next);
+      } catch (e) {}
+    });
+  }
+
   // Popup Layanan FIXMI
   var popup = document.getElementById("servicePopup");
   var openBtn = document.getElementById("konsultasiGratisBtn");
@@ -36,6 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var openPopup = function () {
       if (popupOpened) {
+        return;
+      }
+      if (document.body.classList.contains("lang-modal-open")) {
         return;
       }
       popupOpened = true;
@@ -92,6 +134,65 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }, 2400);
     }
+  }
+
+  // Language selection modal (first visit on home)
+  var langModal = document.getElementById("fixmiLangModal");
+  if (langModal && document.body.classList.contains("fixmi-home-page")) {
+    var cookieName =
+      langModal.getAttribute("data-cookie") || "fixmi_locale";
+    var actionBase = langModal.getAttribute("data-action") || "/set-locale";
+    var promptKey = "fixmi_locale_prompted_at";
+    var promptTtlMs = 5 * 60 * 1000;
+
+    var getCookieValue = function (name) {
+      var match = document.cookie.match(
+        new RegExp("(^|; )" + name + "=([^;]*)")
+      );
+      return match ? decodeURIComponent(match[2]) : "";
+    };
+
+    var savedLocale =
+      getCookieValue(cookieName) || localStorage.getItem("fixmi_locale");
+    var lastPromptRaw = localStorage.getItem(promptKey);
+    var lastPromptAt = lastPromptRaw ? parseInt(lastPromptRaw, 10) : 0;
+    var nowMs = Date.now ? Date.now() : new Date().getTime();
+    var promptExpired =
+      !lastPromptAt || isNaN(lastPromptAt) || nowMs - lastPromptAt >= promptTtlMs;
+
+    if (!savedLocale || promptExpired) {
+      setTimeout(function () {
+        langModal.classList.add("is-visible");
+        langModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("lang-modal-open");
+      }, 400);
+    }
+
+    langModal.querySelectorAll("[data-locale]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var locale = button.getAttribute("data-locale");
+        if (!locale) {
+          return;
+        }
+        try {
+          localStorage.setItem("fixmi_locale", locale);
+          localStorage.setItem(promptKey, String(nowMs));
+        } catch (e) {}
+
+        button.classList.add("is-selected");
+        var targetBase = actionBase.replace(/\/$/, "");
+        var redirectPath =
+          window.location.pathname +
+          window.location.search +
+          window.location.hash;
+        window.location.href =
+          targetBase +
+          "/" +
+          encodeURIComponent(locale) +
+          "?redirect=" +
+          encodeURIComponent(redirectPath);
+      });
+    });
   }
 
   // Mobile offcanvas: hide sticky CTA when menu opens
@@ -347,7 +448,9 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!card) return;
       var isExpanded = card.classList.toggle("is-expanded");
       toggle.setAttribute("aria-expanded", isExpanded ? "true" : "false");
-      toggle.textContent = isExpanded ? "See less" : "See more";
+      var labelMore = toggle.getAttribute("data-label-more") || "See more";
+      var labelLess = toggle.getAttribute("data-label-less") || "See less";
+      toggle.textContent = isExpanded ? labelLess : labelMore;
     });
   });
 

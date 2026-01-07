@@ -23,22 +23,25 @@
 <div class="collapse navbar-collapse" id="mainNavbar">
 <ul class="navbar-nav ms-auto align-items-lg-center">
 <li class="nav-item">
-<a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" @if(request()->routeIs('home')) aria-current="page" @endif href="{{ route('home') }}">Home</a>
+<a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" @if(request()->routeIs('home')) aria-current="page" @endif href="{{ route('home') }}">{{ __('site.nav.home') }}</a>
 </li>
 <li class="nav-item">
-<a class="nav-link {{ request()->routeIs('pricelist*') ? 'active' : '' }}" @if(request()->routeIs('pricelist*')) aria-current="page" @endif href="{{ route('pricelist') }}">Pricelist</a>
+<a class="nav-link {{ request()->routeIs('pricelist*') ? 'active' : '' }}" @if(request()->routeIs('pricelist*')) aria-current="page" @endif href="{{ route('pricelist') }}">{{ __('site.nav.pricelist') }}</a>
 </li>
 <li class="nav-item">
-<a class="nav-link {{ request()->routeIs('promo') ? 'active' : '' }}" @if(request()->routeIs('promo')) aria-current="page" @endif href="{{ route('promo') }}">Promo</a>
+<a class="nav-link {{ request()->routeIs('promo') ? 'active' : '' }}" @if(request()->routeIs('promo')) aria-current="page" @endif href="{{ route('promo') }}">{{ __('site.nav.promo') }}</a>
 </li>
 <li class="nav-item">
-<a class="nav-link {{ request()->routeIs('gallery') ? 'active' : '' }}" @if(request()->routeIs('gallery')) aria-current="page" @endif href="{{ route('gallery') }}">Gallery Repair</a>
+<a class="nav-link {{ request()->routeIs('gallery') ? 'active' : '' }}" @if(request()->routeIs('gallery')) aria-current="page" @endif href="{{ route('gallery') }}">{{ __('site.nav.gallery') }}</a>
 </li>
 <li class="nav-item">
-<a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" @if(request()->routeIs('contact')) aria-current="page" @endif href="{{ route('contact') }}">Contact Us</a>
+<a class="nav-link" href="https://app.fixmibali.com/welcome/status?code=123456">{{ __('site.nav.tracking') }}</a>
 </li>
 <li class="nav-item">
-<a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" @if(request()->routeIs('about')) aria-current="page" @endif href="{{ route('about') }}">About US</a>
+<a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" @if(request()->routeIs('contact')) aria-current="page" @endif href="{{ route('contact') }}">{{ __('site.nav.contact') }}</a>
+</li>
+<li class="nav-item">
+<a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" @if(request()->routeIs('about')) aria-current="page" @endif href="{{ route('about') }}">{{ __('site.nav.about') }}</a>
 </li>
 </ul>
 </div>
@@ -52,7 +55,7 @@
 >
   <div class="offcanvas-header justify-content-between align-items-center">
     <div class="fixmi-offcanvas-menu-pill">
-      <span>Menu</span>
+      <span>{{ __('site.nav.menu') }}</span>
     </div>
     <button
       type="button"
@@ -64,35 +67,38 @@
   <div class="offcanvas-body d-flex flex-column">
     <ul class="navbar-nav flex-grow-1 mb-4">
       <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" @if(request()->routeIs('home')) aria-current="page" @endif href="{{ route('home') }}" data-bs-dismiss="offcanvas">Home</a>
+        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" @if(request()->routeIs('home')) aria-current="page" @endif href="{{ route('home') }}" data-bs-dismiss="offcanvas">{{ __('site.nav.home') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('pricelist*') ? 'active' : '' }}" @if(request()->routeIs('pricelist*')) aria-current="page" @endif href="{{ route('pricelist') }}" data-bs-dismiss="offcanvas">Pricelist</a>
+        <a class="nav-link {{ request()->routeIs('pricelist*') ? 'active' : '' }}" @if(request()->routeIs('pricelist*')) aria-current="page" @endif href="{{ route('pricelist') }}" data-bs-dismiss="offcanvas">{{ __('site.nav.pricelist') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('promo') ? 'active' : '' }}" @if(request()->routeIs('promo')) aria-current="page" @endif href="{{ route('promo') }}" data-bs-dismiss="offcanvas">Promo</a>
+        <a class="nav-link {{ request()->routeIs('promo') ? 'active' : '' }}" @if(request()->routeIs('promo')) aria-current="page" @endif href="{{ route('promo') }}" data-bs-dismiss="offcanvas">{{ __('site.nav.promo') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('gallery') ? 'active' : '' }}" @if(request()->routeIs('gallery')) aria-current="page" @endif href="{{ route('gallery') }}" data-bs-dismiss="offcanvas">Gallery Repair</a>
+        <a class="nav-link {{ request()->routeIs('gallery') ? 'active' : '' }}" @if(request()->routeIs('gallery')) aria-current="page" @endif href="{{ route('gallery') }}" data-bs-dismiss="offcanvas">{{ __('site.nav.gallery') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" @if(request()->routeIs('contact')) aria-current="page" @endif href="{{ route('contact') }}" data-bs-dismiss="offcanvas">Contact Us</a>
+        <a class="nav-link" href="https://app.fixmibali.com" data-bs-dismiss="offcanvas">{{ __('site.nav.tracking') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" @if(request()->routeIs('about')) aria-current="page" @endif href="{{ route('about') }}" data-bs-dismiss="offcanvas">About US</a>
+        <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" @if(request()->routeIs('contact')) aria-current="page" @endif href="{{ route('contact') }}" data-bs-dismiss="offcanvas">{{ __('site.nav.contact') }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" @if(request()->routeIs('about')) aria-current="page" @endif href="{{ route('about') }}" data-bs-dismiss="offcanvas">{{ __('site.nav.about') }}</a>
       </li>
     </ul>
 
     <div class="fixmi-offcanvas-cta mt-auto">
-      <p class="fixmi-offcanvas-label mb-2">LET'S TALK</p>
+      <p class="fixmi-offcanvas-label mb-2">{{ __('site.nav.lets_talk') }}</p>
       <a
         href="{{ route('contact') }}"
         class="btn fixmi-offcanvas-contact-btn mb-2"
         data-bs-dismiss="offcanvas"
       >
-        Contact Us
+        {{ __('site.nav.contact') }}
       </a>
-      <p class="fixmi-offcanvas-email mb-0">admin@fixmibali.com</p>
+      <p class="fixmi-offcanvas-email mb-0">{{ __('site.nav.email') }}</p>
 </div>
   </div>
 </div>
