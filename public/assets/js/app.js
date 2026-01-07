@@ -94,6 +94,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Mobile offcanvas: hide sticky CTA when menu opens
+  var mobileNav = document.getElementById("fixmiMobileNav");
+
+  if (mobileNav) {
+    mobileNav.addEventListener("show.bs.offcanvas", function () {
+      document.body.classList.add("offcanvas-open");
+    });
+
+    mobileNav.addEventListener("hidden.bs.offcanvas", function () {
+      document.body.classList.remove("offcanvas-open");
+    });
+  }
+
   var normalizeWhatsAppNumber = function (rawNumber) {
     if (!rawNumber) {
       return "";
@@ -188,6 +201,251 @@ document.addEventListener("DOMContentLoaded", function () {
       button.addEventListener("pointermove", handleMove);
       button.addEventListener("pointerleave", reset);
       button.addEventListener("pointerdown", reset);
+    });
+  }
+
+  // Before & After: stagger reveal for cards
+  var baItems = document.querySelectorAll(".before-after-section .ba-item");
+
+  if (baItems.length) {
+    baItems.forEach(function (item, index) {
+      item.classList.add("ba-reveal");
+      item.style.setProperty("--ba-delay", index * 0.06 + "s");
+    });
+
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      baItems.forEach(function (item) {
+        item.classList.add("is-visible");
+      });
+    } else {
+      var baObserver = new IntersectionObserver(
+        function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+              return;
+            }
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      baItems.forEach(function (item) {
+        baObserver.observe(item);
+      });
+    }
+  }
+
+  // Advantages: reveal + title underline
+  var advantageNodes = document.querySelectorAll(".advantages-section .advantages-reveal");
+  var advantageTitle = document.querySelector(".advantages-section .section-title");
+
+  if (advantageNodes.length || advantageTitle) {
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      advantageNodes.forEach(function (node) {
+        node.classList.add("is-visible");
+      });
+      if (advantageTitle) {
+        advantageTitle.classList.add("is-visible");
+      }
+    } else {
+      var advantageObserver = new IntersectionObserver(
+        function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.3 }
+      );
+
+      advantageNodes.forEach(function (node) {
+        advantageObserver.observe(node);
+      });
+
+      if (advantageTitle) {
+        advantageObserver.observe(advantageTitle);
+      }
+    }
+  }
+
+  // FAQ: reveal on scroll
+  var faqHeader = document.querySelector(".faq-section .faq-header");
+  var faqItems = document.querySelectorAll(".faq-section .accordion-item");
+  var faqNodes = [];
+
+  if (faqHeader) {
+    faqHeader.classList.add("faq-reveal");
+    faqHeader.style.setProperty("--faq-delay", "0s");
+    faqNodes.push(faqHeader);
+  }
+
+  if (faqItems.length) {
+    faqItems.forEach(function (item, index) {
+      item.classList.add("faq-reveal");
+      item.style.setProperty("--faq-delay", 0.08 + index * 0.06 + "s");
+      faqNodes.push(item);
+    });
+  }
+
+  if (faqNodes.length) {
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      faqNodes.forEach(function (node) {
+        node.classList.add("is-visible");
+      });
+    } else {
+      var faqObserver = new IntersectionObserver(
+        function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      faqNodes.forEach(function (node) {
+        faqObserver.observe(node);
+      });
+    }
+  }
+
+  var faqAccordion = document.getElementById("fixmiFaq");
+
+  if (faqAccordion) {
+    var faqCollapses = faqAccordion.querySelectorAll(".accordion-collapse");
+
+    faqCollapses.forEach(function (collapse) {
+      var item = collapse.closest(".accordion-item");
+      if (item && collapse.classList.contains("show")) {
+        item.classList.add("is-open");
+      }
+
+      collapse.addEventListener("shown.bs.collapse", function () {
+        if (item) {
+          item.classList.add("is-open");
+        }
+      });
+
+      collapse.addEventListener("hidden.bs.collapse", function () {
+        if (item) {
+          item.classList.remove("is-open");
+        }
+      });
+    });
+  }
+
+  // Testimonial: expand/collapse long reviews
+  var testimonialToggles = document.querySelectorAll(".testimonial-toggle");
+
+  testimonialToggles.forEach(function (toggle) {
+    toggle.addEventListener("click", function () {
+      var card = toggle.closest(".testimonial-card");
+      if (!card) return;
+      var isExpanded = card.classList.toggle("is-expanded");
+      toggle.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+      toggle.textContent = isExpanded ? "See less" : "See more";
+    });
+  });
+
+  // Testimonial: mobile slider arrows + dots
+  var testimonialTrack = document.querySelector(
+    ".testimonials-section .testimonial-track"
+  );
+  var testimonialNav = document.querySelector(".testimonial-mobile-nav");
+
+  if (testimonialTrack && testimonialNav) {
+    var testimonialItems = Array.prototype.slice
+      .call(testimonialTrack.children)
+      .filter(function (item) {
+        return item.classList.contains("col-12");
+      });
+    var dotsContainer = testimonialNav.querySelector(".testimonial-dots");
+    var prevArrow = testimonialNav.querySelector(".testimonial-arrow-prev");
+    var nextArrow = testimonialNav.querySelector(".testimonial-arrow-next");
+    var prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    var dots = [];
+    var scrollTicking = false;
+
+    function getStepSize() {
+      var firstItem = testimonialItems[0];
+      if (!firstItem) return testimonialTrack.clientWidth;
+      var style = window.getComputedStyle(testimonialTrack);
+      var gap =
+        parseFloat(style.columnGap || style.gap || style.rowGap) || 0;
+      return firstItem.getBoundingClientRect().width + gap;
+    }
+
+    function getActiveIndex() {
+      var step = getStepSize();
+      if (!step) return 0;
+      return Math.round(testimonialTrack.scrollLeft / step);
+    }
+
+    function updateActive(index) {
+      dots.forEach(function (dot, idx) {
+        var isActive = idx === index;
+        dot.classList.toggle("is-active", isActive);
+        dot.setAttribute("aria-current", isActive ? "true" : "false");
+      });
+      if (prevArrow) prevArrow.disabled = index <= 0;
+      if (nextArrow) nextArrow.disabled = index >= dots.length - 1;
+    }
+
+    function scrollToIndex(index) {
+      var step = getStepSize();
+      testimonialTrack.scrollTo({
+        left: step * index,
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    }
+
+    if (dotsContainer && testimonialItems.length > 0) {
+      dotsContainer.innerHTML = "";
+      testimonialItems.forEach(function (_, index) {
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "testimonial-dot";
+        dot.setAttribute("aria-label", "Slide " + (index + 1));
+        dot.addEventListener("click", function () {
+          scrollToIndex(index);
+        });
+        dotsContainer.appendChild(dot);
+        dots.push(dot);
+      });
+      updateActive(0);
+    }
+
+    if (prevArrow) {
+      prevArrow.addEventListener("click", function () {
+        var currentIndex = getActiveIndex();
+        scrollToIndex(Math.max(currentIndex - 1, 0));
+      });
+    }
+
+    if (nextArrow) {
+      nextArrow.addEventListener("click", function () {
+        var currentIndex = getActiveIndex();
+        scrollToIndex(Math.min(currentIndex + 1, dots.length - 1));
+      });
+    }
+
+    testimonialTrack.addEventListener("scroll", function () {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      window.requestAnimationFrame(function () {
+        scrollTicking = false;
+        updateActive(getActiveIndex());
+      });
+    });
+
+    window.addEventListener("resize", function () {
+      updateActive(getActiveIndex());
     });
   }
 
@@ -485,6 +743,11 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           window.__FIXMI_MANUAL_LOCK = true;
 
+          document.querySelectorAll(".ba-list .ba-item.is-active").forEach(function (item) {
+            item.classList.remove("is-active");
+          });
+          el.classList.add("is-active");
+
           if (stepIndexes.length) {
             var steps = stepIndexes
               .map(getStepForDataIndex)
@@ -507,6 +770,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var storeWhatsappEl = document.getElementById("storeWhatsapp");
   var storeAddressEl = document.getElementById("storeAddress");
   var storeMapIframe = document.getElementById("storeMapIframe");
+  var storeMapIframeMobile = document.getElementById("storeMapIframeMobile");
   var storeMapLink = document.getElementById("storeMapLink");
 
   var storeConfigs = {
@@ -549,8 +813,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (storeAddressEl) {
       storeAddressEl.textContent = config.address;
     }
-    if (storeMapIframe && config.mapSrc) {
-      storeMapIframe.src = config.mapSrc;
+    if (config.mapSrc) {
+      if (storeMapIframe) {
+        storeMapIframe.src = config.mapSrc;
+      }
+      if (storeMapIframeMobile) {
+        storeMapIframeMobile.src = config.mapSrc;
+      }
     }
     if (storeMapLink && config.mapLink) {
       storeMapLink.href = config.mapLink;

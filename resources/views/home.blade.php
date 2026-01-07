@@ -199,21 +199,19 @@ body.fixmi-home-page .contact-section {
 <!-- Before & After Section -->
 <section class="py-5 before-after-section">
 <div class="container">
-<div class="text-center mb-4">
-<h2 class="section-title">Before &amp; After</h2>
-</div>
 <div class="row align-items-center g-4">
 <div class="col-lg-4">
 <div class="ba-list">
-<div class="ba-item ba-link" data-extra-target="backglass"><div class="service service-body"><h5>Body Repair</h5><p>Body HP rusak atau penyok? Biar kami bantu rapikan, cepat dan rapi seperti baru!</p></div>
+<div class="ba-item ba-link" data-extra-target="backglass"><div class="service service-body"><h5>Perbaikan Body &amp; Backglass</h5><p>Body penyok, tergores, atau backglass retak? Kami rapikan supaya tampilan kembali rapi dan presisi.</p></div>
 </div>
 <div class="ba-item ba-link" data-target-index="6">
-<div class="service"><h5>Water Damage Repair</h5><p>HP kamu kena air? Tenang, kami bantu atasi kerusakan dengan prosedur yang aman. Biar HP kamu kembali normal seperti semula!</p></div></div>
+<div class="service"><h5>Perbaikan Water Damage</h5><p>Terkena air atau lembap? Kami lakukan pembersihan menyeluruh dan diagnosis agar kembali stabil.</p></div></div>
 <div class="ba-item ba-link" data-target-index="3">
-<div class="service"><h5>Battery Replacement</h5><p>Baterai HP cepat habis? Saatnya ganti baterai baru di tempat kami, cepat, aman, dan bergaransi!</p></div></div>
+<div class="service"><h5>Penggantian Baterai</h5><p>Baterai cepat habis atau drop? Kami ganti dengan part berkualitas, proses aman &amp; bergaransi.</p></div></div>
 </div>
 </div>
 <div class="col-lg-4 text-center">
+<div class="ba-hint">Before → After</div>
 <div class="phone-frame">
 <div class="phone-screen">
 <img alt="Fixmi iPhone 13" class="phone-sequence-image is-active" data-index="13" src="/assets/img/Iphone/13.webp"/>
@@ -242,18 +240,18 @@ body.fixmi-home-page .contact-section {
 </div>
 </div>
 <div class="col-lg-4">
-<div class="ba-list">
+<div class="ba-list ba-list-right">
 <div class="ba-item ba-link" data-target-pair="7,9">
-<h5>Speaker Repair</h5>
-<p>Suara HP hilang atau pecah? Kami siap bantu perbaiki agar jernih kembali!</p>
+<h5>Perbaikan Speaker</h5>
+<p>Suara pecah, sember, atau hilang? Kami kembalikan kejernihan audio seperti semula.</p>
 </div>
 <div class="ba-item ba-link" data-extra-target="recovery">
-<h5>Software Spesialist</h5>
-<p>HP kamu bermasalah dengan software? Lupa pola, terkunci akun, lemot, atau butuh flashing ulang? Tenang, kami siap bantu dengan proses yang aman dan cepat!</p>
+<h5>Spesialis Software</h5>
+<p>Lupa pola, akun terkunci, atau perangkat lemot? Kami tangani cepat dan aman tanpa ribet.</p>
 </div>
 <div class="ba-item ba-link" data-target-index="2">
-<h5>LCD Screen Replacement</h5>
-<p>Layar retak atau blank? Ganti LCD HP kamu di sini, cepat, aman, dan tampilan kembali jernih seperti baru!</p>
+<h5>Penggantian LCD</h5>
+<p>Layar retak, blank, atau ghost touch? Kami ganti dengan layar berkualitas agar kembali tajam.</p>
 </div>
 </div>
 </div>
@@ -262,7 +260,7 @@ body.fixmi-home-page .contact-section {
 </section>
 <section class="py-5 process-section" id="proses">
 <div class="container">
-<div class="text-center mb-4">
+<div class="text-center mb-4 faq-header">
 <h2 class="section-title mb-2">Proses service yang jelas</h2>
 <p class="mb-0 text-muted">Biar kamu tenang, semua langkah transparan dari awal sampai selesai.</p>
 </div>
@@ -312,24 +310,25 @@ body.fixmi-home-page .contact-section {
 <!-- Keunggulan Section -->
 <section class="py-5 advantages-section" id="about">
 <div class="container">
-<h3 class="section-title mb-3">Keunggulan Fixmi Bali:</h3>
-<p class="mb-3">
-          Fixmi Bali Phone adalah pusat layanan perbaikan gadget terlengkap dan terpercaya di Bali. Kami melayani
-          service software &amp; hardware untuk Android, iPhone, Macbook dan laptop, termasuk penggantian LCD, baterai, back cover,
-          hingga perbaikan kerusakan berat – semua dengan peralatan dan sparepart original yang ready stok dan harga transparan.
+<h3 class="section-title mb-3 advantages-reveal">Keunggulan Fixmi Bali</h3>
+<p class="mb-3 advantages-reveal">
+          Fixmi Bali Phone adalah pusat layanan perbaikan gadget lengkap dan terpercaya di Bali. Kami melayani
+          service software &amp; hardware untuk Android, iPhone, MacBook, dan laptop - mulai dari penggantian LCD, baterai, back cover,
+          hingga perbaikan kerusakan berat. Semua dikerjakan dengan peralatan profesional, sparepart original ready stock,
+          dan harga transparan.
         </p>
-<p class="mb-3">
-          Kami juga rutin memberikan promo menarik, seperti diskon jasa perbaikan, paket bundle accessories,
-          dan program loyalty untuk customer setia. Dengan teknisi berpengalaman, ruang tunggu yang nyaman,
-          serta standar pengerjaan yang rapi, kami siap membantu kamu mengembalikan performa gadget seperti baru.
+<p class="mb-3 advantages-reveal">
+          Kami juga rutin menghadirkan promo menarik, seperti diskon jasa perbaikan, paket bundle aksesori,
+          dan program loyalitas untuk customer setia. Dengan teknisi berpengalaman, ruang tunggu yang nyaman,
+          serta standar pengerjaan yang rapi, kami siap membantu mengembalikan performa gadget seperti baru.
         </p>
-<ul>
-<li>Teknisi profesional &amp; bersertifikat, siap menangani berbagai kerusakan.</li>
-<li>Diagnosis cepat &amp; transparan, solusi selalu terupdate.</li>
-<li>Jaminan kualitas di setiap pekerjaan, dengan garansi service yang jelas.</li>
-<li>Sparepart berkualitas, bergaransi resmi dengan stok yang selalu ready.</li>
+<ul class="advantages-list advantages-reveal">
+<li>Teknisi profesional &amp; bersertifikat untuk berbagai tingkat kerusakan.</li>
+<li>Diagnosa cepat &amp; transparan, opsi solusi selalu jelas.</li>
+<li>Kualitas pekerjaan terjaga dengan garansi service yang jelas.</li>
+<li>Sparepart berkualitas, garansi resmi, stok selalu tersedia.</li>
 </ul>
-<p class="mb-0">
+<p class="mb-0 advantages-reveal">
           Fixmi Bali bukan hanya tempat service, tapi juga pusat edukasi dan pengembangan teknisi gadget di Bali.
 </p>
 </div>
@@ -340,45 +339,105 @@ body.fixmi-home-page .contact-section {
 <h2 class="section-title mb-2">Testimoni pelanggan</h2>
 <p class="mb-0 text-muted">Beberapa pengalaman singkat setelah service di Fixmi Bali.</p>
 </div>
-<div class="row g-3">
+<div class="row g-3 testimonial-track">
 <div class="col-12 col-md-6 col-lg-4">
 <div class="testimonial-card">
+<div class="testimonial-rating" aria-label="Rating 5 dari 5">
+<div class="testimonial-stars" aria-hidden="true">
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+</div>
+<span class="testimonial-score">5.0</span>
+<span class="testimonial-source">Google Review</span>
+</div>
 <div class="testimonial-head">
-<div class="testimonial-avatar">AR</div>
+<div class="testimonial-avatar">
+<img src="/assets/img/testimonials/chaerun-muhaimin.png" alt="Chaerun Muhaimin" loading="lazy" decoding="async"/>
+</div>
 <div>
-<div class="testimonial-name">Ari</div>
-<div class="testimonial-meta">iPhone • LCD</div>
+<div class="testimonial-name">Chaerun Muhaimin</div>
+<div class="testimonial-meta">Local Guide • Level 6</div>
 </div>
 </div>
-<p class="testimonial-text mb-0">“Pengerjaan cepat, hasil rapi, dan dijelasin dari awal. Recommended.”</p>
+<p class="testimonial-text mb-0">
+  <span class="testimonial-text-short">“Highly recommended place to repair your smartphone. The technicians are skilled—especially Fendi. Clear explanation, honest advice, and the repair was done without unnecessary part replacement.”</span>
+  <span class="testimonial-text-full">“Highly recommended place to repair your smartphone. The technicians are skilled—especially Fendi. He explains the issue clearly and gives the best advice. You can even watch them while they work, so you don’t have to worry about anything being done behind your back. I came in thinking I needed to replace my LCD, but Fendi found the real issue and fixed it without replacing the screen. Now my phone works perfectly. Thanks, Fendi!”</span>
+</p>
+<button class="testimonial-toggle" type="button" aria-expanded="false">See more</button>
 </div>
 </div>
 <div class="col-12 col-md-6 col-lg-4">
 <div class="testimonial-card">
+<div class="testimonial-rating" aria-label="Rating 5 dari 5">
+<div class="testimonial-stars" aria-hidden="true">
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+</div>
+<span class="testimonial-score">5.0</span>
+<span class="testimonial-source">Google Review</span>
+</div>
 <div class="testimonial-head">
-<div class="testimonial-avatar">DN</div>
+<div class="testimonial-avatar">
+<img src="/assets/img/testimonials/lydia-pramono.png" alt="Lydia Pramono" loading="lazy" decoding="async"/>
+</div>
 <div>
-<div class="testimonial-name">Dina</div>
-<div class="testimonial-meta">Android • Charging</div>
+<div class="testimonial-name">Lydia Pramono</div>
+<div class="testimonial-meta">Local Guide • Level 4</div>
 </div>
 </div>
-<p class="testimonial-text mb-0">“Awalnya cuma mau cek, ternyata bisa langsung beres hari itu juga.”</p>
+<p class="testimonial-text mb-0">
+  <span class="testimonial-text-short">“Best phone service center. The team is capable, customer service is great, and the pricing is always transparent.”</span>
+  <span class="testimonial-text-full">“Best phone service center. The guys are very capable and know what they are doing. Good customer service. I don't know about how others can give one star review but I'm literally repeater in this place and always satisfied. You have nothing to worry about them ripping you off. They always inform us first the approximate cost and everything. Two thumbs up!”</span>
+</p>
+<button class="testimonial-toggle" type="button" aria-expanded="false">See more</button>
 </div>
 </div>
 <div class="col-12 col-md-6 col-lg-4">
 <div class="testimonial-card">
+<div class="testimonial-rating" aria-label="Rating 5 dari 5">
+<div class="testimonial-stars" aria-hidden="true">
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+</div>
+<span class="testimonial-score">5.0</span>
+<span class="testimonial-source">Google Review</span>
+</div>
 <div class="testimonial-head">
-<div class="testimonial-avatar">RS</div>
+<div class="testimonial-avatar testimonial-avatar--purple">T</div>
 <div>
-<div class="testimonial-name">Riski</div>
-<div class="testimonial-meta">Android • Water Damage</div>
+<div class="testimonial-name">Travis Ahern</div>
+<div class="testimonial-meta">Local Guide • Level 2</div>
 </div>
 </div>
-<p class="testimonial-text mb-0">“HP kena air, dikasih estimasi jelas, dan aman sampai selesai.”</p>
+<p class="testimonial-text mb-0">
+  <span class="testimonial-text-short">“My phone overheated and got the "black screen of death"—fixed within 2 minutes. Super friendly and very helpful.”</span>
+  <span class="testimonial-text-full">“My phone overheated and got the “black screen of death” called up and they said they can’t have a look at it. Went in straight away, gave them the phone and it was fixed within 2 minutes. They were super friendly and very helpful.”</span>
+</p>
+<button class="testimonial-toggle" type="button" aria-expanded="false">See more</button>
 </div>
 </div>
 <div class="col-12 col-md-6 col-lg-4">
 <div class="testimonial-card">
+<div class="testimonial-rating" aria-label="Rating 5 dari 5">
+<div class="testimonial-stars" aria-hidden="true">
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+</div>
+<span class="testimonial-score">5.0</span>
+<span class="testimonial-source">Google Review</span>
+</div>
 <div class="testimonial-head">
 <div class="testimonial-avatar">MT</div>
 <div>
@@ -386,11 +445,26 @@ body.fixmi-home-page .contact-section {
 <div class="testimonial-meta">Macbook • Software</div>
 </div>
 </div>
-<p class="testimonial-text mb-0">“Problem software kelar, data aman, prosesnya transparan.”</p>
+<p class="testimonial-text mb-0">
+  <span class="testimonial-text-short">“Problem software kelar, data aman, prosesnya transparan.”</span>
+  <span class="testimonial-text-full">“Problem software kelar, data aman, prosesnya transparan. Dari awal dijelaskan langkahnya dan estimasi waktunya jelas.”</span>
+</p>
+<button class="testimonial-toggle" type="button" aria-expanded="false">See more</button>
 </div>
 </div>
 <div class="col-12 col-md-6 col-lg-4">
 <div class="testimonial-card">
+<div class="testimonial-rating" aria-label="Rating 5 dari 5">
+<div class="testimonial-stars" aria-hidden="true">
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+</div>
+<span class="testimonial-score">5.0</span>
+<span class="testimonial-source">Google Review</span>
+</div>
 <div class="testimonial-head">
 <div class="testimonial-avatar">LK</div>
 <div>
@@ -398,11 +472,26 @@ body.fixmi-home-page .contact-section {
 <div class="testimonial-meta">iPhone • Battery</div>
 </div>
 </div>
-<p class="testimonial-text mb-0">“Baterai jadi normal lagi, dikasih opsi part dan garansi.”</p>
+<p class="testimonial-text mb-0">
+  <span class="testimonial-text-short">“Baterai jadi normal lagi, dikasih opsi part dan garansi.”</span>
+  <span class="testimonial-text-full">“Baterai jadi normal lagi, dikasih opsi part dan garansi. Pengerjaan cepat, hasilnya sesuai, dan penjelasannya jelas.”</span>
+</p>
+<button class="testimonial-toggle" type="button" aria-expanded="false">See more</button>
 </div>
 </div>
 <div class="col-12 col-md-6 col-lg-4">
 <div class="testimonial-card">
+<div class="testimonial-rating" aria-label="Rating 5 dari 5">
+<div class="testimonial-stars" aria-hidden="true">
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+<i class="bi bi-star-fill"></i>
+</div>
+<span class="testimonial-score">5.0</span>
+<span class="testimonial-source">Google Review</span>
+</div>
 <div class="testimonial-head">
 <div class="testimonial-avatar">SA</div>
 <div>
@@ -410,9 +499,22 @@ body.fixmi-home-page .contact-section {
 <div class="testimonial-meta">Android • Speaker</div>
 </div>
 </div>
-<p class="testimonial-text mb-0">“Suara balik jernih, staff ramah, enak konsultasinya.”</p>
+<p class="testimonial-text mb-0">
+  <span class="testimonial-text-short">“Suara balik jernih, staff ramah, enak konsultasinya.”</span>
+  <span class="testimonial-text-full">“Suara balik jernih, staff ramah, enak konsultasinya. Proses cepat dan biaya dijelaskan dari awal.”</span>
+</p>
+<button class="testimonial-toggle" type="button" aria-expanded="false">See more</button>
 </div>
 </div>
+</div>
+<div class="testimonial-mobile-nav d-md-none">
+<button class="testimonial-arrow testimonial-arrow-prev" type="button" aria-label="Testimonial sebelumnya">
+<i class="bi bi-chevron-left"></i>
+</button>
+<div class="testimonial-dots" role="tablist" aria-label="Testimonial slider"></div>
+<button class="testimonial-arrow testimonial-arrow-next" type="button" aria-label="Testimonial berikutnya">
+<i class="bi bi-chevron-right"></i>
+</button>
 </div>
 </div>
 </section>
@@ -474,47 +576,60 @@ body.fixmi-home-page .contact-section {
 <div class="container">
 <div class="row g-4">
 <div class="col-lg-5">
-<div class="footer-logo-block mb-4">
-<img alt="FIXMI" class="footer-logo mb-3" src="/assets/img/logo-fixmi.png" loading="lazy" decoding="async"/>
+<div class="footer-logo-block footer-block">
+<img alt="FIXMI" class="footer-logo mb-2" src="/assets/img/logo-fixmi.png" loading="lazy" decoding="async"/>
 
 </div>
 
-<div class="store-finder mb-4">
+<div class="store-finder footer-block">
 <div class="store-finder-heading d-flex align-items-center mb-3">
-            <img src="/assets/img/store-map-icon.png" alt="Lokasi FIXMI" class="store-finder-icon me-2" loading="lazy" decoding="async" />
-            <h5 class="mb-0 store-finder-title">Temukan Toko Kami</h5>
-          </div>
+<img src="/assets/img/store-map-icon.png" alt="Lokasi FIXMI" class="store-finder-icon me-2" loading="lazy" decoding="async"/>
+<h5 class="mb-0 store-finder-title">Temukan Toko Kami</h5>
+</div>
 <div class="d-flex flex-wrap gap-2 mb-3">
 <button class="btn btn-sm btn-danger" id="headStoreBtn" data-store="head">Head Store</button>
 <button class="btn btn-sm btn-outline-danger" id="branchStoreBtn" data-store="branch">Branch Store</button>
 <button class="btn btn-sm btn-outline-danger" id="otherStoreBtn" data-store="other">Other Store</button>
 </div>
-<p class="mb-1"><strong>Whatsapp Admin:</strong> <span id="storeWhatsapp">08873183122</span></p>
-<p class="mb-0">
-                Alamat Store: <span id="storeAddress">Link.kubu alit kedonganan, Jl. Raya Uluwatu, Kedonganan, Kec. Kuta, Kabupaten Badung, Bali 80361</span>
-              </p>
-<div class="d-flex flex-wrap gap-2 mt-3">
-<a class="btn btn-success btn-sm" id="storeWhatsappLink" href="{{ $whatsAppLink }}" target="_blank" rel="noopener">Chat WhatsApp</a>
-<a class="btn btn-outline-dark btn-sm" id="storeMapLink" href="https://maps.google.com/?q=FIXMI%20BALI%20PHONE%20SERVICE" target="_blank" rel="noopener">Buka Google Maps</a>
+<div class="store-contact">
+<div class="store-contact-item store-contact-item--address">
+<i class="bi bi-geo-alt"></i>
+<span id="storeAddress">Link.kubu alit kedonganan, Jl. Raya Uluwatu, Kedonganan, Kec. Kuta, Kabupaten Badung, Bali 80361</span>
+</div>
+<div class="store-contact-item">
+<i class="bi bi-whatsapp"></i>
+<a id="storeWhatsappLink" href="{{ $whatsAppLink }}" target="_blank" rel="noopener">
+<span id="storeWhatsapp">08873183122</span>
+</a>
 </div>
 </div>
+<p class="store-hours mb-0">Jam buka: Setiap hari 09.00-20.00 WITA</p>
+<p class="store-note mb-0">Tutup hari Jumat (libur)</p>
+<div class="map-card map-card-mobile">
+<div class="ratio ratio-16x9">
+<iframe allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.2849272692183!2d115.1737111759487!3d-8.759240191291688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2446e57c0f08f%3A0x409a770bb27592cf!2sFIXMI%20BALI%20PHONE%20SERVICE!5e0!3m2!1sen!2sid!4v1765683626204!5m2!1sen!2sid" id="storeMapIframeMobile"></iframe>
+</div>
+</div>
+</div>
+<div class="footer-social-block footer-block">
 <h6 class="mb-2 footer-social-title">Social media kami</h6>
-<div class="footer-social mb-3">
-  <a href="https://www.facebook.com/dedik.alesha?mibextid=ZbWKwL" class="footer-social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/img/social-facebook.png" alt="Facebook" class="footer-social-icon" loading="lazy" decoding="async" />
-  </a>
-  <a href="https://www.instagram.com/fixmibali/?igsh=YTZnenhiZzN6OGVu#" class="footer-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/img/social-instagram.png" alt="Instagram" class="footer-social-icon" loading="lazy" decoding="async" />
-  </a>
-  <a href="https://www.tiktok.com/@fixmibali?_t=ZS-8xnjRqDgoT4&_r=1" class="footer-social-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-    <img src="/assets/img/social-tiktok.png" alt="TikTok" class="footer-social-icon" loading="lazy" decoding="async" />
-  </a>
+<div class="footer-social">
+<a href="https://www.facebook.com/dedik.alesha?mibextid=ZbWKwL" class="footer-social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+<img src="/assets/img/social-facebook.png" alt="Facebook" class="footer-social-icon" loading="lazy" decoding="async"/>
+</a>
+<a href="https://www.instagram.com/fixmibali/?igsh=YTZnenhiZzN6OGVu#" class="footer-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+<img src="/assets/img/social-instagram.png" alt="Instagram" class="footer-social-icon" loading="lazy" decoding="async"/>
+</a>
+<a href="https://www.tiktok.com/@fixmibali?_t=ZS-8xnjRqDgoT4&_r=1" class="footer-social-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+<img src="/assets/img/social-tiktok.png" alt="TikTok" class="footer-social-icon" loading="lazy" decoding="async"/>
+</a>
+</div>
 </div>
 <p class="footer-copy mt-4 mb-0">
               © 2016–2025 Fixmibali. All Rights Reserved
             </p>
 </div>
-<div class="col-lg-7">
+<div class="col-lg-7 map-col">
 <div class="map-card">
 <div class="ratio ratio-16x9">
 <!-- Ganti src dengan embed map asli dari Google Maps -->

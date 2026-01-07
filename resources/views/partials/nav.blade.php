@@ -13,11 +13,12 @@
   aria-label="Toggle navigation"
 >
 
-  <img
-    src="/assets/img/hamburger.svg"
-    alt="Menu"
-    class="fixmi-hamburger-icon"
-  />
+  <span class="fixmi-hamburger-icon" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+  <span class="nav-hint-arrow" aria-hidden="true"></span>
 </button>
 <div class="collapse navbar-collapse" id="mainNavbar">
 <ul class="navbar-nav ms-auto align-items-lg-center">
