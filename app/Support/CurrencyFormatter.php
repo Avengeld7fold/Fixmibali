@@ -3,7 +3,6 @@
 namespace App\Support;
 
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 class CurrencyFormatter
@@ -14,26 +13,17 @@ class CurrencyFormatter
             return '';
         }
 
+        $raw = trim($value);
+        if ($raw === '' || $raw === '-') {
+            return $raw;
+        }
+
         $locale = app()->getLocale();
-        if ($locale !== 'en') {
-            return $value;
+        if ($locale === 'en') {
+            return self::formatUsd($raw);
         }
 
-        if (Str::contains($value, ['$','USD'])) {
-            return $value;
-        }
-
-        $amount = self::parseIdr($value);
-        if ($amount === null) {
-            return $value;
-        }
-
-        $usd = $amount * self::usdRate();
-        if (! is_finite($usd) || $usd <= 0) {
-            return $value;
-        }
-
-        return '$' . number_format($usd, 0, '.', ',');
+        return self::formatIdr($raw);
     }
 
     public static function usdRate(): float
@@ -50,11 +40,19 @@ class CurrencyFormatter
             }
 
             try {
-                $response = Http::timeout(5)->get($url);
-                if (! $response->successful()) {
+                $context = stream_context_create([
+                    'http' => [
+                        'timeout' => 5,
+                    ],
+                ]);
+                $body = @file_get_contents($url, false, $context);
+                if ($body === false || $body === '') {
                     return $fallback;
                 }
-                $data = $response->json();
+                $data = json_decode($body, true);
+                if (! is_array($data)) {
+                    return $fallback;
+                }
                 $rate = (float) ($data['rates']['USD'] ?? 0);
                 if ($rate <= 0) {
                     return $fallback;
@@ -109,5 +107,47 @@ class CurrencyFormatter
         }
 
         return (float) $clean;
+    }
+
+    private static function formatUsd(string $value): string
+    {
+        if (Str::contains($value, ['$', 'USD'])) {
+            return $value;
+        }
+
+        $amount = self::parseIdr($value);
+        if ($amount === null) {
+            return $value;
+        }
+
+        $usd = $amount * self::usdRate();
+        if (! is_finite($usd) || $usd <= 0) {
+            return $value;
+        }
+
+        return '$'.number_format($usd, 2, '.', ',');
+    }
+
+    private static function formatIdr(string $value): string
+    {
+        if (Str::contains($value, ['$', 'USD'])) {
+            return $value;
+        }
+
+        if (Str::contains(Str::lower($value), ['rp', 'idr'])) {
+            $amount = self::parseIdr($value);
+            if ($amount === null) {
+                return $value;
+            }
+
+            return 'Rp.'.number_format((float) round($amount), 0, ',', '.');
+        }
+
+        $amount = self::parseIdr($value);
+        if ($amount === null) {
+            return $value;
+        }
+
+        return 'Rp.'.number_format((float) round($amount), 0, ',', '.');
     }
 }

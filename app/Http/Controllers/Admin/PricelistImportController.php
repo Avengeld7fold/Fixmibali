@@ -341,7 +341,7 @@ class PricelistImportController extends Controller
         $subtitle = '';
 
         if (count($lines) > 1) {
-            $subtitle = implode(' ', array_slice($lines, 1));
+            $subtitle = implode("\n", array_slice($lines, 1));
         }
 
         return [
@@ -365,9 +365,9 @@ class PricelistImportController extends Controller
     {
         $value = html_entity_decode($value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
         $value = str_replace("\xc2\xa0", ' ', $value);
-        $value = preg_replace('/[\x00-\x1F\x7F]/', '', $value);
-        $value = preg_replace('/[^\x20-\x7E\n]/', '', $value);
-        $value = preg_replace('/[\t ]+/', ' ', $value);
+        $value = preg_replace("/\r\n|\r/", "\n", $value);
+        $value = preg_replace('/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F]/', '', $value);
+        $value = preg_replace('/[ \t]+/', ' ', $value);
         $value = preg_replace('/\n{2,}/', "\n", $value);
 
         return trim($value);

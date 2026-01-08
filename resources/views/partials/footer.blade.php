@@ -35,7 +35,7 @@
 </a>
 </div>
 </div>
-<p class="store-hours mb-0">{{ __('site.footer.hours') }}</p>
+<p class="store-hours mb-0">{!! nl2br(e(__('site.footer.hours'))) !!}</p>
 <p class="store-note mb-0">{{ __('site.footer.note') }}</p>
 <div class="map-card map-card-mobile">
 <div class="ratio ratio-16x9">

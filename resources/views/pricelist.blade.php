@@ -30,7 +30,7 @@
 <p class="service-listing-subtitle">
 {{ __('site.pricelist.section_subtitle') }}
 </p>
-<button class="service-listing-pill" type="button">{{ __('site.pricelist.section_pill') }}</button>
+@include('partials.pricelist-warranty-pill')
 </div>
 
 @include('partials.pricelist-cards', ['activeService' => 'iphone'])

@@ -114,26 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    if (!wasDismissedRecently()) {
-      var hasInteracted = false;
-      var markInteracted = function () {
-        hasInteracted = true;
-      };
-
-      document.addEventListener("scroll", function () {
-        if (window.scrollY > 360) {
-          hasInteracted = true;
-        }
-      });
-      document.addEventListener("click", markInteracted);
-      document.addEventListener("touchstart", markInteracted, { passive: true });
-
-      popupAutoTimer = setTimeout(function () {
-        if (!hasInteracted) {
-          openPopup();
-        }
-      }, 2400);
-    }
+    // Auto-open disabled: popup only appears when user clicks the button.
   }
 
   // Language selection modal (first visit on home)
@@ -193,6 +174,34 @@ document.addEventListener("DOMContentLoaded", function () {
           encodeURIComponent(redirectPath);
       });
     });
+  }
+
+  // Warranty modal: disable backdrop on small screens to avoid extra overlay
+  var warrantyModal = document.getElementById("warrantyModal");
+  if (warrantyModal && typeof window.matchMedia === "function") {
+    var warrantyBackdropMq = window.matchMedia("(max-width: 575.98px)");
+    var syncWarrantyBackdrop = function () {
+      if (warrantyBackdropMq.matches) {
+        warrantyModal.setAttribute("data-bs-backdrop", "true");
+      } else {
+        warrantyModal.removeAttribute("data-bs-backdrop");
+      }
+    };
+
+    syncWarrantyBackdrop();
+    warrantyModal.addEventListener("show.bs.modal", function () {
+      if (warrantyBackdropMq.matches) {
+        document.body.classList.add("warranty-modal-open");
+      }
+    });
+    warrantyModal.addEventListener("hidden.bs.modal", function () {
+      document.body.classList.remove("warranty-modal-open");
+    });
+    if (typeof warrantyBackdropMq.addEventListener === "function") {
+      warrantyBackdropMq.addEventListener("change", syncWarrantyBackdrop);
+    } else if (typeof warrantyBackdropMq.addListener === "function") {
+      warrantyBackdropMq.addListener(syncWarrantyBackdrop);
+    }
   }
 
   // Mobile offcanvas: hide sticky CTA when menu opens
@@ -988,4 +997,280 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     setWhatsAppLinks("08873183122");
   }
+
+  var initPricelistTables = function () {
+    var shells = document.querySelectorAll(".service-price-table-shell[data-pricelist-instance]");
+    if (!shells.length) {
+      return;
+    }
+
+    var normalize = function (value) {
+      return String(value || "")
+        .toLowerCase()
+        .replace(/\s+/g, " ")
+        .trim();
+    };
+
+    var parseNumber = function (raw) {
+      var cleaned = String(raw || "").trim();
+      if (!cleaned || cleaned === "-") {
+        return null;
+      }
+      cleaned = cleaned.replace(/[^\d,.\-]/g, "");
+      if (!cleaned || cleaned === "-" || cleaned === ".") {
+        return null;
+      }
+
+      var hasComma = cleaned.indexOf(",") !== -1;
+      var hasDot = cleaned.indexOf(".") !== -1;
+
+      if (hasComma && hasDot) {
+        var lastComma = cleaned.lastIndexOf(",");
+        var lastDot = cleaned.lastIndexOf(".");
+        if (lastComma > lastDot) {
+          cleaned = cleaned.replace(/\./g, "");
+          cleaned = cleaned.replace(",", ".");
+        } else {
+          cleaned = cleaned.replace(/,/g, "");
+        }
+      } else if (hasComma) {
+        var parts = cleaned.split(",");
+        var suffix = parts[parts.length - 1] || "";
+        if (suffix.length === 2) {
+          cleaned = cleaned.replace(/\./g, "");
+          cleaned = cleaned.replace(",", ".");
+        } else {
+          cleaned = cleaned.replace(/,/g, "");
+        }
+      } else {
+        cleaned = cleaned.replace(/\./g, "");
+      }
+
+      var n = Number(cleaned);
+      return isFinite(n) ? n : null;
+    };
+
+    var getCellText = function (cell) {
+      if (!cell) {
+        return "";
+      }
+      var clone = cell.cloneNode(true);
+      var badges = clone.querySelector(".service-price-badges");
+      if (badges) {
+        badges.remove();
+      }
+      return String(clone.textContent || "")
+        .replace(/\s+/g, " ")
+        .trim();
+    };
+
+    var copyText = function (text) {
+      var payload = String(text || "");
+      if (!payload) {
+        return Promise.resolve(false);
+      }
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(payload).then(
+          function () {
+            return true;
+          },
+          function () {
+            return false;
+          }
+        );
+      }
+
+      return new Promise(function (resolve) {
+        var textarea = document.createElement("textarea");
+        textarea.value = payload;
+        textarea.setAttribute("readonly", "readonly");
+        textarea.style.position = "fixed";
+        textarea.style.top = "-1000px";
+        textarea.style.left = "-1000px";
+        document.body.appendChild(textarea);
+        textarea.select();
+        var ok = false;
+        try {
+          ok = document.execCommand("copy");
+        } catch (e) {
+          ok = false;
+        }
+        document.body.removeChild(textarea);
+        resolve(!!ok);
+      });
+    };
+
+    shells.forEach(function (shell) {
+      var instanceId = shell.getAttribute("data-pricelist-instance");
+      if (!instanceId) {
+        return;
+      }
+
+      var table = shell.querySelector('table[data-pricelist-table="' + instanceId + '"]');
+      if (!table || !table.tBodies || !table.tBodies[0]) {
+        return;
+      }
+
+      var searchEl = shell.querySelector('[data-pricelist-search="' + instanceId + '"]');
+      var filterEl = shell.querySelector('[data-pricelist-filter="' + instanceId + '"]');
+      var clearEl = shell.querySelector('[data-pricelist-clear="' + instanceId + '"]');
+      var copyEl = shell.querySelector('[data-pricelist-copy="' + instanceId + '"]');
+      var countEl = shell.querySelector('[data-pricelist-count="' + instanceId + '"]');
+
+      var tbody = table.tBodies[0];
+      var rows = Array.prototype.slice.call(tbody.rows || []);
+
+      rows.forEach(function (row) {
+        var rowText = Array.prototype.slice
+          .call(row.querySelectorAll("td"))
+          .map(getCellText)
+          .join(" ");
+        row.__fixmiSearch = normalize(rowText);
+      });
+
+      var applyFilters = function () {
+        var q = searchEl ? normalize(searchEl.value) : "";
+        var tag = filterEl ? normalize(filterEl.value) : "";
+        var visible = 0;
+
+        rows.forEach(function (row) {
+          var ok = true;
+          if (q) {
+            ok = row.__fixmiSearch && row.__fixmiSearch.indexOf(q) !== -1;
+          }
+          if (ok && tag) {
+            var tagsRaw = normalize(row.getAttribute("data-tags"));
+            ok = tagsRaw.split(",").indexOf(tag) !== -1;
+          }
+          row.style.display = ok ? "" : "none";
+          if (ok) {
+            visible += 1;
+          }
+        });
+
+        if (countEl) {
+          countEl.textContent = visible + "/" + rows.length;
+        }
+      };
+
+      var setSort = function (colIndex) {
+        var th = table.querySelector('thead th[data-col="' + colIndex + '"]');
+        if (!th) {
+          return;
+        }
+
+        var currentDir = th.classList.contains("is-sort-asc")
+          ? "asc"
+          : th.classList.contains("is-sort-desc")
+            ? "desc"
+            : "";
+        var nextDir = currentDir === "asc" ? "desc" : "asc";
+
+        Array.prototype.slice.call(table.querySelectorAll("thead th")).forEach(function (node) {
+          node.classList.remove("is-sort-asc");
+          node.classList.remove("is-sort-desc");
+        });
+        th.classList.add(nextDir === "asc" ? "is-sort-asc" : "is-sort-desc");
+
+        var isPrice = th.getAttribute("data-is-price") === "1";
+
+        rows.sort(function (a, b) {
+          var aCell = a.querySelector('td[data-col="' + colIndex + '"]');
+          var bCell = b.querySelector('td[data-col="' + colIndex + '"]');
+          var av = getCellText(aCell);
+          var bv = getCellText(bCell);
+
+          if (isPrice) {
+            var an = parseNumber(av);
+            var bn = parseNumber(bv);
+            if (an !== null && bn !== null) {
+              return nextDir === "asc" ? an - bn : bn - an;
+            }
+          }
+
+          var cmp = String(av).localeCompare(String(bv), undefined, {
+            numeric: true,
+            sensitivity: "base",
+          });
+          return nextDir === "asc" ? cmp : -cmp;
+        });
+
+        rows.forEach(function (row) {
+          tbody.appendChild(row);
+        });
+
+        applyFilters();
+      };
+
+      if (searchEl) {
+        searchEl.addEventListener("input", applyFilters);
+      }
+      if (filterEl) {
+        filterEl.addEventListener("change", applyFilters);
+      }
+      if (clearEl) {
+        clearEl.addEventListener("click", function () {
+          if (searchEl) {
+            searchEl.value = "";
+          }
+          if (filterEl) {
+            filterEl.value = "";
+          }
+          applyFilters();
+        });
+      }
+
+      if (copyEl) {
+        copyEl.addEventListener("click", function () {
+          var headerTexts = Array.prototype.slice
+            .call(table.querySelectorAll("thead th"))
+            .map(function (th) {
+              return String(th.textContent || "")
+                .replace(/\s+/g, " ")
+                .trim();
+            });
+
+          var lines = [];
+          if (headerTexts.length) {
+            lines.push(headerTexts.join("\t"));
+          }
+
+          rows.forEach(function (row) {
+            if (row.style.display === "none") {
+              return;
+            }
+            var values = Array.prototype.slice.call(row.querySelectorAll("td")).map(function (td) {
+              return getCellText(td).replace(/\t/g, " ").trim();
+            });
+            lines.push(values.join("\t"));
+          });
+
+          var labelDefault = copyEl.getAttribute("data-label-default") || copyEl.textContent;
+          var labelCopied = copyEl.getAttribute("data-label-copied") || "Copied";
+          var labelFailed = copyEl.getAttribute("data-label-failed") || "Copy failed";
+          var original = labelDefault;
+          copyText(lines.join("\n")).then(function (ok) {
+            copyEl.textContent = ok ? labelCopied : labelFailed;
+            setTimeout(function () {
+              copyEl.textContent = original;
+            }, 1000);
+          });
+        });
+      }
+
+      shell.querySelectorAll('[data-pricelist-sort="' + instanceId + '"]').forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var col = parseInt(btn.getAttribute("data-col"), 10);
+          if (isNaN(col)) {
+            return;
+          }
+          setSort(col);
+        });
+      });
+
+      applyFilters();
+    });
+  };
+
+  initPricelistTables();
 });
