@@ -234,7 +234,7 @@ return [
         'warranty_modal_claim_title' => 'Warranty Claim Requirements :',
         'warranty_modal_claim_points' => [
             'You must show the service receipt to the admin for a recheck by our technician. If it is not caused by the issues above, the warranty claim will be processed and you will be informed when the unit is ready for pickup.',
-            'Minimum warranty claim service fee is Rp 100.000 for the installation of a new part and applies during the warranty period.',
+            'Minimum warranty claim service fee (Rp. 100.000) is the installation fee for a new part and applies during the warranty period. The first week is free for claims, and from the second week an installation fee applies. For 2-12 month warranties, claims are free in the first month; from the second month, an installation fee applies.',
             'Replacement part warranty applies if it is not due to misuse, the service warranty period is still valid since the unit was handed over, and a valid payment invoice is required during the claim process.',
         ],
         'warranty_modal_note' => 'Contact our admin for more details.',

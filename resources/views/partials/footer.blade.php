@@ -9,7 +9,7 @@
 <div class="row g-4">
 <div class="col-lg-5">
 <div class="footer-logo-block footer-block">
-<img alt="FIXMI" class="footer-logo mb-2" src="/assets/img/logo-fixmi.png" loading="lazy" decoding="async"/>
+<img alt="FIXMI" class="footer-logo mb-2" src="/assets/img/logo-fixmi.png" data-logo-light="/assets/img/logo-fixmi.png" data-logo-dark="/assets/img/logo-fixmi-darkmode.png" loading="lazy" decoding="async"/>
 
 </div>
 

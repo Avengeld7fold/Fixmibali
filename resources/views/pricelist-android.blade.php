@@ -35,7 +35,7 @@
 
 @include('partials.pricelist-cards', ['activeService' => 'android'])
 
-<div class="service-pricelist-accordion service-pricelist-brandlist">
+<div class="service-pricelist-accordion service-pricelist-brandlist" id="servicePricelistAccordion">
 <div class="service-price-item">
 <button class="service-price-trigger" type="button" data-bs-toggle="collapse" data-bs-target="#brandXiaomi" aria-expanded="false" aria-controls="brandXiaomi">
 <span class="service-price-icon is-brand">
@@ -44,7 +44,7 @@
 <span class="service-price-title">Xiaomi</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="brandXiaomi">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="brandXiaomi">
 <div class="service-price-content">
 <div class="service-sublist">
 <div class="service-sublist-group">
@@ -165,7 +165,7 @@
 <span class="service-price-title">Samsung</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="brandSamsung">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="brandSamsung">
 <div class="service-price-content">
 <div class="service-sublist">
 <div class="service-sublist-group">
@@ -391,7 +391,7 @@
 <span class="service-price-title">Realme</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="brandRealme">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="brandRealme">
 <div class="service-price-content">
 <div class="service-sublist">
 <div class="service-sublist-block">
@@ -431,7 +431,7 @@
 <span class="service-price-title">Infinix</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="brandInfinix">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="brandInfinix">
 <div class="service-price-content">
 <div class="service-sublist">
 <div class="service-sublist-block">
@@ -471,7 +471,7 @@
 <span class="service-price-title">Oppo</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="brandOppo">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="brandOppo">
 <div class="service-price-content">
 <div class="service-sublist">
 <div class="service-sublist-block">
@@ -511,7 +511,7 @@
 <span class="service-price-title">Vivo</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="brandVivo">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="brandVivo">
 <div class="service-price-content">
 <div class="service-sublist">
 <div class="service-sublist-block">
@@ -551,7 +551,7 @@
 <span class="service-price-title">Asus</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="brandAsus">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="brandAsus">
 <div class="service-price-content">
 <div class="service-sublist">
 <div class="service-sublist-block">
@@ -591,7 +591,7 @@
 <span class="service-price-title">Google Pixel</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="brandGooglePixel">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="brandGooglePixel">
 <div class="service-price-content">
 <div class="service-sublist">
 <div class="service-sublist-block">
@@ -631,7 +631,7 @@
 <span class="service-price-title">Huawei</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="brandHuawei">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="brandHuawei">
 <div class="service-price-content">
 <div class="service-sublist">
 <div class="service-sublist-block">

@@ -35,7 +35,7 @@
 
 @include('partials.pricelist-cards', ['activeService' => 'iwatch'])
 
-<div class="service-pricelist-accordion">
+<div class="service-pricelist-accordion" id="servicePricelistAccordion">
 <div class="service-price-item">
 <button class="service-price-trigger" type="button" data-bs-toggle="collapse" data-bs-target="#priceLcdIwatch" aria-expanded="false" aria-controls="priceLcdIwatch">
 <span class="service-price-icon">
@@ -44,7 +44,7 @@
 <span class="service-price-title">{{ __('site.pricelist.iwatch.lcd') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="priceLcdIwatch">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="priceLcdIwatch">
 <div class="service-price-content">
 @include('partials.pricelist-table', ['table' => $priceTables['iwatch-lcd'] ?? null])
 </div>
@@ -59,7 +59,7 @@
 <span class="service-price-title">{{ __('site.pricelist.iwatch.battery') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="priceBatteryIwatch">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="priceBatteryIwatch">
 <div class="service-price-content">
 @include('partials.pricelist-table', ['table' => $priceTables['iwatch-battery'] ?? null])
 </div>

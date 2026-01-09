@@ -234,7 +234,7 @@ return [
         'warranty_modal_claim_title' => 'Syarat Klaim Garansi :',
         'warranty_modal_claim_points' => [
             'Wajib menunjukkan nota service kepada admin dan akan dicek kembali oleh teknisi kami. Jika bukan kesalahan yang disebutkan di atas, proses klaim garansi akan diproses dan diinformasikan jika unit sudah dapat diambil.',
-            'Biaya klaim garansi service minimal Rp 100.000 adalah biaya jasa pasang part baru dan berlaku selama masa garansi.',
+            'Untuk biaya Klaim Garansi Service minimal ( Rp.100.000, ) adalah biaya jasa pasang part baru, dan berlaku selama masa garansi di hitung sejak 1 Minggu pertama free klaim dan Minggu ke 2 akan di kenakan biaya pasang. dan untuk Garansi 2 Bulan sampai 12 Bulan Free Klaim garansi di 1 bulan pertama, untuk bulan ke 2 di kenakan biaya Pasang.',
             'Garansi ganti part baru berlaku jika bukan dari kesalahan penggunaan, masa garansi service masih berlaku sejak unit diserahkan, dan wajib menunjukkan invoice pembayaran yang sah saat proses klaim garansi.',
         ],
         'warranty_modal_note' => 'Jika butuh info lebih lanjut, silakan hubungi admin.',

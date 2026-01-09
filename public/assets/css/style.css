@@ -4988,6 +4988,29 @@ html[data-theme="dark"] body.fixmi-home-page .fixmi-offcanvas-nav .nav-link:focu
   color: #ffb870;
 }
 
+html[data-theme="dark"] body.fixmi-home-page .fixmi-offcanvas-nav .btn-close {
+  filter: invert(1);
+  opacity: 0.85;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .fixmi-offcanvas-nav .btn-close:hover,
+html[data-theme="dark"] body.fixmi-home-page .fixmi-offcanvas-nav .btn-close:focus {
+  opacity: 1;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .fixmi-offcanvas-contact-btn {
+  background-color: #ffb870;
+  color: #0f1115;
+  box-shadow: 0 12px 22px rgba(242, 106, 33, 0.28);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .fixmi-offcanvas-contact-btn:hover,
+html[data-theme="dark"] body.fixmi-home-page .fixmi-offcanvas-contact-btn:focus {
+  background-color: #ff9a59;
+  color: #0f1115;
+  filter: none;
+}
+
 html[data-theme="dark"] body.fixmi-home-page .fixmi-sticky-cta {
   background: rgba(18, 24, 38, 0.92);
   border-top-color: #253041;
@@ -5179,6 +5202,107 @@ html[data-theme="dark"] body.fixmi-home-page .contact-section .map-card {
 
 html[data-theme="dark"] body.fixmi-home-page .contact-section .map-card iframe {
   border-color: #253041 !important;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder-title,
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder-heading,
+html[data-theme="dark"] body.fixmi-home-page .contact-section .footer-social-title {
+  color: #f8fafc;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-contact-item,
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-hours,
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-note,
+html[data-theme="dark"] body.fixmi-home-page .contact-section .footer-copy {
+  color: #a3b0c2;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-contact-item a:hover,
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-contact-item a:focus {
+  color: #f8fafc;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn::after {
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.35) 48%,
+    transparent 80%
+  );
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn-danger {
+  background: linear-gradient(120deg, #f26a21, #ff8f43, #ff7c34);
+  background-size: 140% 140%;
+  background-position: 0% 50%;
+  border-color: #f26a21;
+  color: #0f1115;
+  box-shadow: 0 16px 30px rgba(242, 106, 33, 0.28);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn-danger:hover,
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn-danger:focus-visible {
+  background-position: 100% 50%;
+  border-color: #ff9a59;
+  color: #0f1115;
+  box-shadow: 0 18px 34px rgba(242, 106, 33, 0.32);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn-danger:active {
+  background: #d95510;
+  border-color: #d95510;
+  color: #0f1115;
+  box-shadow: 0 12px 20px rgba(242, 106, 33, 0.24);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn-outline-danger {
+  background-color: #141a23;
+  border-color: #2a3442;
+  color: #ffb870;
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn-outline-danger:hover,
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn-outline-danger:focus-visible {
+  background-color: #1c2633;
+  border-color: #ffb870;
+  color: #f8fafc;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn-outline-danger:active {
+  background-color: #ff8f43;
+  border-color: #ff8f43;
+  color: #0f1115;
+  box-shadow: 0 12px 20px rgba(242, 106, 33, 0.25);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .footer-social-link:hover,
+html[data-theme="dark"] body.fixmi-home-page .contact-section .footer-social-link:focus-visible {
+  border-color: rgba(255, 184, 112, 0.6);
+  background-color: #1b2430;
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .footer-social-link:hover .footer-social-icon {
+  filter: drop-shadow(0 6px 14px rgba(255, 184, 112, 0.35));
+  transform: translateY(-2px) scale(1.05);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-section .footer-social-link:active {
+  background-color: #141a23;
+  border-color: #253041;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .fixmi-warranty-modal .btn-close {
+  filter: invert(1);
+  opacity: 0.85;
+}
+
+html[data-theme="dark"] .fixmi-warranty-modal .btn-close:hover,
+html[data-theme="dark"] .fixmi-warranty-modal .btn-close:focus-visible {
+  opacity: 1;
 }
 
 html[data-theme="dark"] .gallery-card,

@@ -140,7 +140,7 @@ class CurrencyFormatter
                 return $value;
             }
 
-            return 'Rp.'.number_format((float) round($amount), 0, ',', '.');
+            return 'Rp. '.number_format((float) round($amount), 0, ',', '.');
         }
 
         $amount = self::parseIdr($value);
@@ -148,6 +148,6 @@ class CurrencyFormatter
             return $value;
         }
 
-        return 'Rp.'.number_format((float) round($amount), 0, ',', '.');
+        return 'Rp. '.number_format((float) round($amount), 0, ',', '.');
     }
 }

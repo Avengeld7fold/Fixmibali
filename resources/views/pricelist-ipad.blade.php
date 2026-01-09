@@ -35,7 +35,7 @@
 
 @include('partials.pricelist-cards', ['activeService' => 'ipad'])
 
-<div class="service-pricelist-accordion">
+<div class="service-pricelist-accordion" id="servicePricelistAccordion">
 <div class="service-price-item">
 <button class="service-price-trigger" type="button" data-bs-toggle="collapse" data-bs-target="#priceLcdReplacementIpad" aria-expanded="false" aria-controls="priceLcdReplacementIpad">
 <span class="service-price-icon">
@@ -44,7 +44,7 @@
 <span class="service-price-title">{{ __('site.pricelist.ipad.lcd') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="priceLcdReplacementIpad">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="priceLcdReplacementIpad">
 <div class="service-price-content">
 @include('partials.pricelist-table', ['table' => $priceTables['ipad-lcd'] ?? null])
 </div>
@@ -59,7 +59,7 @@
 <span class="service-price-title">{{ __('site.pricelist.ipad.touchscreen') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="priceTouchscreenIpad">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="priceTouchscreenIpad">
 <div class="service-price-content">
 @include('partials.pricelist-table', ['table' => $priceTables['ipad-touchscreen'] ?? null])
 </div>
@@ -74,7 +74,7 @@
 <span class="service-price-title">{{ __('site.pricelist.ipad.battery') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="priceBatteryIpad">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="priceBatteryIpad">
 <div class="service-price-content">
 @include('partials.pricelist-table', ['table' => $priceTables['ipad-battery'] ?? null])
 </div>
@@ -89,7 +89,7 @@
 <span class="service-price-title">{{ __('site.pricelist.ipad.charger') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="priceFlexChargerIpad">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="priceFlexChargerIpad">
 <div class="service-price-content">
 @include('partials.pricelist-table', ['table' => $priceTables['ipad-flex-charger'] ?? null])
 </div>
@@ -104,7 +104,7 @@
 <span class="service-price-title">{{ __('site.pricelist.ipad.onoff') }}</span>
 <span class="service-price-toggle">+</span>
 </button>
-<div class="collapse service-price-body" id="priceFlexOnOffIpad">
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="priceFlexOnOffIpad">
 <div class="service-price-content">
 @include('partials.pricelist-table', ['table' => $priceTables['ipad-flex-onoff'] ?? null])
 </div>

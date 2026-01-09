@@ -4,6 +4,21 @@ document.addEventListener("DOMContentLoaded", function () {
   var themeToggle = document.getElementById("themeToggle");
   var themeRoot = document.documentElement;
 
+  var updateThemeLogos = function (theme) {
+    var logos = document.querySelectorAll("[data-logo-light][data-logo-dark]");
+    if (!logos.length) {
+      return;
+    }
+    logos.forEach(function (logo) {
+      var lightSrc = logo.getAttribute("data-logo-light");
+      var darkSrc = logo.getAttribute("data-logo-dark");
+      var nextSrc = theme === "dark" ? darkSrc : lightSrc;
+      if (nextSrc && logo.getAttribute("src") !== nextSrc) {
+        logo.setAttribute("src", nextSrc);
+      }
+    });
+  };
+
   var applyTheme = function (theme) {
     if (theme === "dark") {
       themeRoot.setAttribute("data-theme", "dark");
@@ -19,6 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
         isDark ? "Switch to light mode" : "Switch to dark mode"
       );
     }
+
+    updateThemeLogos(theme);
   };
 
   var storedTheme = null;
