@@ -18,6 +18,10 @@ class CurrencyFormatter
             return $raw;
         }
 
+        if (preg_match('/[a-z]/i', $raw) && ! preg_match('/(\$|\busd\b|\bidr\b|\brp\b)/i', $raw)) {
+            return $value;
+        }
+
         $locale = app()->getLocale();
         if ($locale === 'en') {
             return self::formatUsd($raw);

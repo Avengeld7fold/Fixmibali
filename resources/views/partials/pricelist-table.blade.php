@@ -69,8 +69,21 @@
             return false;
         }
 
-        if (preg_match('/(\$|\busd\b|\bidr\b|\brp\b)/i', $raw)) {
+        $hasCurrency = preg_match('/(\$|\busd\b|\bidr\b|\brp\b)/i', $raw);
+        if ($hasCurrency) {
             return true;
+        }
+
+        if (preg_match('/[a-z]/i', $raw)) {
+            return false;
+        }
+
+        $hasSeparator = str_contains($raw, '.') || str_contains($raw, ',');
+        if (! $hasSeparator) {
+            $digits = preg_replace('/\D/', '', $raw);
+            if ($digits === '' || strlen($digits) < 5) {
+                return false;
+            }
         }
 
         $n = $parseCandidateNumber($raw);
