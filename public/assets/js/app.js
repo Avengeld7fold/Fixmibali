@@ -124,7 +124,10 @@ document.addEventListener("DOMContentLoaded", function () {
       langModal.getAttribute("data-cookie") || "fixmi_locale";
     var actionBase = langModal.getAttribute("data-action") || "/set-locale";
     var promptKey = "fixmi_locale_prompted_at";
-    var promptTtlMs = 5 * 60 * 1000;
+    var promptTtlMs = 24 * 60 * 60 * 1000;
+    var getLangNow = function () {
+      return Date.now ? Date.now() : new Date().getTime();
+    };
 
     var getCookieValue = function (name) {
       var match = document.cookie.match(
@@ -137,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
       getCookieValue(cookieName) || localStorage.getItem("fixmi_locale");
     var lastPromptRaw = localStorage.getItem(promptKey);
     var lastPromptAt = lastPromptRaw ? parseInt(lastPromptRaw, 10) : 0;
-    var nowMs = Date.now ? Date.now() : new Date().getTime();
+    var nowMs = getLangNow();
     var promptExpired =
       !lastPromptAt || isNaN(lastPromptAt) || nowMs - lastPromptAt >= promptTtlMs;
 
@@ -157,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         try {
           localStorage.setItem("fixmi_locale", locale);
-          localStorage.setItem(promptKey, String(nowMs));
+          localStorage.setItem(promptKey, String(getLangNow()));
         } catch (e) {}
 
         button.classList.add("is-selected");
@@ -1055,49 +1058,9 @@ document.addEventListener("DOMContentLoaded", function () {
         return "";
       }
       var clone = cell.cloneNode(true);
-      var badges = clone.querySelector(".service-price-badges");
-      if (badges) {
-        badges.remove();
-      }
       return String(clone.textContent || "")
         .replace(/\s+/g, " ")
         .trim();
-    };
-
-    var copyText = function (text) {
-      var payload = String(text || "");
-      if (!payload) {
-        return Promise.resolve(false);
-      }
-      if (navigator.clipboard && window.isSecureContext) {
-        return navigator.clipboard.writeText(payload).then(
-          function () {
-            return true;
-          },
-          function () {
-            return false;
-          }
-        );
-      }
-
-      return new Promise(function (resolve) {
-        var textarea = document.createElement("textarea");
-        textarea.value = payload;
-        textarea.setAttribute("readonly", "readonly");
-        textarea.style.position = "fixed";
-        textarea.style.top = "-1000px";
-        textarea.style.left = "-1000px";
-        document.body.appendChild(textarea);
-        textarea.select();
-        var ok = false;
-        try {
-          ok = document.execCommand("copy");
-        } catch (e) {
-          ok = false;
-        }
-        document.body.removeChild(textarea);
-        resolve(!!ok);
-      });
     };
 
     shells.forEach(function (shell) {
@@ -1112,10 +1075,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       var searchEl = shell.querySelector('[data-pricelist-search="' + instanceId + '"]');
-      var filterEl = shell.querySelector('[data-pricelist-filter="' + instanceId + '"]');
-      var clearEl = shell.querySelector('[data-pricelist-clear="' + instanceId + '"]');
-      var copyEl = shell.querySelector('[data-pricelist-copy="' + instanceId + '"]');
-      var countEl = shell.querySelector('[data-pricelist-count="' + instanceId + '"]');
 
       var tbody = table.tBodies[0];
       var rows = Array.prototype.slice.call(tbody.rows || []);
@@ -1130,27 +1089,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       var applyFilters = function () {
         var q = searchEl ? normalize(searchEl.value) : "";
-        var tag = filterEl ? normalize(filterEl.value) : "";
-        var visible = 0;
 
         rows.forEach(function (row) {
           var ok = true;
           if (q) {
             ok = row.__fixmiSearch && row.__fixmiSearch.indexOf(q) !== -1;
           }
-          if (ok && tag) {
-            var tagsRaw = normalize(row.getAttribute("data-tags"));
-            ok = tagsRaw.split(",").indexOf(tag) !== -1;
-          }
           row.style.display = ok ? "" : "none";
-          if (ok) {
-            visible += 1;
-          }
         });
-
-        if (countEl) {
-          countEl.textContent = visible + "/" + rows.length;
-        }
       };
 
       var setSort = function (colIndex) {
@@ -1204,58 +1150,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (searchEl) {
         searchEl.addEventListener("input", applyFilters);
-      }
-      if (filterEl) {
-        filterEl.addEventListener("change", applyFilters);
-      }
-      if (clearEl) {
-        clearEl.addEventListener("click", function () {
-          if (searchEl) {
-            searchEl.value = "";
-          }
-          if (filterEl) {
-            filterEl.value = "";
-          }
-          applyFilters();
-        });
-      }
-
-      if (copyEl) {
-        copyEl.addEventListener("click", function () {
-          var headerTexts = Array.prototype.slice
-            .call(table.querySelectorAll("thead th"))
-            .map(function (th) {
-              return String(th.textContent || "")
-                .replace(/\s+/g, " ")
-                .trim();
-            });
-
-          var lines = [];
-          if (headerTexts.length) {
-            lines.push(headerTexts.join("\t"));
-          }
-
-          rows.forEach(function (row) {
-            if (row.style.display === "none") {
-              return;
-            }
-            var values = Array.prototype.slice.call(row.querySelectorAll("td")).map(function (td) {
-              return getCellText(td).replace(/\t/g, " ").trim();
-            });
-            lines.push(values.join("\t"));
-          });
-
-          var labelDefault = copyEl.getAttribute("data-label-default") || copyEl.textContent;
-          var labelCopied = copyEl.getAttribute("data-label-copied") || "Copied";
-          var labelFailed = copyEl.getAttribute("data-label-failed") || "Copy failed";
-          var original = labelDefault;
-          copyText(lines.join("\n")).then(function (ok) {
-            copyEl.textContent = ok ? labelCopied : labelFailed;
-            setTimeout(function () {
-              copyEl.textContent = original;
-            }, 1000);
-          });
-        });
       }
 
       shell.querySelectorAll('[data-pricelist-sort="' + instanceId + '"]').forEach(function (btn) {

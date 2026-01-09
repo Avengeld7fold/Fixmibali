@@ -209,7 +209,7 @@ return [
     'gallery' => [
         'page_title' => 'Gallery Repair - FIXMI Bali',
         'title' => 'Gallery Repair',
-        'subtitle' => 'A gallery of repair results uploaded from the admin dashboard.',
+        'subtitle' => 'Here is the result of the Fixmi Bali Repair.',
         'empty' => 'No images available yet.',
     ],
     'pricelist' => [
@@ -224,12 +224,18 @@ return [
         'section_pill_title' => 'Service Warranty Terms',
         'section_pill_cta' => 'Click for details',
         'warranty_modal_title' => 'Service Warranty Terms',
-        'warranty_modal_intro' => 'Warranty terms follow the service type and parts used.',
+        'warranty_modal_intro' => '',
         'warranty_modal_points' => [
-            'Warranty period is shared before service starts.',
-            'Warranty applies to the same issue within the warranty period.',
-            'Damage caused by impact or liquid is not covered.',
-            'Warranty claims require the service receipt.',
+            'LCD warranty covers LCD blank, ghost touch, or unresponsive touch.',
+            'Warranty is void if the LCD is cracked, exposed to water, the panel is damaged, or the seal is broken.',
+            'Battery warranty covers swollen battery, drop, or fast drain.',
+            'Warranty applies to flexible charger parts and other parts listed in the pricelist.',
+        ],
+        'warranty_modal_claim_title' => 'Warranty Claim Requirements :',
+        'warranty_modal_claim_points' => [
+            'You must show the service receipt to the admin for a recheck by our technician. If it is not caused by the issues above, the warranty claim will be processed and you will be informed when the unit is ready for pickup.',
+            'Minimum warranty claim service fee is Rp 100.000 for the installation of a new part and applies during the warranty period.',
+            'Replacement part warranty applies if it is not due to misuse, the service warranty period is still valid since the unit was handed over, and a valid payment invoice is required during the claim process.',
         ],
         'warranty_modal_note' => 'Contact our admin for more details.',
         'warranty_modal_cta' => 'Ask Admin',

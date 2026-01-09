@@ -3571,6 +3571,12 @@ body.fixmi-home-page .service-price-title {
   max-width: 560px;
 }
 
+@media (min-width: 992px) {
+  .fixmi-warranty-modal .modal-dialog {
+    max-width: 820px;
+  }
+}
+
 .fixmi-warranty-modal .modal-content {
   border-radius: 20px;
   border: 1px solid var(--admin-border, #eef1f6);
@@ -3641,6 +3647,7 @@ body.fixmi-home-page .service-price-title {
 
 .fixmi-warranty-modal .modal-body {
   padding: 1.2rem 1.6rem 1.4rem;
+  text-align: left;
 }
 
 .warranty-modal-list {
@@ -3649,6 +3656,12 @@ body.fixmi-home-page .service-price-title {
   margin: 0;
   display: grid;
   gap: 0.7rem;
+  text-align: left;
+}
+
+.warranty-modal-section-title {
+  text-align: center;
+  margin: 1rem 0 0.7rem;
 }
 
 .warranty-modal-list li {
@@ -3790,6 +3803,10 @@ body.fixmi-home-page .service-price-title {
   .warranty-modal-list li {
     font-size: 0.9rem;
     line-height: 1.35;
+  }
+
+  .warranty-modal-section-title {
+    margin-top: 0.8rem;
   }
 
   .warranty-modal-note-row {
@@ -4267,8 +4284,7 @@ body.fixmi-home-page .service-price-title {
   flex-wrap: wrap;
 }
 
-.service-price-table-search,
-.service-price-table-filter {
+.service-price-table-search {
   border: 1px solid #e1e6ee;
   background: #ffffff;
   color: #2f3b52;
@@ -4279,29 +4295,6 @@ body.fixmi-home-page .service-price-title {
 
 .service-price-table-search {
   min-width: min(340px, 70vw);
-}
-
-.service-price-table-clear,
-.service-price-table-copy {
-  border: 1px solid #e1e6ee;
-  background: #ffffff;
-  color: #2f3b52;
-  border-radius: 12px;
-  padding: 0.55rem 0.85rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.service-price-table-clear:hover,
-.service-price-table-copy:hover {
-  border-color: #ffd8b5;
-  background: #fffaf5;
-}
-
-.service-price-table-count {
-  color: #7c889b;
-  font-size: 0.85rem;
-  font-weight: 600;
 }
 
 .service-price-sort-btn {
@@ -4489,22 +4482,12 @@ body.fixmi-home-page .service-price-title {
     display: contents;
   }
 
-  .service-price-table-search,
-  .service-price-table-filter {
+  .service-price-table-search {
     grid-column: 1 / -1;
     width: 100%;
     min-width: 0;
   }
 
-  .service-price-table-clear,
-  .service-price-table-copy {
-    width: 100%;
-  }
-
-  .service-price-table-count {
-    grid-column: 1 / -1;
-    text-align: right;
-  }
 }
 
 @media (max-width: 991.98px) {
@@ -5375,34 +5358,16 @@ html[data-theme="dark"] .service-card.is-active {
   box-shadow: 0 18px 36px rgba(242, 106, 33, 0.18);
 }
 
-html[data-theme="dark"] .service-price-table-search,
-html[data-theme="dark"] .service-price-table-filter,
-html[data-theme="dark"] .service-price-table-clear,
-html[data-theme="dark"] .service-price-table-copy {
+html[data-theme="dark"] .service-price-table-search {
   background: #141a23;
   border-color: #253041;
   color: #e6edf3;
-}
-
-html[data-theme="dark"] .service-price-table-clear:hover,
-html[data-theme="dark"] .service-price-table-copy:hover {
-  background: #1b2430;
-  border-color: #ffb870;
-}
-
-html[data-theme="dark"] .service-price-table-count {
-  color: #a3b0c2;
 }
 
 html[data-theme="dark"] .service-price-sort-indicator {
   color: #a3b0c2;
 }
 
-html[data-theme="dark"] .service-price-badge {
-  background: #1b2532;
-  border-color: #2a3442;
-  color: #ffb870;
-}
 
 html[data-theme="dark"] .service-price-empty {
   color: #a3b0c2;

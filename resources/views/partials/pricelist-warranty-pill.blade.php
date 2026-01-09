@@ -1,5 +1,12 @@
 @php
-    $warrantyPoints = (array) __('site.pricelist.warranty_modal_points');
+    $warrantyIntro = __('site.pricelist.warranty_modal_intro');
+    $warrantyIntro = is_string($warrantyIntro) ? trim($warrantyIntro) : '';
+    $warrantyPointsRaw = __('site.pricelist.warranty_modal_points');
+    $warrantyPoints = is_array($warrantyPointsRaw) ? $warrantyPointsRaw : [];
+    $warrantyClaimTitle = __('site.pricelist.warranty_modal_claim_title');
+    $warrantyClaimTitle = is_string($warrantyClaimTitle) ? trim($warrantyClaimTitle) : '';
+    $warrantyClaimPointsRaw = __('site.pricelist.warranty_modal_claim_points');
+    $warrantyClaimPoints = is_array($warrantyClaimPointsRaw) ? $warrantyClaimPointsRaw : [];
     $whatsAppNumber = $whatsAppNumber ?? '628873183122';
     $whatsAppText = $whatsAppText ?? rawurlencode(__('site.whatsapp.default_message'));
     $whatsAppLink = $whatsAppLink ?? "https://wa.me/{$whatsAppNumber}?text={$whatsAppText}";
@@ -19,7 +26,9 @@
                     <span class="warranty-modal-icon" aria-hidden="true"><i class="bi bi-shield-check"></i></span>
                     <div>
                         <h5 class="modal-title" id="warrantyModalLabel">{{ __('site.pricelist.warranty_modal_title') }}</h5>
-                        <p class="warranty-modal-subtitle">{{ __('site.pricelist.warranty_modal_intro') }}</p>
+                        @if ($warrantyIntro !== '')
+                            <p class="warranty-modal-subtitle">{{ $warrantyIntro }}</p>
+                        @endif
                     </div>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('site.popup.close') }}"></button>
@@ -28,6 +37,16 @@
                 @if (!empty($warrantyPoints))
                     <ul class="warranty-modal-list">
                         @foreach ($warrantyPoints as $point)
+                            <li>{{ $point }}</li>
+                        @endforeach
+                    </ul>
+                @endif
+                @if ($warrantyClaimTitle !== '')
+                    <h6 class="modal-title warranty-modal-section-title">{{ $warrantyClaimTitle }}</h6>
+                @endif
+                @if (!empty($warrantyClaimPoints))
+                    <ul class="warranty-modal-list">
+                        @foreach ($warrantyClaimPoints as $point)
                             <li>{{ $point }}</li>
                         @endforeach
                     </ul>
