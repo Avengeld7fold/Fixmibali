@@ -3,9 +3,11 @@
 use App\Http\Controllers\Admin\GalleryRepairController as AdminGalleryRepairController;
 use App\Http\Controllers\Admin\PricelistImportController;
 use App\Http\Controllers\Admin\PricelistManagerController;
+use App\Http\Controllers\Admin\PromoController as AdminPromoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GalleryRepairController;
 use App\Http\Controllers\PricelistController;
+use App\Http\Controllers\PromoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -34,10 +36,7 @@ Route::get('/pricelist/ipad', [PricelistController::class, 'showIpad'])->name('p
 Route::get('/pricelist/macbook', [PricelistController::class, 'showMacbook'])->name('pricelist.macbook');
 Route::get('/pricelist/iwatch', [PricelistController::class, 'showIwatch'])->name('pricelist.iwatch');
 Route::get('/pricelist/android', [PricelistController::class, 'showAndroid'])->name('pricelist.android');
-Route::view('/promo', 'placeholder', [
-    'title_key' => 'site.placeholder.promo_title',
-    'description_key' => 'site.placeholder.promo_desc',
-])->name('promo');
+Route::get('/promo', [PromoController::class, 'index'])->name('promo');
 Route::get('/gallery', [GalleryRepairController::class, 'index'])->name('gallery');
 Route::view('/contact', 'placeholder', [
     'title_key' => 'site.placeholder.contact_title',
@@ -57,6 +56,9 @@ Route::get('/dashboard/pricelist', [PricelistManagerController::class, 'index'])
 Route::get('/dashboard/gallery', [AdminGalleryRepairController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('admin.gallery.index');
+Route::get('/dashboard/promo', [AdminPromoController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('admin.promo.index');
 Route::post('/gallery/view/{filename}', [GalleryRepairController::class, 'trackView'])
     ->name('gallery.view');
 Route::middleware('auth')->group(function () {
@@ -84,6 +86,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/dashboard/gallery/{filename}', [AdminGalleryRepairController::class, 'destroy'])
         ->middleware(['verified'])
         ->name('admin.gallery.destroy');
+    Route::post('/dashboard/promo', [AdminPromoController::class, 'store'])
+        ->middleware(['verified'])
+        ->name('admin.promo.store');
+    Route::post('/dashboard/promo/temp', [AdminPromoController::class, 'storeTemp'])
+        ->middleware(['verified'])
+        ->name('admin.promo.temp');
+    Route::post('/dashboard/promo/temp/clear', [AdminPromoController::class, 'clearTemp'])
+        ->middleware(['verified'])
+        ->name('admin.promo.temp.clear');
+    Route::post('/dashboard/promo/commit', [AdminPromoController::class, 'commitTemp'])
+        ->middleware(['verified'])
+        ->name('admin.promo.commit');
+    Route::delete('/dashboard/promo/{filename}', [AdminPromoController::class, 'destroy'])
+        ->middleware(['verified'])
+        ->name('admin.promo.destroy');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

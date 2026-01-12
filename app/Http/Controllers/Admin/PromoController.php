@@ -1,0 +1,267 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\View\View;
+
+class PromoController extends Controller
+{
+    private const DISK = 'public';
+
+    private const DIRECTORY = 'promo';
+
+    private const TEMP_DISK = 'local';
+
+    private const TEMP_DIRECTORY = 'tmp/promo';
+
+    private const TEMP_SESSION_KEY = 'promo_temp';
+
+    public function index(): View
+    {
+        return view('admin.promo', [
+            'images' => $this->listImages(),
+        ]);
+    }
+
+    public function store(Request $request): RedirectResponse|JsonResponse
+    {
+        $validated = $request->validate([
+            'images' => ['required', 'array', 'min:1'],
+            'images.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
+        ]);
+
+        $disk = Storage::disk(self::DISK);
+
+        foreach ($validated['images'] as $file) {
+            $extension = strtolower($file->getClientOriginalExtension() ?: $file->guessExtension() ?: '');
+            if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'], true)) {
+                continue;
+            }
+
+            $filename = Str::uuid()->toString().'.'.$extension;
+            $disk->putFileAs(self::DIRECTORY, $file, $filename);
+        }
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'ok' => true,
+            ]);
+        }
+
+        return redirect()
+            ->route('admin.promo.index')
+            ->with('status', 'Gambar promo berhasil diupload.');
+    }
+
+    public function storeTemp(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'images' => ['required', 'array', 'min:1'],
+            'images.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
+        ]);
+
+        $disk = Storage::disk(self::TEMP_DISK);
+        $map = $request->session()->get(self::TEMP_SESSION_KEY, []);
+        if (! is_array($map)) {
+            $map = [];
+        }
+
+        $items = [];
+        foreach ($validated['images'] as $file) {
+            $extension = strtolower($file->getClientOriginalExtension() ?: $file->guessExtension() ?: '');
+            if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'], true)) {
+                continue;
+            }
+
+            $token = Str::uuid()->toString();
+            $tempFilename = $token.'.'.$extension;
+            $path = self::TEMP_DIRECTORY.'/'.$tempFilename;
+            $disk->putFileAs(self::TEMP_DIRECTORY, $file, $tempFilename);
+
+            $map[$token] = [
+                'path' => $path,
+                'original_name' => $file->getClientOriginalName(),
+            ];
+
+            $items[] = [
+                'token' => $token,
+            ];
+        }
+
+        $request->session()->put(self::TEMP_SESSION_KEY, $map);
+
+        return response()->json([
+            'ok' => true,
+            'items' => $items,
+        ]);
+    }
+
+    public function commitTemp(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'tokens' => ['required', 'array', 'min:1'],
+            'tokens.*' => ['string'],
+        ]);
+
+        $map = $request->session()->get(self::TEMP_SESSION_KEY, []);
+        if (! is_array($map)) {
+            $map = [];
+        }
+
+        $tokens = $validated['tokens'];
+        foreach ($tokens as $token) {
+            if (! isset($map[$token]['path']) || ! is_string($map[$token]['path'])) {
+                return response()->json([
+                    'ok' => false,
+                    'message' => 'Upload sementara tidak ditemukan. Refresh halaman lalu coba lagi.',
+                ], 422);
+            }
+        }
+
+        $tempDisk = Storage::disk(self::TEMP_DISK);
+        $publicDisk = Storage::disk(self::DISK);
+        $moved = 0;
+
+        foreach ($tokens as $token) {
+            $path = $map[$token]['path'];
+            if (! $tempDisk->exists($path)) {
+                unset($map[$token]);
+
+                continue;
+            }
+
+            $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+            if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'], true)) {
+                $tempDisk->delete($path);
+                unset($map[$token]);
+
+                continue;
+            }
+
+            $finalFilename = Str::uuid()->toString().'.'.$extension;
+            $finalPath = self::DIRECTORY.'/'.$finalFilename;
+
+            $stream = $tempDisk->readStream($path);
+            if ($stream === false) {
+                continue;
+            }
+
+            $publicDisk->put($finalPath, $stream);
+            if (is_resource($stream)) {
+                fclose($stream);
+            }
+
+            $tempDisk->delete($path);
+            unset($map[$token]);
+            $moved += 1;
+        }
+
+        $request->session()->put(self::TEMP_SESSION_KEY, $map);
+
+        return response()->json([
+            'ok' => true,
+            'moved' => $moved,
+        ]);
+    }
+
+    public function clearTemp(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'tokens' => ['nullable', 'array'],
+            'tokens.*' => ['string'],
+        ]);
+
+        $map = $request->session()->get(self::TEMP_SESSION_KEY, []);
+        if (! is_array($map)) {
+            $map = [];
+        }
+
+        $tokens = $validated['tokens'] ?? array_keys($map);
+        $tempDisk = Storage::disk(self::TEMP_DISK);
+        $deleted = 0;
+
+        foreach ($tokens as $token) {
+            if (! isset($map[$token]['path']) || ! is_string($map[$token]['path'])) {
+                continue;
+            }
+
+            $path = $map[$token]['path'];
+            if ($tempDisk->exists($path)) {
+                $tempDisk->delete($path);
+                $deleted += 1;
+            }
+
+            unset($map[$token]);
+        }
+
+        $request->session()->put(self::TEMP_SESSION_KEY, $map);
+
+        return response()->json([
+            'ok' => true,
+            'deleted' => $deleted,
+        ]);
+    }
+
+    public function destroy(string $filename): RedirectResponse
+    {
+        if (! $this->isSafeFilename($filename)) {
+            abort(404);
+        }
+
+        $path = self::DIRECTORY.'/'.$filename;
+        $disk = Storage::disk(self::DISK);
+
+        if ($disk->exists($path)) {
+            $disk->delete($path);
+        }
+
+        return redirect()
+            ->route('admin.promo.index')
+            ->with('status', 'Gambar promo berhasil dihapus.');
+    }
+
+    private function listImages(): array
+    {
+        $disk = Storage::disk(self::DISK);
+        $paths = $disk->files(self::DIRECTORY);
+
+        $images = [];
+        foreach ($paths as $path) {
+            $filename = basename($path);
+            if (! $this->isSafeFilename($filename)) {
+                continue;
+            }
+
+            $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+            if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp'], true)) {
+                continue;
+            }
+
+            $images[] = [
+                'filename' => $filename,
+                'path' => $path,
+                'url' => asset('storage/'.$path),
+                'last_modified' => $disk->lastModified($path),
+            ];
+        }
+
+        usort($images, fn (array $a, array $b) => $b['last_modified'] <=> $a['last_modified']);
+
+        return $images;
+    }
+
+    private function isSafeFilename(string $filename): bool
+    {
+        if ($filename === '' || $filename !== basename($filename)) {
+            return false;
+        }
+
+        return (bool) preg_match('/^[A-Za-z0-9._-]+$/', $filename);
+    }
+}

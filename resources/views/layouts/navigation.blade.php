@@ -2,6 +2,7 @@
     $dashboardActive = request()->routeIs('dashboard');
     $pricelistActive = request()->routeIs('admin.pricelist.*');
     $galleryActive = request()->routeIs('admin.gallery.*');
+    $promoActive = request()->routeIs('admin.promo.*');
 @endphp
 
 <div
@@ -56,6 +57,14 @@
                     <path d="M8 15l2-2 2 2 4-4 2 2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <span class="admin-link-label">Gallery Repair</span>
+            </a>
+            <a href="{{ route('admin.promo.index') }}" class="admin-link {{ $promoActive ? 'is-active' : '' }}" @click="sidebarOpen = false">
+                <svg class="admin-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M4 6a2 2 0 0 1 2-2h7l5 5v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M13 4v5h5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M8 15h8M8 11h4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="admin-link-label">Promo</span>
             </a>
         </div>
 

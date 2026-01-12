@@ -212,6 +212,23 @@ return [
         'subtitle' => 'Here is the result of the Fixmi Bali Repair.',
         'empty' => 'No images available yet.',
     ],
+    'promo' => [
+        'page_title' => 'Promo - FIXMI Bali',
+        'title' => 'Latest Promos',
+        'subtitle' => 'Browse the latest promo posters from Fixmi Bali. Click to enlarge.',
+        'empty' => 'No promos available yet.',
+        'image_alt' => 'Promo poster :name',
+        'how_title' => 'How to Claim the Promo',
+        'how_subtitle' => 'Follow these quick steps to activate the promo.',
+        'steps' => [
+            'pick_title' => 'Pick a Poster',
+            'pick_desc' => 'Click the promo poster and read the details.',
+            'chat_title' => 'Chat the Admin',
+            'chat_desc' => 'Share the poster via WhatsApp/Instagram for confirmation.',
+            'claim_title' => 'Show at the Store',
+            'claim_desc' => 'Show the poster when you arrive so the promo applies.',
+        ],
+    ],
     'pricelist' => [
         'page_title' => 'Pricelist - FIXMI Bali',
         'page_title_ipad' => 'Pricelist iPad - FIXMI Bali',

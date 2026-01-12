@@ -212,6 +212,23 @@ return [
         'subtitle' => 'Berikut ini adalah hasil perbaikan Fixmi Bali.',
         'empty' => 'Belum ada gambar yang ditampilkan.',
     ],
+    'promo' => [
+        'page_title' => 'Promo - FIXMI Bali',
+        'title' => 'Promo Terbaru',
+        'subtitle' => 'Lihat poster promo terbaru Fixmi Bali. Klik untuk memperbesar.',
+        'empty' => 'Belum ada promo yang ditampilkan.',
+        'image_alt' => 'Poster promo :name',
+        'how_title' => 'Cara Klaim Promo',
+        'how_subtitle' => 'Ikuti langkah mudah berikut supaya promo langsung aktif.',
+        'steps' => [
+            'pick_title' => 'Pilih Poster',
+            'pick_desc' => 'Klik poster promo yang kamu mau dan lihat detailnya.',
+            'chat_title' => 'Chat Admin',
+            'chat_desc' => 'Bagikan poster ke admin lewat WhatsApp/Instagram untuk konfirmasi.',
+            'claim_title' => 'Tunjukkan di Toko',
+            'claim_desc' => 'Tunjukkan poster saat datang agar promo bisa digunakan.',
+        ],
+    ],
     'pricelist' => [
         'page_title' => 'Pricelist - FIXMI Bali',
         'page_title_ipad' => 'Pricelist iPad - FIXMI Bali',

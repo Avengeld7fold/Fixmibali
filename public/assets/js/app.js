@@ -1183,5 +1183,98 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
+  var initPromoMagnet = function () {
+    var cards = document.querySelectorAll(".promo-card");
+    if (!cards.length) {
+      return;
+    }
+
+    var maxShift = 12;
+    var jiggleMin = 1.4;
+    var jiggleMax = 3.6;
+    var jiggleRotMax = 1.2;
+
+    var clamp = function (value, min, max) {
+      return Math.min(max, Math.max(min, value));
+    };
+
+    var randomizeSheen = function (card) {
+      var isReverse = Math.random() < 0.5;
+      card.style.setProperty("--promo-sheen-angle", isReverse ? "-115deg" : "115deg");
+      card.style.setProperty("--promo-sheen-start", isReverse ? "120%" : "-120%");
+      card.style.setProperty("--promo-sheen-end", isReverse ? "-120%" : "120%");
+      card.style.setProperty("--promo-sheen-skew", isReverse ? "12deg" : "-12deg");
+    };
+
+    var stopJiggle = function (card) {
+      card.__promoJiggleActive = false;
+      if (card.__promoJiggleTimer) {
+        window.clearTimeout(card.__promoJiggleTimer);
+        card.__promoJiggleTimer = null;
+      }
+      card.style.setProperty("--promo-jiggle-x", "0px");
+      card.style.setProperty("--promo-jiggle-y", "0px");
+      card.style.setProperty("--promo-jiggle-rot", "0deg");
+    };
+
+    var startJiggle = function (card) {
+      stopJiggle(card);
+      card.__promoJiggleActive = true;
+
+      var step = function () {
+        if (!card.__promoJiggleActive) {
+          return;
+        }
+
+        var amp = jiggleMin + Math.random() * (jiggleMax - jiggleMin);
+        var shiftX = (Math.random() * 2 - 1) * amp;
+        var shiftY = (Math.random() * 2 - 1) * amp;
+        var rot = (Math.random() * 2 - 1) * jiggleRotMax;
+
+        card.style.setProperty("--promo-jiggle-x", shiftX.toFixed(2) + "px");
+        card.style.setProperty("--promo-jiggle-y", shiftY.toFixed(2) + "px");
+        card.style.setProperty("--promo-jiggle-rot", rot.toFixed(2) + "deg");
+
+        card.__promoJiggleTimer = window.setTimeout(step, 60 + Math.random() * 80);
+      };
+
+      step();
+    };
+
+    cards.forEach(function (card) {
+      var setShift = function (x, y) {
+        card.style.setProperty("--promo-shift-x", x + "px");
+        card.style.setProperty("--promo-shift-y", y + "px");
+      };
+
+      card.addEventListener("mouseenter", function () {
+        randomizeSheen(card);
+        startJiggle(card);
+      });
+
+      card.addEventListener("mousemove", function (event) {
+        var rect = card.getBoundingClientRect();
+        if (!rect.width || !rect.height) {
+          return;
+        }
+
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+        var percentX = (x / rect.width) * 2 - 1;
+        var percentY = (y / rect.height) * 2 - 1;
+        var shiftX = clamp(percentX, -1, 1) * maxShift;
+        var shiftY = clamp(percentY, -1, 1) * maxShift;
+
+        setShift(shiftX.toFixed(2), shiftY.toFixed(2));
+      });
+
+      card.addEventListener("mouseleave", function () {
+        stopJiggle(card);
+        setShift(0, 0);
+      });
+    });
+  };
+
+  initPromoMagnet();
   initPricelistTables();
 });
