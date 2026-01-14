@@ -38,10 +38,7 @@ Route::get('/pricelist/iwatch', [PricelistController::class, 'showIwatch'])->nam
 Route::get('/pricelist/android', [PricelistController::class, 'showAndroid'])->name('pricelist.android');
 Route::get('/promo', [PromoController::class, 'index'])->name('promo');
 Route::get('/gallery', [GalleryRepairController::class, 'index'])->name('gallery');
-Route::view('/contact', 'placeholder', [
-    'title_key' => 'site.placeholder.contact_title',
-    'description_key' => 'site.placeholder.contact_desc',
-])->name('contact');
+Route::view('/contact', 'contact')->name('contact');
 Route::view('/about', 'placeholder', [
     'title_key' => 'site.placeholder.about_title',
     'description_key' => 'site.placeholder.about_desc',

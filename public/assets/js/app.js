@@ -1275,6 +1275,242 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
+  var initContactSteps = function () {
+    var form = document.querySelector(".contact-request-card");
+    if (!form) {
+      return;
+    }
+
+    var steps = form.querySelectorAll(".contact-step");
+    if (!steps.length) {
+      return;
+    }
+
+    var setStepState = function (step, isActive) {
+      step.classList.toggle("is-active", isActive);
+      var header = step.querySelector(".contact-step-header");
+      var body = step.querySelector(".contact-step-body");
+      if (header) {
+        header.setAttribute("aria-expanded", isActive ? "true" : "false");
+      }
+      if (body) {
+        body.setAttribute("aria-hidden", isActive ? "false" : "true");
+      }
+    };
+
+    steps.forEach(function (step) {
+      var header = step.querySelector(".contact-step-header");
+      var body = step.querySelector(".contact-step-body");
+      if (!header || !body) {
+        return;
+      }
+
+      header.setAttribute("role", "button");
+      header.setAttribute("tabindex", "0");
+      setStepState(step, step.classList.contains("is-active"));
+
+      var toggleStep = function () {
+        setStepState(step, !step.classList.contains("is-active"));
+      };
+
+      header.addEventListener("click", toggleStep);
+      header.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleStep();
+        }
+      });
+    });
+  };
+
+  var initContactQuickForm = function () {
+    var form = document.getElementById("contactQuickForm");
+    if (!form) {
+      return;
+    }
+
+    var number = String(form.getAttribute("data-whatsapp-number") || "").replace(/\D/g, "");
+    var prefix = form.getAttribute("data-message-prefix") || "";
+    var labelName = form.getAttribute("data-label-name") || "Nama";
+    var labelWhatsapp = form.getAttribute("data-label-whatsapp") || "WhatsApp";
+    var labelDevice = form.getAttribute("data-label-device") || "Device";
+    var labelModel = form.getAttribute("data-label-model") || "Model";
+    var labelIssue = form.getAttribute("data-label-issue") || "Keluhan";
+
+    var getInput = function (name) {
+      return form.querySelector('[name="' + name + '"]');
+    };
+
+    var nameInput = getInput("name");
+    var whatsappInput = getInput("whatsapp");
+    var modelInput = getInput("model");
+    var issueInput = getInput("issue");
+
+    var getDeviceInput = function () {
+      return form.querySelector('input[name="device"]:checked, input[name="device_type"]:checked');
+    };
+
+    var getDeviceValue = function () {
+      var input = getDeviceInput();
+      if (!input) {
+        return "";
+      }
+      var label = input.closest("label");
+      if (label) {
+        var labelText = label.querySelector(".device-label");
+        if (labelText && labelText.textContent.trim()) {
+          return labelText.textContent.trim();
+        }
+      }
+      return input.value ? input.value.trim() : "";
+    };
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (typeof form.checkValidity === "function" && !form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      if (!number) {
+        return;
+      }
+
+      var lines = [];
+      if (prefix) {
+        lines.push(prefix);
+      }
+
+      if (nameInput && nameInput.value.trim()) {
+        lines.push(labelName + ": " + nameInput.value.trim());
+      }
+      if (whatsappInput && whatsappInput.value.trim()) {
+        lines.push(labelWhatsapp + ": " + whatsappInput.value.trim());
+      }
+      var deviceValue = getDeviceValue();
+      if (deviceValue) {
+        lines.push(labelDevice + ": " + deviceValue);
+      }
+      if (modelInput && modelInput.value.trim()) {
+        lines.push(labelModel + ": " + modelInput.value.trim());
+      }
+      if (issueInput && issueInput.value.trim()) {
+        lines.push(labelIssue + ": " + issueInput.value.trim());
+      }
+
+      var message = lines.join("\n");
+      var link = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+      window.open(link, "_blank", "noopener,noreferrer");
+    });
+  };
+
+  var initContactBranches = function () {
+    var wrapper = document.querySelector("[data-contact-branches]");
+    if (!wrapper) {
+      return;
+    }
+
+    var tabs = wrapper.querySelectorAll("[data-branch-tab]");
+    var options = wrapper.querySelectorAll("[data-branch-option]");
+    var cards = wrapper.querySelectorAll("[data-branch-card]");
+    var output = wrapper.querySelector("[data-branch-output]");
+    var dropdown = wrapper.querySelector("[data-branch-dropdown]");
+    var toggle = wrapper.querySelector("[data-branch-toggle]");
+    var menu = wrapper.querySelector("[data-branch-menu]");
+    var controls = options.length ? options : tabs;
+
+    if (!controls.length || (!cards.length && !output)) {
+      return;
+    }
+
+    var getKey = function (item) {
+      return item.getAttribute("data-branch-option") || item.getAttribute("data-branch-tab");
+    };
+
+    var updateControls = function (items, key) {
+      items.forEach(function (item) {
+        var isActive = getKey(item) === key;
+        item.classList.toggle("is-active", isActive);
+        item.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    };
+
+    var setActive = function (key) {
+      if (tabs.length) {
+        updateControls(tabs, key);
+      }
+      if (options.length) {
+        updateControls(options, key);
+      }
+
+      if (cards.length) {
+        cards.forEach(function (card) {
+          var match = card.getAttribute("data-branch-card") === key;
+          card.classList.toggle("is-hidden", !match);
+        });
+      }
+
+      if (output) {
+        var activeControl = wrapper.querySelector('[data-branch-option="' + key + '"], [data-branch-tab="' + key + '"]');
+        if (activeControl) {
+          var desc = activeControl.getAttribute("data-branch-desc");
+          if (desc) {
+            output.textContent = desc;
+          }
+        }
+      }
+    };
+
+    var defaultKey = wrapper.getAttribute("data-default-branch") || getKey(controls[0]);
+    setActive(defaultKey);
+
+    var closeMenu = function () {
+      if (!dropdown || !toggle) {
+        return;
+      }
+      dropdown.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
+    controls.forEach(function (control) {
+      control.addEventListener("click", function () {
+        var key = getKey(control);
+        if (!key) {
+          return;
+        }
+        setActive(key);
+        closeMenu();
+      });
+    });
+
+    if (toggle && dropdown && menu) {
+      toggle.addEventListener("click", function (event) {
+        event.stopPropagation();
+        var isOpen = dropdown.classList.contains("is-open");
+        if (isOpen) {
+          closeMenu();
+          return;
+        }
+        dropdown.classList.add("is-open");
+        toggle.setAttribute("aria-expanded", "true");
+      });
+
+      menu.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!wrapper.contains(event.target)) {
+          closeMenu();
+        }
+      });
+    }
+  };
+
+  initContactSteps();
+  initContactBranches();
+  initContactQuickForm();
   initPromoMagnet();
   initPricelistTables();
 });

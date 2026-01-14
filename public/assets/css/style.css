@@ -1,4 +1,3 @@
-
 /* Global */
 body {
   font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -210,7 +209,7 @@ body.lang-modal-open {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 0 0, rgba(255,255,255,0.09) 0, transparent 50%);
+  background-image: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.09) 0, transparent 50%);
   opacity: 0.9;
   pointer-events: none;
 }
@@ -292,7 +291,7 @@ body.lang-modal-open {
   background: transparent !important;
   border-radius: 0.8rem;
   padding: 1rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
 /* Advantages */
@@ -319,7 +318,7 @@ body.lang-modal-open {
   background: transparent !important;
   border-radius: 0.75rem;
   padding: 0;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.16);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
 }
 
 .footer-copy {
@@ -353,6 +352,7 @@ body.lang-modal-open {
 /* Responsive tweaks */
 
 @media (max-width: 991.98px) {
+
   /* Navbar - mobile enhancements */
   .fixmi-navbar {
     padding-top: 0.35rem;
@@ -395,7 +395,8 @@ body.lang-modal-open {
   }
 
   .fixmi-navbar .nav-link::after {
-    display: none; /* hilangkan garis bawah kecil di mobile, biar lebih bersih */
+    display: none;
+    /* hilangkan garis bawah kecil di mobile, biar lebih bersih */
   }
 
   .fixmi-navbar .nav-link.active,
@@ -433,7 +434,7 @@ body.lang-modal-open {
   font-size: 1.8rem;
   font-style: italic;
   margin-top: 0.3rem;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .hero-text {
@@ -463,7 +464,7 @@ body.lang-modal-open {
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .hero-service-icon i {
@@ -498,7 +499,7 @@ body.lang-modal-open {
   margin-right: auto;
   border-radius: 36px;
   overflow: hidden;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
   border: 4px solid #000000;
   background-color: #f8f8f8;
 }
@@ -515,24 +516,29 @@ body.lang-modal-open {
     padding-top: 5.5rem;
     text-align: center;
   }
+
   .hero-text {
     margin-left: auto;
     margin-right: auto;
   }
+
   .hero-service {
     justify-content: center;
   }
+
   .hero-photo-img {
     height: 500px;
   }
 }
 
 @media (max-width: 575.98px) {
+
   #heroCarousel .carousel-control-prev,
   #heroCarousel .carousel-control-next {
     display: none;
   }
 }
+
 /* Navbar hover effect */
 .fixmi-navbar .nav-link:hover {
   color: #ff7b00 !important;
@@ -570,10 +576,12 @@ body.lang-modal-open {
     transform: translateY(0);
     opacity: 0.6;
   }
+
   50% {
     transform: translateY(3px);
     opacity: 1;
   }
+
   100% {
     transform: translateY(0);
     opacity: 0.6;
@@ -656,15 +664,18 @@ body.lang-modal-open {
 
   .hero-services .hero-service {
     display: flex !important;
-    align-items: center !important;   /* teks di tengah icon */
+    align-items: center !important;
+    /* teks di tengah icon */
     gap: 0.45rem !important;
     width: 100% !important;
-    min-height: 56px !important;      /* baris atas & bawah sejajar */
+    min-height: 56px !important;
+    /* baris atas & bawah sejajar */
   }
 
   .hero-service-label {
     flex-grow: 1 !important;
-    white-space: nowrap !important;   /* paksa 1 baris (Water Damage Phone tidak turun) */
+    white-space: nowrap !important;
+    /* paksa 1 baris (Water Damage Phone tidak turun) */
     font-size: 0.78rem !important;
     line-height: 1.25 !important;
   }
@@ -981,6 +992,7 @@ body.offcanvas-open .navbar-toggler .fixmi-hamburger-icon span:nth-child(3) {
   .hero-photo-frame {
     background-color: #000000;
   }
+
   .hero-photo-img {
     object-fit: cover;
   }
@@ -1018,6 +1030,7 @@ body.offcanvas-open .navbar-toggler .fixmi-hamburger-icon span:nth-child(3) {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1028,6 +1041,7 @@ body.offcanvas-open .navbar-toggler .fixmi-hamburger-icon span:nth-child(3) {
     opacity: 0;
     transform: translateY(18px) scale(0.96);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -1089,11 +1103,9 @@ body.fixmi-popup-open {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0.05)
-  );
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0.05));
   color: #ffffff;
 
   align-items: center;
@@ -1389,8 +1401,8 @@ body.fixmi-popup-open {
   color: #f26a21;
   box-shadow: none;
   transition: background-color 0.18s ease, color 0.18s ease,
-              border-color 0.18s ease, transform 0.18s ease,
-              box-shadow 0.18s ease;
+    border-color 0.18s ease, transform 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
 /* Active state (mapped from btn-danger in JS) */
@@ -1508,12 +1520,10 @@ body.fixmi-home-page .contact-section .store-finder .btn::after {
   content: "";
   position: absolute;
   inset: -40% 0;
-  background: linear-gradient(
-    120deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.75) 48%,
-    transparent 80%
-  );
+  background: linear-gradient(120deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.75) 48%,
+      transparent 80%);
   opacity: 0;
   transform: translateX(-120%);
   transition: transform 0.75s ease, opacity 0.3s ease;
@@ -2526,12 +2536,10 @@ body.fixmi-home-page .testimonial-source::before {
   height: 8px;
   border-radius: 999px;
   background-color: #4285f4;
-  background: conic-gradient(
-    #4285f4 0deg 90deg,
-    #34a853 90deg 180deg,
-    #fbbc04 180deg 270deg,
-    #ea4335 270deg 360deg
-  );
+  background: conic-gradient(#4285f4 0deg 90deg,
+      #34a853 90deg 180deg,
+      #fbbc04 180deg 270deg,
+      #ea4335 270deg 360deg);
 }
 
 body.fixmi-home-page .testimonial-head {
@@ -2753,12 +2761,10 @@ body.fixmi-home-page .faq-section .fixmi-accordion .accordion-item::after {
   content: "";
   position: absolute;
   inset: -40% 0;
-  background: linear-gradient(
-    120deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.7) 48%,
-    transparent 80%
-  );
+  background: linear-gradient(120deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.7) 48%,
+      transparent 80%);
   opacity: 0;
   transform: translateX(-120%);
   transition: transform 0.45s ease, opacity 0.25s ease;
@@ -2917,7 +2923,7 @@ body.fixmi-home-page .faq-section .fixmi-accordion .accordion-collapse.show .acc
     overscroll-behavior-x: contain;
   }
 
-  body.fixmi-home-page .testimonials-section .testimonial-track > [class*="col-"] {
+  body.fixmi-home-page .testimonials-section .testimonial-track>[class*="col-"] {
     flex: 0 0 100% !important;
     max-width: 100% !important;
     width: 100% !important;
@@ -2982,6 +2988,7 @@ body.fixmi-home-page .faq-section .fixmi-accordion .accordion-collapse.show .acc
     opacity: 0;
     transform: translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -2992,6 +2999,7 @@ body.fixmi-home-page .faq-section .fixmi-accordion .accordion-collapse.show .acc
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(1.04);
   }
@@ -3001,9 +3009,11 @@ body.fixmi-home-page .faq-section .fixmi-accordion .accordion-collapse.show .acc
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-6px);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -3013,9 +3023,11 @@ body.fixmi-home-page .faq-section .fixmi-accordion .accordion-collapse.show .acc
   0% {
     transform: translateY(6px) scale(0.98);
   }
+
   60% {
     transform: translateY(-2px) scale(1.01);
   }
+
   100% {
     transform: translateY(0) scale(1);
   }
@@ -3026,10 +3038,12 @@ body.fixmi-home-page .faq-section .fixmi-accordion .accordion-collapse.show .acc
     transform: translateY(-50%) translateX(0);
     opacity: 0.3;
   }
+
   50% {
     transform: translateY(-50%) translateX(-4px);
     opacity: 0.9;
   }
+
   100% {
     transform: translateY(-50%) translateX(0);
     opacity: 0.3;
@@ -3041,6 +3055,7 @@ body.fixmi-home-page .faq-section .fixmi-accordion .accordion-collapse.show .acc
     opacity: 0;
     transform: translateY(-6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -3053,6 +3068,7 @@ body.fixmi-home-page .faq-section .fixmi-accordion .accordion-collapse.show .acc
     transform: translateY(-6px);
     filter: blur(0.8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -3064,12 +3080,15 @@ body.fixmi-home-page .faq-section .fixmi-accordion .accordion-collapse.show .acc
   0% {
     transform: translateY(var(--store-lift)) scale(1);
   }
+
   40% {
     transform: translateY(calc(var(--store-lift) + 1px)) scale(0.97);
   }
+
   70% {
     transform: translateY(calc(var(--store-lift) - 1px)) scale(1.01);
   }
+
   100% {
     transform: translateY(var(--store-lift)) scale(1);
   }
@@ -3403,12 +3422,10 @@ body.fixmi-home-page .fixmi-sticky-cta .btn::after {
   content: "";
   position: absolute;
   inset: -40% 0;
-  background: linear-gradient(
-    120deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.7) 48%,
-    transparent 80%
-  );
+  background: linear-gradient(120deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.7) 48%,
+      transparent 80%);
   opacity: 0;
   transform: translateX(-120%);
   transition: transform 0.6s ease, opacity 0.3s ease;
@@ -3732,7 +3749,7 @@ body.fixmi-home-page .service-price-title {
   transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease, border-color 0.22s ease;
 }
 
-.warranty-modal-cta > * {
+.warranty-modal-cta>* {
   position: relative;
   z-index: 1;
 }
@@ -3862,10 +3879,10 @@ body.fixmi-home-page .service-price-title {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-  .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 36px rgba(15, 23, 42, 0.12);
-  }
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 36px rgba(15, 23, 42, 0.12);
+}
 
 .service-card-media {
   height: 160px;
@@ -3963,7 +3980,7 @@ body.fixmi-home-page .service-price-title {
   background-color: #ffe2c9;
 }
 
-.service-price-trigger > * {
+.service-price-trigger>* {
   position: relative;
   z-index: 1;
 }
@@ -5223,12 +5240,10 @@ html[data-theme="dark"] body.fixmi-home-page .contact-section .store-contact-ite
 }
 
 html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn::after {
-  background: linear-gradient(
-    120deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.35) 48%,
-    transparent 80%
-  );
+  background: linear-gradient(120deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.35) 48%,
+      transparent 80%);
 }
 
 html[data-theme="dark"] body.fixmi-home-page .contact-section .store-finder .btn-danger {
@@ -5325,11 +5340,9 @@ html[data-theme="dark"] body.fixmi-home-page .quick-service-card {
 }
 
 html[data-theme="dark"] body.fixmi-home-page .quick-service-card::after {
-  background: radial-gradient(
-    120% 120% at 12% 0%,
-    rgba(255, 255, 255, 0.08),
-    transparent 62%
-  );
+  background: radial-gradient(120% 120% at 12% 0%,
+      rgba(255, 255, 255, 0.08),
+      transparent 62%);
 }
 
 html[data-theme="dark"] body.fixmi-home-page .quick-service-icon {
@@ -5524,11 +5537,9 @@ html[data-theme="dark"] body.fixmi-home-page .ba-list .ba-item {
 }
 
 html[data-theme="dark"] body.fixmi-home-page .ba-list .ba-item::after {
-  background: radial-gradient(
-    120% 120% at 18% 0%,
-    rgba(255, 255, 255, 0.08),
-    transparent 62%
-  );
+  background: radial-gradient(120% 120% at 18% 0%,
+      rgba(255, 255, 255, 0.08),
+      transparent 62%);
 }
 
 html[data-theme="dark"] body.fixmi-home-page .ba-list .ba-item.is-active {
@@ -5548,12 +5559,10 @@ html[data-theme="dark"] body.fixmi-home-page .faq-section .fixmi-accordion .acco
 }
 
 html[data-theme="dark"] body.fixmi-home-page .faq-section .fixmi-accordion .accordion-item::after {
-  background: linear-gradient(
-    120deg,
-    transparent 18%,
-    rgba(242, 106, 33, 0.28) 48%,
-    transparent 82%
-  );
+  background: linear-gradient(120deg,
+      transparent 18%,
+      rgba(242, 106, 33, 0.28) 48%,
+      transparent 82%);
 }
 
 html[data-theme="dark"] body.fixmi-home-page .faq-section .fixmi-accordion .accordion-item:hover,
@@ -5620,9 +5629,7 @@ body.fixmi-home-page .promo-card {
   --promo-sheen-start: -120%;
   --promo-sheen-end: 120%;
   --promo-sheen-skew: -12deg;
-  transform: translate3d(calc(var(--promo-shift-x) + var(--promo-jiggle-x)), calc(var(--promo-shift-y) + var(--promo-lift-y) + var(--promo-jiggle-y)), 0)
-    scale(var(--promo-scale))
-    rotate(var(--promo-jiggle-rot));
+  transform: translate3d(calc(var(--promo-shift-x) + var(--promo-jiggle-x)), calc(var(--promo-shift-y) + var(--promo-lift-y) + var(--promo-jiggle-y)), 0) scale(var(--promo-scale)) rotate(var(--promo-jiggle-rot));
   will-change: transform;
 }
 
@@ -5671,6 +5678,7 @@ body.fixmi-home-page .promo-card:hover .promo-image {
   0% {
     transform: translateX(var(--promo-sheen-start)) skewX(var(--promo-sheen-skew));
   }
+
   100% {
     transform: translateX(var(--promo-sheen-end)) skewX(var(--promo-sheen-skew));
   }
@@ -5919,4 +5927,1831 @@ body.fixmi-home-page .promo-modal-nav.is-hidden {
   body.fixmi-home-page .promo-modal-view {
     padding: 0 40px;
   }
+}
+
+body.fixmi-home-page .contact-hero-section {
+  background: #f7f9fb;
+  border-bottom: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+body.fixmi-home-page .contact-hero-section::before {
+  content: "";
+  position: absolute;
+  inset: -40% -20% auto auto;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle at 30% 30%, rgba(242, 106, 33, 0.18), transparent 65%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+body.fixmi-home-page .contact-hero-section::after {
+  content: "";
+  position: absolute;
+  inset: auto auto -120px -160px;
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(circle at 50% 50%, rgba(17, 24, 39, 0.08), transparent 70%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+body.fixmi-home-page .contact-hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+body.fixmi-contact-page {
+  font-family: "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #f7f9fb;
+}
+
+body.fixmi-contact-page .section-title,
+body.fixmi-contact-page .contact-block-title,
+body.fixmi-contact-page .contact-card-title,
+body.fixmi-contact-page .contact-branch-title,
+body.fixmi-contact-page .process-title {
+  font-family: "Space Grotesk", "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body.fixmi-contact-page .contact-hero-subtitle,
+body.fixmi-contact-page .contact-card-desc,
+body.fixmi-contact-page .contact-branch-desc,
+body.fixmi-contact-page .process-desc,
+body.fixmi-contact-page .contact-form-label,
+body.fixmi-contact-page .contact-form-note,
+body.fixmi-contact-page .contact-social-link,
+body.fixmi-contact-page .text-muted,
+body.fixmi-contact-page .form-control {
+  font-family: "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body.fixmi-home-page .contact-hero-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--home-heading, #2f3b52);
+  margin-bottom: 0.65rem;
+  display: inline-block;
+  position: relative;
+}
+
+body.fixmi-home-page .contact-hero-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: clamp(120px, 55%, 220px);
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(242, 106, 33, 0.9), rgba(255, 143, 67, 0.6));
+}
+
+body.fixmi-home-page .contact-hero-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 36rem;
+  color: var(--home-muted, #7c889b);
+}
+
+body.fixmi-home-page .contact-hero-actions {
+  margin-top: 1.1rem;
+  gap: 10px;
+}
+
+body.fixmi-home-page .contact-hero-actions .btn {
+  font-family: "Space Grotesk", "Instrument Sans", "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  border-radius: 14px;
+  padding: 0.6rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  background: #ffffff;
+  color: var(--home-heading, #2f3b52);
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease, border-color 0.2s ease;
+}
+
+body.fixmi-home-page .contact-hero-actions .btn:hover,
+body.fixmi-home-page .contact-hero-actions .btn:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 22px rgba(15, 23, 42, 0.12);
+  border-color: rgba(15, 23, 42, 0.22);
+}
+
+body.fixmi-home-page .contact-hero-actions .btn:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 14px rgba(15, 23, 42, 0.12);
+}
+
+body.fixmi-home-page .contact-hero-actions .btn.btn-success {
+  background: #f26a21;
+  border-color: #f26a21;
+  color: #ffffff;
+  box-shadow: 0 12px 20px rgba(242, 106, 33, 0.28);
+}
+
+body.fixmi-home-page .contact-hero-actions .btn.btn-success:hover {
+  box-shadow: 0 14px 24px rgba(242, 106, 33, 0.35);
+}
+
+body.fixmi-home-page .contact-hero-actions .btn.btn-outline-dark {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.16);
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .contact-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+body.fixmi-home-page .contact-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  color: var(--home-heading, #2f3b52);
+  font-size: 0.86rem;
+  font-weight: 600;
+  box-shadow: 0 10px 16px rgba(15, 23, 42, 0.06);
+}
+
+body.fixmi-home-page .contact-hero-badge i {
+  color: var(--home-accent, #f26a21);
+}
+
+body.fixmi-home-page .contact-hero-card {
+  background: #ffffff;
+  border: 1px solid var(--admin-border, #eef1f6);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+body.fixmi-home-page .contact-hero-card::before {
+  content: "";
+  position: absolute;
+  inset: -40% auto auto -30%;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle at 50% 50%, rgba(242, 106, 33, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+
+body.fixmi-home-page .contact-extra-section {
+  background: #f7f9fb;
+}
+
+body.fixmi-home-page .contact-block,
+body.fixmi-home-page .contact-form-card {
+  background: #ffffff;
+  border: 1px solid var(--admin-border, #eef1f6);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
+}
+
+body.fixmi-home-page .contact-block-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .contact-branch-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+body.fixmi-home-page .contact-branch-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+body.fixmi-home-page .contact-branch-tab {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--home-heading, #2f3b52);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+body.fixmi-home-page .contact-branch-tab.is-active {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
+}
+
+body.fixmi-home-page .contact-branch-tab:hover {
+  transform: translateY(-1px);
+}
+
+body.fixmi-home-page .contact-branch-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+body.fixmi-home-page .contact-branch-card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(242, 106, 33, 0.12);
+  background: linear-gradient(180deg, #ffffff 0%, #fff8f1 100%);
+}
+
+body.fixmi-home-page .contact-branch-card.is-hidden {
+  display: none;
+}
+
+body.fixmi-home-page .contact-branch-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #fff2e4;
+  color: var(--home-accent, #f26a21);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 10px 18px rgba(242, 106, 33, 0.16);
+}
+
+body.fixmi-home-page .contact-branch-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .contact-branch-desc {
+  color: var(--home-muted, #7c889b);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+body.fixmi-home-page .contact-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+body.fixmi-home-page .contact-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--home-heading, #2f3b52);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+body.fixmi-home-page .contact-social-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 20px rgba(15, 23, 42, 0.12);
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .contact-social-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+}
+
+body.fixmi-home-page .contact-form-card .form-control {
+  border-radius: 12px;
+  border-color: rgba(15, 23, 42, 0.12);
+  padding: 0.65rem 0.8rem;
+}
+
+body.fixmi-home-page .contact-form-label {
+  font-weight: 600;
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .contact-form-note {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--home-muted, #7c889b);
+}
+
+body.fixmi-home-page .contact-card-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(15, 23, 42, 0.08);
+}
+
+body.fixmi-home-page .contact-card-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+body.fixmi-home-page .contact-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 242, 228, 0.95), rgba(255, 217, 191, 0.7));
+  border: 1px solid rgba(242, 106, 33, 0.18);
+  color: var(--home-accent, #f26a21);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 10px 18px rgba(242, 106, 33, 0.16);
+}
+
+body.fixmi-home-page .contact-card-title {
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+  color: var(--home-heading, #2f3b52);
+}
+
+body.fixmi-home-page .contact-card-title--branches {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+body.fixmi-home-page .contact-branch-dropdown {
+  position: relative;
+  margin-left: auto;
+}
+
+body.fixmi-home-page .contact-branch-toggle {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--home-heading, #2f3b52);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+body.fixmi-home-page .contact-branch-toggle:hover,
+body.fixmi-home-page .contact-branch-toggle:focus-visible {
+  border-color: rgba(15, 23, 42, 0.25);
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.12);
+  transform: translateY(-1px);
+}
+
+body.fixmi-home-page .contact-branch-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 180px;
+  max-width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 18px 30px rgba(15, 23, 42, 0.18);
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 10;
+}
+
+body.fixmi-home-page .contact-branch-dropdown.is-open .contact-branch-menu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+body.fixmi-home-page .contact-branch-option {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--home-heading, #2f3b52);
+  transition: background 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+}
+
+body.fixmi-home-page .contact-branch-option:hover {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+body.fixmi-home-page .contact-branch-option.is-active {
+  background: #111827;
+  color: #ffffff;
+}
+
+body.fixmi-home-page .contact-card-desc {
+  color: var(--home-muted, #7c889b);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 991.98px) {
+  body.fixmi-home-page .contact-hero-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  body.fixmi-home-page .contact-hero-title {
+    font-size: 1.8rem;
+  }
+
+  body.fixmi-home-page .contact-hero-subtitle {
+    font-size: 0.98rem;
+  }
+
+  body.fixmi-home-page .contact-hero-actions .btn {
+    font-size: 0.88rem;
+    padding: 0.5rem 0.95rem;
+  }
+
+  body.fixmi-home-page .contact-hero-badge {
+    font-size: 0.8rem;
+    padding: 0.45rem 0.95rem;
+  }
+
+  body.fixmi-home-page .contact-hero-card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  body.fixmi-home-page .contact-card-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  body.fixmi-home-page .contact-card-item {
+    padding: 8px 0;
+  }
+
+  body.fixmi-home-page .contact-card-desc {
+    font-size: 0.9rem;
+  }
+
+  body.fixmi-home-page .contact-card-title--branches {
+    gap: 6px;
+  }
+
+  body.fixmi-home-page .contact-branch-toggle {
+    font-size: 0.74rem;
+    padding: 4px 8px;
+  }
+
+  body.fixmi-home-page .contact-branch-menu {
+    min-width: 150px;
+  }
+
+  body.fixmi-home-page .contact-block,
+  body.fixmi-home-page .contact-form-card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  body.fixmi-home-page .contact-branch-card {
+    padding: 10px;
+    border-radius: 14px;
+  }
+
+  body.fixmi-home-page .contact-branch-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  body.fixmi-home-page .contact-branch-desc {
+    font-size: 0.9rem;
+  }
+
+  body.fixmi-home-page .contact-social-link {
+    padding: 7px 12px;
+    font-size: 0.88rem;
+  }
+
+  body.fixmi-home-page .contact-branch-tab {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-hero-section {
+  background: #121821;
+  border-bottom-color: rgba(47, 52, 61, 0.7);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-hero-section::before {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 106, 43, 0.2), transparent 65%);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-hero-section::after {
+  background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.55), transparent 70%);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-hero-title::after {
+  background: linear-gradient(90deg, rgba(255, 106, 43, 0.95), rgba(255, 143, 67, 0.6));
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-hero-card {
+  background: #1b1f25;
+  border-color: #2f343d;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-hero-badge {
+  background: rgba(27, 31, 37, 0.95);
+  border-color: #2f343d;
+  color: #f2f4f7;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-hero-actions .btn.btn-success {
+  box-shadow: 0 14px 24px rgba(255, 106, 43, 0.3);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-hero-actions .btn {
+  background: rgba(27, 31, 37, 0.95);
+  border-color: #2f343d;
+  color: #f2f4f7;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-hero-actions .btn:hover,
+html[data-theme="dark"] body.fixmi-home-page .contact-hero-actions .btn:focus-visible {
+  background: rgba(27, 31, 37, 1);
+  border-color: rgba(255, 143, 67, 0.6);
+  color: #f2f4f7;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-card-title {
+  color: #f2f4f7;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-card-desc {
+  color: #9aa2ad;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-card-item {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-branch-toggle {
+  background: rgba(27, 31, 37, 0.95);
+  border-color: #2f343d;
+  color: #f2f4f7;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-branch-menu {
+  background: #1b1f25;
+  border-color: #2f343d;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-branch-option {
+  color: #f2f4f7;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-branch-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-branch-option.is-active {
+  background: #ff6a2b;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-block,
+html[data-theme="dark"] body.fixmi-home-page .contact-form-card {
+  background: #1b1f25;
+  border-color: #2f343d;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-branch-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-branch-tab {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #f2f4f7;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-branch-tab.is-active {
+  background: #ff6a2b;
+  border-color: #ff6a2b;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-social-link {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #f2f4f7;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-form-card .form-control {
+  background: #1f242b;
+  border-color: #2f343d;
+  color: #f2f4f7;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .contact-form-label {
+  color: #f2f4f7;
+}
+
+/* Contact page redesign */
+body.fixmi-contact-page {
+  --contact-bg: #F8F9FB;
+  --contact-card: #ffffff;
+  --contact-border: #F1F4F8;
+  --contact-muted: #64748B;
+  --contact-text: #1E293B;
+  --contact-accent: #FF5E1E;
+  --contact-accent-rgb: 255, 94, 30;
+  --contact-accent-strong: #EC4A0A;
+  --contact-accent-soft: #FFF5F0;
+  --contact-shadow: 0 10px 40px -6px rgba(0, 0, 0, 0.05);
+  background-color: var(--contact-bg);
+  font-family: "Instrument Sans", "Figtree", system-ui, sans-serif;
+}
+
+body.fixmi-contact-page .contact-page {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 4.5rem;
+}
+
+body.fixmi-contact-page .contact-page::before,
+body.fixmi-contact-page .contact-page::after {
+  content: none;
+  display: none;
+}
+
+
+
+
+
+body.fixmi-contact-page .contact-hero {
+  padding: 5.5rem 0 3rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+body.fixmi-contact-page .contact-hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+body.fixmi-contact-page .contact-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.95rem;
+  border-radius: 999px;
+  background: var(--contact-accent-soft);
+  color: var(--contact-accent);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 18px rgba(var(--contact-accent-rgb), 0.15);
+}
+
+body.fixmi-contact-page .contact-pill--soft {
+  background: #ffffff;
+  border: 1px solid var(--contact-border);
+  color: var(--contact-accent);
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+}
+
+body.fixmi-contact-page .contact-title {
+  margin-top: 1rem;
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--contact-text);
+}
+
+body.fixmi-contact-page .contact-subtitle {
+  margin-top: 0.9rem;
+  color: var(--contact-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+body.fixmi-contact-page .contact-request {
+  padding-bottom: 4.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+body.fixmi-contact-page .contact-request-card {
+  background: var(--contact-card);
+  border-radius: 28px;
+  padding: 28px;
+  border: 1px solid var(--contact-border);
+  box-shadow: var(--contact-shadow);
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+body.fixmi-contact-page .contact-step {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+}
+
+body.fixmi-contact-page .contact-step-body {
+  display: none;
+}
+
+body.fixmi-contact-page .contact-step.is-active .contact-step-body {
+  display: block;
+}
+
+body.fixmi-contact-page .contact-step+.contact-step {
+  margin-top: 18px;
+}
+
+body.fixmi-contact-page .contact-step.is-active {
+  border-color: rgba(var(--contact-accent-rgb), 0.5);
+  box-shadow: 0 16px 28px rgba(var(--contact-accent-rgb), 0.08);
+}
+
+body.fixmi-contact-page .contact-step-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+
+body.fixmi-contact-page .contact-step-index {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--contact-accent);
+  color: #ffffff;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+body.fixmi-contact-page .contact-step-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--contact-text);
+  flex: 1;
+}
+
+body.fixmi-contact-page .contact-step-toggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff4ec;
+  color: var(--contact-accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+body.fixmi-contact-page .contact-step.is-active .contact-step-toggle {
+  transform: rotate(180deg);
+}
+
+body.fixmi-contact-page .contact-input {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #f8fafc;
+  border-radius: 999px;
+  border: 1px solid #eef1f5;
+  padding: 0.65rem 0.95rem;
+}
+
+body.fixmi-contact-page .contact-input:focus-within {
+  border-color: rgba(var(--contact-accent-rgb), 0.5);
+  box-shadow: 0 0 0 4px rgba(var(--contact-accent-rgb), 0.08);
+}
+
+body.fixmi-contact-page .contact-input--full {
+  margin-bottom: 12px;
+}
+
+body.fixmi-contact-page .contact-input-icon {
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+body.fixmi-contact-page .contact-input .form-control {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 0.95rem;
+  box-shadow: none;
+  color: var(--contact-text);
+}
+
+body.fixmi-contact-page .contact-input .form-control:focus {
+  box-shadow: none;
+}
+
+body.fixmi-contact-page .contact-textarea {
+  background: #f8fafc;
+  border-radius: 18px;
+  border: 1px solid #eef1f5;
+  padding: 0.85rem 0.95rem;
+  margin-top: 12px;
+}
+
+body.fixmi-contact-page .contact-textarea:focus-within {
+  border-color: rgba(var(--contact-accent-rgb), 0.5);
+  box-shadow: 0 0 0 4px rgba(var(--contact-accent-rgb), 0.08);
+}
+
+body.fixmi-contact-page .contact-textarea .form-control {
+  border: none;
+  background: transparent;
+  padding: 0;
+  min-height: 140px;
+  resize: vertical;
+  box-shadow: none;
+  color: var(--contact-text);
+}
+
+body.fixmi-contact-page .device-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+body.fixmi-contact-page .device-option {
+  position: relative;
+  cursor: pointer;
+}
+
+body.fixmi-contact-page .device-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.fixmi-contact-page .device-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 90px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid #eef1f5;
+  background: #ffffff;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+body.fixmi-contact-page .device-icon {
+  font-size: 1.2rem;
+  color: #9aa3af;
+}
+
+body.fixmi-contact-page .device-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--contact-text);
+}
+
+body.fixmi-contact-page .device-option input:checked+.device-card {
+  border-color: rgba(var(--contact-accent-rgb), 0.5);
+  box-shadow: 0 14px 24px rgba(var(--contact-accent-rgb), 0.12);
+  background: var(--contact-accent-soft);
+  transform: translateY(-2px);
+}
+
+body.fixmi-contact-page .contact-request-actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+body.fixmi-contact-page .contact-submit {
+  border: none;
+  border-radius: 999px;
+  padding: 0.95rem 2.2rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--contact-accent), var(--contact-accent-strong));
+  box-shadow: 0 18px 30px rgba(var(--contact-accent-rgb), 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+body.fixmi-contact-page .contact-submit:hover,
+body.fixmi-contact-page .contact-submit:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 34px rgba(var(--contact-accent-rgb), 0.38);
+}
+
+body.fixmi-contact-page .contact-note {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--contact-muted);
+}
+
+body.fixmi-contact-page .contact-note span {
+  color: var(--contact-accent);
+  font-weight: 700;
+}
+
+body.fixmi-contact-page .contact-location {
+  padding: 4.5rem 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+body.fixmi-contact-page .location-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+body.fixmi-contact-page .section-title {
+  margin-top: 0.75rem;
+  font-size: clamp(1.9rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--contact-text);
+}
+
+body.fixmi-contact-page .section-desc {
+  margin-top: 0.5rem;
+  max-width: 420px;
+  color: var(--contact-muted);
+  line-height: 1.6;
+}
+
+body.fixmi-contact-page .location-count {
+  background: #ffffff;
+  border: 1px solid var(--contact-border);
+  border-radius: 999px;
+  padding: 0.45rem 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #334155;
+  box-shadow: 0 12px 22px rgba(15, 23, 42, 0.08);
+  white-space: nowrap;
+}
+
+body.fixmi-contact-page .location-count::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+  animation: contact-status-breathe 2.2s ease-in-out infinite;
+}
+
+@keyframes contact-status-breathe {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.0);
+  }
+}
+
+body.fixmi-contact-page .location-list {
+  display: grid;
+  gap: 16px;
+}
+
+body.fixmi-contact-page .location-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 16px 18px;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.06);
+  display: grid;
+  gap: 12px;
+  cursor: pointer;
+}
+
+body.fixmi-contact-page .location-card.is-active {
+  border-color: rgba(var(--contact-accent-rgb), 0.5);
+  box-shadow: 0 16px 30px rgba(var(--contact-accent-rgb), 0.1);
+}
+
+body.fixmi-contact-page .location-card:focus-visible {
+  outline: 2px solid rgba(var(--contact-accent-rgb), 0.5);
+  outline-offset: 3px;
+}
+
+body.fixmi-contact-page .location-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+body.fixmi-contact-page .location-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  background: #fff4ec;
+  color: var(--contact-accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+body.fixmi-contact-page .location-card-heading {
+  flex: 1;
+  min-width: 180px;
+}
+
+body.fixmi-contact-page .location-label {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--contact-accent);
+}
+
+body.fixmi-contact-page .location-card-title {
+  margin: 0.2rem 0 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--contact-text);
+}
+
+body.fixmi-contact-page .location-status {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-left: auto;
+}
+
+body.fixmi-contact-page .location-status.is-open {
+  background: #e6f7ef;
+  color: #1f8f5f;
+}
+
+body.fixmi-contact-page .location-status.is-closed {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+body.fixmi-contact-page .location-status.is-holiday {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+body.fixmi-contact-page .location-subtitle {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+body.fixmi-contact-page .location-address {
+  margin: 0.45rem 0 0;
+  color: var(--contact-text);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+body.fixmi-contact-page .location-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--contact-text);
+}
+
+body.fixmi-contact-page .location-hours {
+  font-weight: 600;
+}
+
+body.fixmi-contact-page .location-map {
+  background: #edf1f6;
+  border-radius: 28px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: var(--contact-shadow);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+body.fixmi-contact-page .location-map::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.6), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.5), transparent 45%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 60%);
+  opacity: 0.7;
+}
+
+body.fixmi-contact-page .location-map-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+/* Bali Map SVG */
+body.fixmi-contact-page .bali-map-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  opacity: 0.8;
+  filter: drop-shadow(0 4px 6px rgba(15, 23, 42, 0.15));
+}
+
+body.fixmi-contact-page .map-pin-point {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  z-index: 2;
+  cursor: pointer;
+}
+
+body.fixmi-contact-page .map-pin-marker {
+  width: 32px;
+  height: 32px;
+  background: var(--contact-accent);
+  color: #fff;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(var(--contact-accent-rgb), 0.4);
+  transition: transform 0.2s ease;
+}
+
+body.fixmi-contact-page .map-pin-marker i {
+  transform: rotate(45deg);
+  font-size: 1.1rem;
+}
+
+body.fixmi-contact-page .map-pin-pulse {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+body.fixmi-contact-page .map-pin-point:hover .map-pin-marker {
+  transform: rotate(-45deg) scale(1.1) translateY(-4px);
+}
+
+body.fixmi-contact-page .map-pin-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: #1e293b;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+body.fixmi-contact-page .map-pin-point:hover .map-pin-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-12px);
+}
+
+body.fixmi-contact-page .location-map-controls {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1;
+}
+
+body.fixmi-contact-page .location-map-controls button {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  color: #475569;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.12);
+}
+
+body.fixmi-contact-page #google-map .gm-style .gm-bundled-control .gm-control-active,
+body.fixmi-contact-page #google-map .gm-style .gm-control-active,
+body.fixmi-contact-page #google-map button.gm-control-active,
+body.fixmi-contact-page #google-map .gmnoprint button,
+body.fixmi-contact-page #google-map .gmnoprint .gm-control-active,
+body.fixmi-contact-page #google-map .gmnoprint > div {
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+body.fixmi-contact-page #google-map .gm-style .gm-style-iw-chr {
+  padding: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  line-height: 0 !important;
+  overflow: visible !important;
+}
+
+body.fixmi-contact-page #google-map .gm-style .gm-style-iw-d {
+  padding-top: 8px !important;
+}
+
+body.fixmi-contact-page #google-map .gm-style .gm-style-iw-chr button.gm-ui-hover-effect {
+  margin: 0 !important;
+}
+
+body.fixmi-contact-page .location-map-footer {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1;
+}
+
+body.fixmi-contact-page .map-footer-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: #fff4ec;
+  color: var(--contact-accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+body.fixmi-contact-page .map-footer-text {
+  display: flex;
+  flex-direction: column;
+}
+
+body.fixmi-contact-page .map-footer-title {
+  font-weight: 700;
+  color: var(--contact-text);
+}
+
+body.fixmi-contact-page .map-footer-desc {
+  font-size: 0.85rem;
+  color: var(--contact-muted);
+}
+
+body.fixmi-contact-page .map-footer-link {
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  color: var(--contact-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.fixmi-contact-page .map-footer-link:hover,
+body.fixmi-contact-page .map-footer-link:focus-visible {
+  transform: translateX(2px);
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.12);
+}
+
+@keyframes fixmiFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.fixmi-contact-page .contact-hero-inner,
+body.fixmi-contact-page .contact-request-card,
+body.fixmi-contact-page .location-card,
+body.fixmi-contact-page .location-map {
+  animation: fixmiFadeUp 0.7s ease both;
+}
+
+body.fixmi-contact-page .contact-request-card {
+  animation-delay: 0.08s;
+}
+
+body.fixmi-contact-page .location-card:nth-child(1) {
+  animation-delay: 0.12s;
+}
+
+body.fixmi-contact-page .location-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+body.fixmi-contact-page .location-card:nth-child(3) {
+  animation-delay: 0.28s;
+}
+
+body.fixmi-contact-page .location-map {
+  animation-delay: 0.18s;
+}
+
+@media (max-width: 991px) {
+  body.fixmi-contact-page .location-header {
+    align-items: flex-start;
+  }
+
+  body.fixmi-contact-page .location-map {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 767px) {
+  body.fixmi-contact-page .contact-hero {
+    padding: 4rem 0 2rem;
+  }
+
+  body.fixmi-contact-page .contact-page {
+    padding-bottom: 3rem;
+  }
+
+  body.fixmi-contact-page .contact-pill {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.58rem;
+  }
+
+  body.fixmi-contact-page .contact-title {
+    margin-top: 0.8rem;
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+  }
+
+  body.fixmi-contact-page .contact-subtitle {
+    margin-top: 0.7rem;
+    font-size: 0.92rem;
+  }
+
+  body.fixmi-contact-page .contact-request {
+    padding-bottom: 3rem;
+  }
+
+  body.fixmi-contact-page .contact-request-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  body.fixmi-contact-page .contact-request-card .row {
+    --bs-gutter-x: 0.75rem;
+    --bs-gutter-y: 0.75rem;
+  }
+
+  body.fixmi-contact-page .contact-step {
+    padding: 14px 16px;
+    border-radius: 16px;
+  }
+
+  body.fixmi-contact-page .contact-step+.contact-step {
+    margin-top: 12px;
+  }
+
+  body.fixmi-contact-page .contact-step-header {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  body.fixmi-contact-page .contact-step-index {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+
+  body.fixmi-contact-page .contact-step-title {
+    font-size: 0.64rem;
+    letter-spacing: 0.14em;
+  }
+
+  body.fixmi-contact-page .contact-step-toggle {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  body.fixmi-contact-page .contact-input {
+    padding: 0.55rem 0.8rem;
+    gap: 0.5rem;
+  }
+
+  body.fixmi-contact-page .contact-input .form-control {
+    font-size: 0.9rem;
+  }
+
+  body.fixmi-contact-page .contact-input--full {
+    margin-bottom: 10px;
+  }
+
+  body.fixmi-contact-page .contact-textarea {
+    padding: 0.7rem 0.8rem;
+    margin-top: 10px;
+  }
+
+  body.fixmi-contact-page .contact-textarea .form-control {
+    min-height: 110px;
+  }
+
+  body.fixmi-contact-page .device-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  body.fixmi-contact-page .device-card {
+    min-height: 74px;
+    padding: 10px;
+    border-radius: 14px;
+    gap: 6px;
+  }
+
+  body.fixmi-contact-page .device-icon {
+    font-size: 1.05rem;
+  }
+
+  body.fixmi-contact-page .device-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+  }
+
+  body.fixmi-contact-page .contact-request-actions {
+    margin-top: 16px;
+  }
+
+  body.fixmi-contact-page .contact-submit {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.6rem;
+    font-size: 0.78rem;
+  }
+
+  body.fixmi-contact-page .contact-note {
+    font-size: 0.78rem;
+  }
+
+  body.fixmi-contact-page .contact-location {
+    padding-top: 3rem;
+  }
+
+  body.fixmi-contact-page .location-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 1.6rem;
+  }
+
+  body.fixmi-contact-page .section-title {
+    margin-top: 0.5rem;
+    font-size: clamp(1.6rem, 5vw, 2.1rem);
+  }
+
+  body.fixmi-contact-page .section-desc {
+    font-size: 0.9rem;
+  }
+
+  body.fixmi-contact-page .location-count {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.64rem;
+  }
+
+  body.fixmi-contact-page .location-list {
+    gap: 12px;
+  }
+
+  body.fixmi-contact-page .location-card {
+    padding: 14px 16px;
+    border-radius: 16px;
+    gap: 10px;
+  }
+
+  body.fixmi-contact-page .location-card-top {
+    align-items: flex-start;
+  }
+
+  body.fixmi-contact-page .location-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+  }
+
+  body.fixmi-contact-page .location-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+  }
+
+  body.fixmi-contact-page .location-card-title {
+    font-size: 0.95rem;
+  }
+
+  body.fixmi-contact-page .location-status {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+
+  body.fixmi-contact-page .location-address {
+    font-size: 0.86rem;
+  }
+
+  body.fixmi-contact-page .location-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.8rem;
+  }
+
+  body.fixmi-contact-page .location-map {
+    border-radius: 22px;
+    min-height: 300px;
+  }
+
+  body.fixmi-contact-page .location-map-footer {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 0.7rem 0.85rem;
+    border-radius: 14px;
+    gap: 10px;
+  }
+
+  body.fixmi-contact-page .map-footer-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+  }
+
+  body.fixmi-contact-page .map-footer-title {
+    font-size: 0.9rem;
+  }
+
+  body.fixmi-contact-page .map-footer-desc {
+    font-size: 0.78rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  body.fixmi-contact-page .contact-hero-inner,
+  body.fixmi-contact-page .contact-request-card,
+  body.fixmi-contact-page .location-card,
+  body.fixmi-contact-page .location-map {
+    animation: none;
+  }
+}
+
+html[data-theme="dark"] body.fixmi-contact-page {
+  --contact-bg: #0f1115;
+  --contact-card: #151b26;
+  --contact-border: #243042;
+  --contact-muted: #9aa7b8;
+  --contact-text: #e6edf3;
+  --contact-accent: #ff6b2f;
+  --contact-accent-rgb: 255, 107, 47;
+  --contact-accent-strong: #ff7b3b;
+  --contact-accent-soft: rgba(255, 107, 47, 0.16);
+  --contact-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  background-color: var(--contact-bg);
+  color: var(--contact-text);
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .contact-pill--soft {
+  background: #151b26;
+  border-color: var(--contact-border);
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .contact-step {
+  background: #111827;
+  border-color: #273244;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .contact-step-toggle {
+  background: rgba(255, 107, 47, 0.18);
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .contact-input,
+html[data-theme="dark"] body.fixmi-contact-page .contact-textarea {
+  background: #0f172a;
+  border-color: #243042;
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .contact-input-icon {
+  color: #8b99ad;
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .contact-input .form-control,
+html[data-theme="dark"] body.fixmi-contact-page .contact-textarea .form-control {
+  color: var(--contact-text);
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .contact-input .form-control::placeholder,
+html[data-theme="dark"] body.fixmi-contact-page .contact-textarea .form-control::placeholder {
+  color: #7b8798;
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .device-card {
+  background: #111827;
+  border-color: #243042;
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .device-icon {
+  color: #9aa7b8;
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .location-count {
+  background: #151b26;
+  border-color: var(--contact-border);
+  color: #cbd5e1;
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .location-card {
+  background: #151b26;
+  border-color: #243042;
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .location-icon {
+  background: rgba(255, 107, 47, 0.18);
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .location-label {
+  color: var(--contact-accent);
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .location-status.is-open {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .location-status.is-closed {
+  background: rgba(148, 163, 184, 0.18);
+  color: #cbd5e1;
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .location-status.is-holiday {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .location-subtitle {
+  color: #8b99ad;
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .location-map {
+  background: #0f172a;
+  border-color: #243042;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .location-map::before {
+  background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.07), transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 60%);
+  opacity: 0.35;
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .location-map-controls button {
+  background: #151b26;
+  border-color: #243042;
+  color: #cbd5e1;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .location-map-footer {
+  background: #151b26;
+  border-color: #243042;
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .map-footer-icon {
+  background: rgba(255, 107, 47, 0.18);
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .map-footer-link {
+  background: #151b26;
+  border-color: #243042;
+  color: var(--contact-text);
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .map-footer-link:hover,
+html[data-theme="dark"] body.fixmi-contact-page .map-footer-link:focus-visible {
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] body.fixmi-contact-page .map-pin-tooltip {
+  background: #111827;
+  color: #e2e8f0;
 }
