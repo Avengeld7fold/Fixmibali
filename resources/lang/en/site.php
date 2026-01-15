@@ -100,7 +100,35 @@ return [
         'alt' => 'Phone service banner',
     ],
     'advantages' => [
-        'title' => 'Why Fixmi Bali',
+        'eyebrow' => 'WHY CHOOSE US',
+        'title' => 'Fixmi Bali Advantages',
+        'subtitle' => 'We are not only a service shop, but also a center for education and technical development of gadget technicians in Bali.',
+        'cards' => [
+            'transparent' => [
+                'title' => 'Transparent Diagnosis',
+                'desc' => 'Clear solution options with no hidden costs or unnecessary repairs.',
+            ],
+            'quality' => [
+                'title' => 'Quality Assured',
+                'desc' => 'Clear service warranty for your peace of mind. High-quality spare parts.',
+            ],
+            'education' => [
+                'title' => 'Technician Education',
+                'desc' => 'Our technicians are continuously trained to handle the latest gadget technology.',
+            ],
+            'stock' => [
+                'title' => 'Ready Stock',
+                'desc' => 'Original spare parts and quality options are available in-store.',
+            ],
+            'speed' => [
+                'title' => 'Fast Turnaround',
+                'desc' => 'Express service for battery and LCD replacement, while you wait.',
+            ],
+            'consultation' => [
+                'title' => 'Free Consultation',
+                'desc' => 'Ask via WhatsApp or visit the store at no cost.',
+            ],
+        ],
         'desc_one' => 'Fixmi Bali Phone is a complete and trusted gadget repair center in Bali. We handle software & hardware service for Android, iPhone, MacBook, and laptops - from LCD, battery, and back cover replacement to heavy damage repair. Everything is done with professional tools, original spare parts ready in stock, and transparent pricing.',
         'desc_two' => 'We also regularly offer attractive promos, such as service discounts, accessory bundles, and loyalty programs for returning customers. With experienced technicians, a comfortable waiting area, and tidy workmanship standards, we help restore your gadget performance like new.',
         'desc_three' => 'Fixmi Bali is not only a service center, but also an education and training hub for gadget technicians in Bali.',

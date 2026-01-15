@@ -272,22 +272,55 @@
 <!-- Keunggulan Section -->
 <section class="py-5 advantages-section" id="about">
 <div class="container">
-<h3 class="section-title mb-3 advantages-reveal">{{ __('site.advantages.title') }}</h3>
-<p class="mb-3 advantages-reveal">
-          {{ __('site.advantages.desc_one') }}
-        </p>
-<p class="mb-3 advantages-reveal">
-          {{ __('site.advantages.desc_two') }}
-        </p>
-<ul class="advantages-list advantages-reveal">
-<li>{{ __('site.advantages.list.professional') }}</li>
-<li>{{ __('site.advantages.list.diagnosis') }}</li>
-<li>{{ __('site.advantages.list.warranty') }}</li>
-<li>{{ __('site.advantages.list.sparepart') }}</li>
-</ul>
-<p class="mb-0 advantages-reveal">
-          {{ __('site.advantages.desc_three') }}
-</p>
+<div class="advantages-header text-center mb-5">
+<span class="advantages-eyebrow advantages-reveal">{{ __('site.advantages.eyebrow') }}</span>
+<h2 class="section-title mb-3 advantages-reveal">{{ __('site.advantages.title') }}</h2>
+<p class="advantages-subtitle mb-0 advantages-reveal">{{ __('site.advantages.subtitle') }}</p>
+</div>
+<div class="row g-4 advantages-grid">
+<div class="col-12 col-md-6 col-lg-4">
+<article class="adv-card advantages-reveal">
+<span class="adv-icon adv-icon-blue" aria-hidden="true"><i class="bi bi-shield-check"></i></span>
+<h3 class="adv-title">{{ __('site.advantages.cards.transparent.title') }}</h3>
+<p class="adv-desc mb-0">{{ __('site.advantages.cards.transparent.desc') }}</p>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-4">
+<article class="adv-card advantages-reveal">
+<span class="adv-icon adv-icon-green" aria-hidden="true"><i class="bi bi-award"></i></span>
+<h3 class="adv-title">{{ __('site.advantages.cards.quality.title') }}</h3>
+<p class="adv-desc mb-0">{{ __('site.advantages.cards.quality.desc') }}</p>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-4">
+<article class="adv-card advantages-reveal">
+<span class="adv-icon adv-icon-purple" aria-hidden="true"><i class="bi bi-mortarboard"></i></span>
+<h3 class="adv-title">{{ __('site.advantages.cards.education.title') }}</h3>
+<p class="adv-desc mb-0">{{ __('site.advantages.cards.education.desc') }}</p>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-4">
+<article class="adv-card advantages-reveal">
+<span class="adv-icon adv-icon-amber" aria-hidden="true"><i class="bi bi-box-seam"></i></span>
+<h3 class="adv-title">{{ __('site.advantages.cards.stock.title') }}</h3>
+<p class="adv-desc mb-0">{{ __('site.advantages.cards.stock.desc') }}</p>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-4">
+<article class="adv-card advantages-reveal">
+<span class="adv-icon adv-icon-red" aria-hidden="true"><i class="bi bi-lightning-charge"></i></span>
+<h3 class="adv-title">{{ __('site.advantages.cards.speed.title') }}</h3>
+<p class="adv-desc mb-0">{{ __('site.advantages.cards.speed.desc') }}</p>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-4">
+<article class="adv-card advantages-reveal">
+<span class="adv-icon adv-icon-indigo" aria-hidden="true"><i class="bi bi-chat-square-text"></i></span>
+<h3 class="adv-title">{{ __('site.advantages.cards.consultation.title') }}</h3>
+<p class="adv-desc mb-0">{{ __('site.advantages.cards.consultation.desc') }}</p>
+</article>
+</div>
+</div>
 </div>
 </section>
 <section class="py-5 testimonials-section" id="testimoni">
