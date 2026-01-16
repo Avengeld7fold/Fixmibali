@@ -1183,6 +1183,66 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
+  var initPricelistAccordion = function () {
+    var root = document.querySelector(".service-pricelist-accordion");
+    if (!root || typeof bootstrap === "undefined" || !bootstrap.Collapse) {
+      return;
+    }
+
+    var closeSiblingPanels = function (current, container, toggleClass) {
+      var panels = container.querySelectorAll(".service-sublist-panel");
+      if (!panels.length) {
+        return;
+      }
+
+      panels.forEach(function (panel) {
+        if (panel === current) {
+          return;
+        }
+
+        var trigger = panel.previousElementSibling;
+        if (!trigger || !trigger.classList.contains(toggleClass)) {
+          return;
+        }
+
+        var instance = bootstrap.Collapse.getInstance(panel);
+        if (!instance) {
+          instance = new bootstrap.Collapse(panel, { toggle: false });
+        }
+        instance.hide();
+      });
+    };
+
+    root.addEventListener("show.bs.collapse", function (event) {
+      var panel = event.target;
+      if (!panel.classList.contains("service-sublist-panel")) {
+        return;
+      }
+
+      var trigger = panel.previousElementSibling;
+      if (!trigger) {
+        return;
+      }
+
+      if (trigger.classList.contains("service-sublist-item--toggle")) {
+        var seriesGroup = panel.closest(".service-sublist");
+        if (!seriesGroup) {
+          return;
+        }
+        closeSiblingPanels(panel, seriesGroup, "service-sublist-item--toggle");
+        return;
+      }
+
+      if (trigger.classList.contains("service-sublist-entry--toggle")) {
+        var entryGroup = panel.closest(".service-sublist-panel-inner") || panel.closest(".service-sublist");
+        if (!entryGroup) {
+          return;
+        }
+        closeSiblingPanels(panel, entryGroup, "service-sublist-entry--toggle");
+      }
+    });
+  };
+
   var initPromoMagnet = function () {
     var cards = document.querySelectorAll(".promo-card");
     if (!cards.length) {
@@ -1512,5 +1572,6 @@ document.addEventListener("DOMContentLoaded", function () {
   initContactBranches();
   initContactQuickForm();
   initPromoMagnet();
+  initPricelistAccordion();
   initPricelistTables();
 });
