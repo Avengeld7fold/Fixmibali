@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   var defaultWhatsAppMessage =
-    "Halo Fixmi Bali, saya mau konsultasi service. Device saya: ... Keluhannya: ...";
+    "Halo Fixmi Bali, saya mau tanya service.\nNama:\nNomor WhatsApp:\nPerangkat:\nModel: Iphone\nKeluhan:";
 
   var heroWhatsappLink = document.getElementById("heroWhatsappLink");
   var stickyWhatsappLink = document.getElementById("stickyWhatsappLink");
@@ -907,7 +907,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var storeConfigs = {
     head: {
-      whatsapp: "08873183122",
+      whatsapp: "0819-9933-6722",
       address:
         "Link.kubu alit kedonganan, Jl. Raya Uluwatu, Kedonganan, Kec. Kuta, Kabupaten Badung, Bali 80361",
       mapSrc:
@@ -925,7 +925,7 @@ document.addEventListener("DOMContentLoaded", function () {
       mapLink: "https://maps.google.com/?q=Fixmi%20Bali%20Phone%20Taman%20Griya"
     },
     other: {
-      whatsapp: "08873183122",
+      whatsapp: "0819-9933-6722",
       address:
         "Cellular World Arena, Jl. Teuku Umar No.57, Dauh Puri Kauh, Kec. Denpasar Bar., Kota Denpasar, Bali 80113",
       mapSrc:
@@ -1015,7 +1015,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setActiveStore(initialStore);
   } else {
-    setWhatsAppLinks("08873183122");
+    setWhatsAppLinks("0819-9933-6722");
   }
 
   var initPricelistTables = function () {
@@ -1442,22 +1442,21 @@ document.addEventListener("DOMContentLoaded", function () {
         lines.push(prefix);
       }
 
-      if (nameInput && nameInput.value.trim()) {
-        lines.push(labelName + ": " + nameInput.value.trim());
-      }
-      if (whatsappInput && whatsappInput.value.trim()) {
-        lines.push(labelWhatsapp + ": " + whatsappInput.value.trim());
-      }
+      var nameValue = nameInput ? nameInput.value.trim() : "";
+      var whatsappValue = whatsappInput ? whatsappInput.value.trim() : "";
       var deviceValue = getDeviceValue();
-      if (deviceValue) {
-        lines.push(labelDevice + ": " + deviceValue);
+      var modelValue = modelInput ? modelInput.value.trim() : "";
+      var issueValue = issueInput ? issueInput.value.trim() : "";
+
+      if (!modelValue) {
+        modelValue = "Iphone";
       }
-      if (modelInput && modelInput.value.trim()) {
-        lines.push(labelModel + ": " + modelInput.value.trim());
-      }
-      if (issueInput && issueInput.value.trim()) {
-        lines.push(labelIssue + ": " + issueInput.value.trim());
-      }
+
+      lines.push(labelName + ": " + nameValue);
+      lines.push(labelWhatsapp + ": " + whatsappValue);
+      lines.push(labelDevice + ": " + deviceValue);
+      lines.push(labelModel + ": " + modelValue);
+      lines.push(labelIssue + ": " + issueValue);
 
       var message = lines.join("\n");
       var link = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);

@@ -34,9 +34,13 @@
 </style></head>
 <body class="fixmi-home-page has-sticky-cta">
 @php
-    $whatsAppNumber = '628873183122';
+    $whatsAppNumber = '0819-9933-6722';
+    $whatsAppNumberDigits = preg_replace('/\D+/', '', $whatsAppNumber);
+    $whatsAppNumberNormalized = str_starts_with($whatsAppNumberDigits, '0')
+        ? '62' . substr($whatsAppNumberDigits, 1)
+        : $whatsAppNumberDigits;
     $whatsAppText = rawurlencode(__('site.whatsapp.default_message'));
-    $whatsAppLink = "https://wa.me/{$whatsAppNumber}?text={$whatsAppText}";
+    $whatsAppLink = "https://wa.me/{$whatsAppNumberNormalized}?text={$whatsAppText}";
 @endphp
 @include('partials.nav')
 <!-- Hero Section -->

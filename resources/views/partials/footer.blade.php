@@ -1,7 +1,11 @@
 @php
-    $whatsAppNumber = $whatsAppNumber ?? '628873183122';
+    $whatsAppNumber = $whatsAppNumber ?? '0819-9933-6722';
+    $whatsAppNumberDigits = preg_replace('/\D+/', '', $whatsAppNumber);
+    $whatsAppNumberNormalized = str_starts_with($whatsAppNumberDigits, '0')
+        ? '62' . substr($whatsAppNumberDigits, 1)
+        : $whatsAppNumberDigits;
     $whatsAppText = $whatsAppText ?? rawurlencode(__('site.whatsapp.default_message'));
-    $whatsAppLink = $whatsAppLink ?? "https://wa.me/{$whatsAppNumber}?text={$whatsAppText}";
+    $whatsAppLink = $whatsAppLink ?? "https://wa.me/{$whatsAppNumberNormalized}?text={$whatsAppText}";
 @endphp
 
 <section class="py-5 contact-section" id="contact">
@@ -31,7 +35,7 @@
 <div class="store-contact-item">
 <i class="bi bi-whatsapp"></i>
 <a id="storeWhatsappLink" href="{{ $whatsAppLink }}" target="_blank" rel="noopener">
-<span id="storeWhatsapp">08873183122</span>
+<span id="storeWhatsapp">{{ $whatsAppNumber }}</span>
 </a>
 </div>
 </div>

@@ -24,7 +24,11 @@
 
 @php
     $mapLink = 'https://www.google.com/maps?cid=4657379395589989071';
-    $whatsAppNumber = $whatsAppNumber ?? '628873183122';
+    $whatsAppNumber = $whatsAppNumber ?? '0819-9933-6722';
+    $whatsAppNumberDigits = preg_replace('/\D+/', '', $whatsAppNumber);
+    $whatsAppNumberNormalized = str_starts_with($whatsAppNumberDigits, '0')
+        ? '62' . substr($whatsAppNumberDigits, 1)
+        : $whatsAppNumberDigits;
 @endphp
 
 <main class="contact-page">
@@ -45,7 +49,7 @@
                 id="contactQuickForm"
                 action="#"
                 method="get"
-                data-whatsapp-number="{{ $whatsAppNumber }}"
+                data-whatsapp-number="{{ $whatsAppNumberNormalized }}"
                 data-message-prefix="{{ __('site.contact.form.message_prefix') }}"
                 data-label-name="{{ __('site.contact.form.name_label') }}"
                 data-label-whatsapp="{{ __('site.contact.form.whatsapp_label') }}"

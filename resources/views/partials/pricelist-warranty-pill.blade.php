@@ -7,9 +7,13 @@
     $warrantyClaimTitle = is_string($warrantyClaimTitle) ? trim($warrantyClaimTitle) : '';
     $warrantyClaimPointsRaw = __('site.pricelist.warranty_modal_claim_points');
     $warrantyClaimPoints = is_array($warrantyClaimPointsRaw) ? $warrantyClaimPointsRaw : [];
-    $whatsAppNumber = $whatsAppNumber ?? '628873183122';
+    $whatsAppNumber = $whatsAppNumber ?? '0819-9933-6722';
+    $whatsAppNumberDigits = preg_replace('/\D+/', '', $whatsAppNumber);
+    $whatsAppNumberNormalized = str_starts_with($whatsAppNumberDigits, '0')
+        ? '62' . substr($whatsAppNumberDigits, 1)
+        : $whatsAppNumberDigits;
     $whatsAppText = $whatsAppText ?? rawurlencode(__('site.whatsapp.default_message'));
-    $whatsAppLink = $whatsAppLink ?? "https://wa.me/{$whatsAppNumber}?text={$whatsAppText}";
+    $whatsAppLink = $whatsAppLink ?? "https://wa.me/{$whatsAppNumberNormalized}?text={$whatsAppText}";
 @endphp
 <div class="service-listing-pill" role="group" aria-label="{{ __('site.pricelist.section_pill_title') }}">
     <span class="service-listing-pill-title">{{ __('site.pricelist.section_pill_title') }}</span>

@@ -5406,6 +5406,70 @@ html[data-theme="dark"] body.fixmi-home-page .contact-section .footer-social-lin
   box-shadow: 0 10px 18px rgba(0, 0, 0, 0.45);
 }
 
+html[data-theme="dark"] body.fixmi-home-page .advantages-section {
+  background-color: #121826;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .advantages-section .section-title {
+  color: #f8fafc;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .advantages-section p,
+html[data-theme="dark"] body.fixmi-home-page .advantages-section li,
+html[data-theme="dark"] body.fixmi-home-page .advantages-subtitle,
+html[data-theme="dark"] body.fixmi-home-page .adv-desc {
+  color: #a3b0c2;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .advantages-eyebrow {
+  color: #ff7b3b;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .adv-card {
+  background-color: #151b26;
+  border-color: #243042;
+  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .adv-title {
+  color: #f8fafc;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .advantages-section .highlight {
+  color: #f8fafc;
+  background: linear-gradient(120deg, rgba(255, 107, 47, 0.2) 0%, rgba(255, 107, 47, 0.2) 100%);
+}
+
+html[data-theme="dark"] body.fixmi-home-page .adv-icon-blue {
+  background-color: rgba(59, 130, 246, 0.18);
+  color: #93c5fd;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .adv-icon-green {
+  background-color: rgba(16, 185, 129, 0.18);
+  color: #6ee7b7;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .adv-icon-purple {
+  background-color: rgba(139, 92, 246, 0.2);
+  color: #c4b5fd;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .adv-icon-amber {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: #fcd34d;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .adv-icon-red {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+html[data-theme="dark"] body.fixmi-home-page .adv-icon-indigo {
+  background-color: rgba(99, 102, 241, 0.2);
+  color: #c7d2fe;
+}
+
 html[data-theme="dark"] .fixmi-warranty-modal .btn-close {
   filter: invert(1);
   opacity: 0.85;
