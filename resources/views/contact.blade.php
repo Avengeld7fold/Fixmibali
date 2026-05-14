@@ -187,7 +187,7 @@
             <div class="row g-4 align-items-stretch">
                 <div class="col-lg-5">
                     <div class="location-list">
-                        <article class="location-card is-active" data-location-index="0" data-hours-default="09:00-21:00" data-hours-friday="closed" data-hours-sunday="09:00-18:00" role="button" tabindex="0" aria-pressed="true">
+                        <article class="location-card is-active" data-location-index="0" data-hours-default="09:00-21:00" data-hours-sunday="09:00-18:00" role="button" tabindex="0" aria-pressed="true">
                             <div class="location-card-top">
                                 <span class="location-icon"><i class="bi bi-geo-alt"></i></span>
                                 <div class="location-card-heading">
@@ -206,7 +206,7 @@
                             </div>
                         </article>
 
-                        <article class="location-card" data-location-index="1" data-hours-default="09:00-21:00" data-hours-friday="closed" role="button" tabindex="0" aria-pressed="false">
+                        <article class="location-card" data-location-index="1" data-hours-default="09:00-21:00" data-hours-sunday="09:00-18:00" role="button" tabindex="0" aria-pressed="false">
                             <div class="location-card-top">
                                 <span class="location-icon"><i class="bi bi-shop"></i></span>
                                 <div class="location-card-heading">
@@ -225,14 +225,14 @@
                             </div>
                         </article>
 
-                        <article class="location-card" data-location-index="2" data-hours-default="10:00-22:00" role="button" tabindex="0" aria-pressed="false">
+                        <article class="location-card" data-location-index="2" data-hours-default="09:00-21:00" data-hours-sunday="09:00-18:00" role="button" tabindex="0" aria-pressed="false">
                             <div class="location-card-top">
                                 <span class="location-icon"><i class="bi bi-geo"></i></span>
                                 <div class="location-card-heading">
                                     <span class="location-label">{{ __('site.contact.locations.other_label') }}</span>
                                     <h3 class="location-card-title">{{ __('site.contact.locations.other_title') }}</h3>
                                 </div>
-                                <span class="location-status is-closed" data-status-open="{{ __('site.contact.status_open') }}" data-status-closed="{{ __('site.contact.status_closed') }}" data-status-holiday="{{ __('site.contact.status_holiday') }}">{{ __('site.contact.locations.other_status') }}</span>
+                                <span class="location-status is-open" data-status-open="{{ __('site.contact.status_open') }}" data-status-closed="{{ __('site.contact.status_closed') }}" data-status-holiday="{{ __('site.contact.status_holiday') }}">{{ __('site.contact.locations.other_status') }}</span>
                             </div>
                             <div class="location-card-body">
                                 <span class="location-subtitle">{{ __('site.contact.location_address_label') }}</span>
