@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-admin-theme="dark">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,17 +15,18 @@
 
         <style>
             :root {
-                --auth-bg: #f8f9fb;
-                --auth-bg-deep: #cfe6fb;
-                --auth-card: rgba(255, 255, 255, 0.92);
-                --auth-border: rgba(199, 219, 241, 0.9);
-                --auth-text: #0f172a;
-                --auth-muted: #5b6b7d;
-                --auth-shadow: 0 35px 80px rgba(15, 23, 42, 0.18);
-                --auth-field: rgba(241, 246, 252, 0.9);
+                color-scheme: dark;
+                --auth-bg: #081019;
+                --auth-bg-deep: #121c2a;
+                --auth-card: rgba(15, 23, 42, 0.88);
+                --auth-border: rgba(51, 65, 85, 0.9);
+                --auth-text: #f8fafc;
+                --auth-muted: #94a3b8;
+                --auth-shadow: 0 35px 80px rgba(0, 0, 0, 0.45);
+                --auth-field: rgba(15, 23, 42, 0.96);
                 --fixmi-accent: #f26a21;
-                --fixmi-muted: #7c889b;
-                --fixmi-text: #2f3b52;
+                --fixmi-muted: #8ea1b8;
+                --fixmi-text: #e2e8f0;
             }
 
             body.auth-body {
@@ -35,7 +36,10 @@
             }
 
             .auth-shell {
-                background: var(--auth-bg);
+                background:
+                    radial-gradient(900px 500px at 15% 10%, rgba(242, 106, 33, 0.12) 0%, transparent 55%),
+                    radial-gradient(720px 420px at 85% 90%, rgba(34, 197, 94, 0.08) 0%, transparent 60%),
+                    linear-gradient(180deg, var(--auth-bg-deep) 0%, var(--auth-bg) 55%, #050a11 100%);
             }
 
             .auth-aurora {
@@ -44,9 +48,9 @@
                 height: 360px;
                 left: 50%;
                 transform: translateX(-50%);
-                background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9) 0%, rgba(154, 207, 255, 0.7) 40%, rgba(139, 197, 255, 0.1) 70%, transparent 80%);
-                filter: blur(8px);
-                opacity: 0;
+                background: radial-gradient(circle at 30% 30%, rgba(242, 106, 33, 0.42) 0%, rgba(242, 106, 33, 0.18) 32%, rgba(15, 23, 42, 0.04) 70%, transparent 82%);
+                filter: blur(28px);
+                opacity: 0.8;
             }
 
             .auth-aurora--top {
@@ -55,32 +59,38 @@
 
             .auth-aurora--bottom {
                 bottom: -220px;
-                opacity: 0;
+                opacity: 0.6;
             }
 
             .auth-dots {
-                background-image: radial-gradient(rgba(255, 255, 255, 0.65) 1px, transparent 1px);
+                background-image: radial-gradient(rgba(148, 163, 184, 0.18) 1px, transparent 1px);
                 background-size: 18px 18px;
-                opacity: 0;
+                opacity: 1;
             }
 
             .auth-wave {
                 position: absolute;
                 inset: 0;
-                background: linear-gradient(120deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 45%, rgba(255, 255, 255, 0.45) 100%);
-                opacity: 0;
+                background: linear-gradient(120deg, rgba(15, 23, 42, 0.05) 0%, rgba(242, 106, 33, 0.08) 45%, rgba(15, 23, 42, 0.04) 100%);
+                opacity: 1;
             }
 
             .auth-card {
                 background: var(--auth-card);
                 border: 1px solid var(--auth-border);
                 box-shadow: var(--auth-shadow);
+                backdrop-filter: blur(18px);
             }
 
             .auth-input {
                 background: var(--auth-field);
-                border: 1px solid rgba(255, 255, 255, 0.9);
-                box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.05);
+                border: 1px solid rgba(51, 65, 85, 0.9);
+                box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.22);
+                color: var(--auth-text);
+            }
+
+            .auth-input::placeholder {
+                color: #64748b;
             }
 
             .auth-title {
@@ -105,9 +115,9 @@
             }
 
             .auth-eye-toggle:hover {
-                background: rgba(255, 255, 255, 0.75);
-                border-color: rgba(148, 163, 184, 0.35);
-                box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+                background: rgba(30, 41, 59, 0.82);
+                border-color: rgba(71, 85, 105, 0.65);
+                box-shadow: 0 10px 20px rgba(15, 23, 42, 0.28);
             }
 
             .auth-eye-toggle:focus-visible {
@@ -225,9 +235,9 @@
             }
 
             .auth-social {
-                border: 1px solid rgba(203, 213, 225, 0.7);
-                background: rgba(255, 255, 255, 0.85);
-                box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+                border: 1px solid rgba(51, 65, 85, 0.8);
+                background: rgba(15, 23, 42, 0.82);
+                box-shadow: 0 8px 18px rgba(15, 23, 42, 0.24);
             }
 
             .auth-social-icon {
@@ -247,7 +257,24 @@
             }
 
             .auth-apple {
-                color: #0f172a;
+                color: #f8fafc;
+            }
+
+            .auth-shell .text-slate-900 {
+                color: #f8fafc !important;
+            }
+
+            .auth-shell .text-slate-700 {
+                color: #e2e8f0 !important;
+            }
+
+            .auth-shell .text-slate-600,
+            .auth-shell .text-slate-500 {
+                color: #94a3b8 !important;
+            }
+
+            .auth-shell .text-slate-400 {
+                color: #64748b !important;
             }
 
             @keyframes authFadeUp {

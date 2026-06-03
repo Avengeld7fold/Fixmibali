@@ -1,60 +1,8 @@
 // Custom JS for FIXMI landing page (optional future interactions)
 document.addEventListener("DOMContentLoaded", function () {
-  var themeStorageKey = "fixmi_theme";
-  var themeToggle = document.getElementById("themeToggle");
   var themeRoot = document.documentElement;
 
-  var updateThemeLogos = function (theme) {
-    var logos = document.querySelectorAll("[data-logo-light][data-logo-dark]");
-    if (!logos.length) {
-      return;
-    }
-    logos.forEach(function (logo) {
-      var lightSrc = logo.getAttribute("data-logo-light");
-      var darkSrc = logo.getAttribute("data-logo-dark");
-      var nextSrc = theme === "dark" ? darkSrc : lightSrc;
-      if (nextSrc && logo.getAttribute("src") !== nextSrc) {
-        logo.setAttribute("src", nextSrc);
-      }
-    });
-  };
-
-  var applyTheme = function (theme) {
-    if (theme === "dark") {
-      themeRoot.setAttribute("data-theme", "dark");
-    } else {
-      themeRoot.setAttribute("data-theme", "light");
-    }
-
-    if (themeToggle) {
-      var isDark = theme === "dark";
-      themeToggle.setAttribute("aria-pressed", isDark ? "true" : "false");
-      themeToggle.setAttribute(
-        "title",
-        isDark ? "Switch to light mode" : "Switch to dark mode"
-      );
-    }
-
-    updateThemeLogos(theme);
-  };
-
-  var storedTheme = null;
-  try {
-    storedTheme = localStorage.getItem(themeStorageKey);
-  } catch (e) {}
-
-  applyTheme(storedTheme || "light");
-
-  if (themeToggle) {
-    themeToggle.addEventListener("click", function () {
-      var current = themeRoot.getAttribute("data-theme");
-      var next = current === "dark" ? "light" : "dark";
-      applyTheme(next);
-      try {
-        localStorage.setItem(themeStorageKey, next);
-      } catch (e) {}
-    });
-  }
+  themeRoot.setAttribute("data-theme", "dark");
 
   // Popup Layanan FIXMI
   var popup = document.getElementById("servicePopup");

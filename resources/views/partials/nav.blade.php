@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light fixmi-navbar shadow-sm">
 <div class="container">
 <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
-<img alt="FIXMI" class="fixmi-logo me-2" src="/assets/img/logo-fixmi.png" data-logo-light="/assets/img/logo-fixmi.png" data-logo-dark="/assets/img/logo-fixmi-darkmode.png"/>
+<img alt="FIXMI" class="fixmi-logo me-2" src="/assets/img/logo-fixmi.png"/>
 </a>
 <button
   class="navbar-toggler"

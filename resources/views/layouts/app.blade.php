@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-admin-theme="dark">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,14 +13,7 @@
 
         <script>
             (function () {
-                const storageKey = 'admin-theme';
-                let stored = null;
-                try {
-                    stored = localStorage.getItem(storageKey);
-                } catch (e) {}
-                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const theme = stored || (prefersDark ? 'dark' : 'light');
-                document.documentElement.dataset.adminTheme = theme;
+                document.documentElement.dataset.adminTheme = 'dark';
             })();
         </script>
 
@@ -28,36 +21,23 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <style>
-            html[data-admin-theme='light'] {
-                --admin-bg: #f7f0e6;
-                --admin-glow: rgba(255, 191, 130, 0.18);
-                --admin-sidebar-bg: #fff9f0;
-                --admin-border: #efe4d5;
-                --admin-text: #2b2f36;
-                --admin-muted: #9aa0a8;
-                --admin-accent: #ff6a2b;
-                --admin-accent-soft: rgba(255, 106, 43, 0.18);
-                --admin-switch-bg: #eadfce;
-                --admin-switch-thumb: #ffffff;
-                --admin-shadow: 0 18px 40px rgba(35, 23, 12, 0.08);
-            }
-
+            :root,
             html[data-admin-theme='dark'] {
-                --admin-bg: #1b1f25;
-                --admin-glow: rgba(255, 106, 43, 0.12);
-                --admin-sidebar-bg: #21252c;
+                color-scheme: dark;
+                --admin-bg: #0f141b;
+                --admin-glow: rgba(242, 106, 33, 0.16);
+                --admin-sidebar-bg: #161c24;
                 --admin-border: #2f343d;
                 --admin-text: #f2f4f7;
                 --admin-muted: #9aa2ad;
                 --admin-accent: #ff6a2b;
                 --admin-accent-soft: rgba(255, 106, 43, 0.22);
-                --admin-switch-bg: #2f343d;
-                --admin-switch-thumb: #ff6a2b;
-                --admin-shadow: 0 24px 40px rgba(0, 0, 0, 0.38);
+                --admin-shadow: 0 24px 40px rgba(0, 0, 0, 0.45);
             }
 
             body {
                 background: var(--admin-bg);
+                color: var(--admin-text);
             }
 
             [x-cloak] {
@@ -87,6 +67,10 @@
                 background-color: #1f242b;
             }
 
+            html[data-admin-theme='dark'] .admin-shell .bg-white\/90 {
+                background-color: rgba(31, 36, 43, 0.9) !important;
+            }
+
             html[data-admin-theme='dark'] .admin-shell .bg-gray-100 {
                 background-color: #1b1f25;
             }
@@ -104,9 +88,37 @@
                 --tw-ring-color: rgba(47, 52, 61, 0.5);
             }
 
+            html[data-admin-theme='dark'] .admin-shell .ring-black\/5 {
+                --tw-ring-color: rgba(47, 52, 61, 0.5);
+            }
+
             html[data-admin-theme='dark'] .admin-shell .shadow,
             html[data-admin-theme='dark'] .admin-shell .shadow-sm {
                 box-shadow: none;
+            }
+
+            html[data-admin-theme='dark'] .admin-shell .text-gray-400 {
+                color: #7c8798;
+            }
+
+            html[data-admin-theme='dark'] .admin-shell .text-green-600 {
+                color: #4ade80;
+            }
+
+            html[data-admin-theme='dark'] .admin-shell .text-red-600 {
+                color: #f87171;
+            }
+
+            html[data-admin-theme='dark'] .admin-shell .border-gray-900 {
+                border-color: var(--admin-text);
+            }
+
+            html[data-admin-theme='dark'] .admin-shell .hover\:text-gray-900:hover {
+                color: var(--admin-text);
+            }
+
+            html[data-admin-theme='dark'] .admin-shell .hover\:bg-white:hover {
+                background-color: #1f242b;
             }
 
             .admin-sidebar-wrap {
@@ -136,7 +148,6 @@
             .admin-sidebar.is-collapsed .admin-brand-text,
             .admin-sidebar.is-collapsed .admin-section-title,
             .admin-sidebar.is-collapsed .admin-link-label,
-            .admin-sidebar.is-collapsed .admin-theme-label,
             .admin-sidebar.is-collapsed .admin-user-info {
                 display: none;
             }
@@ -147,19 +158,6 @@
 
             .admin-sidebar.is-collapsed .admin-brand {
                 justify-content: center;
-            }
-
-            .admin-sidebar.is-collapsed .admin-theme-full {
-                display: none;
-            }
-
-            .admin-sidebar.is-collapsed .admin-theme-compact {
-                display: grid;
-            }
-
-            .admin-sidebar.is-collapsed .admin-theme-row {
-                justify-content: center;
-                width: 100%;
             }
 
             .admin-brand {
@@ -281,86 +279,6 @@
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
-            }
-
-            .admin-theme-row {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin-top: 8px;
-            }
-
-            .admin-theme-label {
-                font-size: 12px;
-                color: var(--admin-muted);
-            }
-
-            .admin-theme-icon {
-                width: 16px;
-                height: 16px;
-                color: var(--admin-muted);
-            }
-
-            html[data-admin-theme='dark'] .admin-theme-icon--sun {
-                display: none;
-            }
-
-            html[data-admin-theme='light'] .admin-theme-icon--moon {
-                display: none;
-            }
-
-            .admin-switch {
-                position: relative;
-                width: 42px;
-                height: 22px;
-                border-radius: 999px;
-                border: 1px solid var(--admin-border);
-                background: var(--admin-switch-bg);
-                transition: background 0.2s ease;
-            }
-
-            .admin-switch-thumb {
-                position: absolute;
-                top: 2px;
-                left: 2px;
-                width: 18px;
-                height: 18px;
-                border-radius: 999px;
-                background: var(--admin-switch-thumb);
-                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
-                transition: transform 0.2s ease;
-            }
-
-            html[data-admin-theme='dark'] .admin-switch-thumb {
-                transform: translateX(20px);
-            }
-
-            .admin-theme-compact {
-                display: none;
-                width: 36px;
-                height: 36px;
-                border-radius: 12px;
-                border: 1px solid var(--admin-border);
-                background: transparent;
-                color: var(--admin-muted);
-                place-items: center;
-                cursor: pointer;
-                transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-            }
-
-            .admin-theme-compact .admin-theme-icon {
-                width: 16px;
-                height: 16px;
-            }
-
-            html[data-admin-theme='light'] .admin-theme-compact {
-                background: rgba(255, 106, 43, 0.08);
-                color: var(--admin-accent);
-            }
-
-            html[data-admin-theme='dark'] .admin-theme-compact {
-                background: rgba(255, 106, 43, 0.14);
-                color: var(--admin-accent);
             }
 
             .admin-user {
@@ -1145,30 +1063,5 @@
             </div>
         </div>
 
-        <script>
-            (function () {
-                const root = document.documentElement;
-                const storageKey = 'admin-theme';
-
-                const applyTheme = (theme) => {
-                    root.dataset.adminTheme = theme;
-                    try {
-                        localStorage.setItem(storageKey, theme);
-                    } catch (e) {}
-                    document.querySelectorAll('[data-theme-indicator]').forEach((el) => {
-                        el.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
-                    });
-                };
-
-                window.toggleAdminTheme = () => {
-                    const next = root.dataset.adminTheme === 'dark' ? 'light' : 'dark';
-                    applyTheme(next);
-                };
-
-                document.addEventListener('DOMContentLoaded', () => {
-                    applyTheme(root.dataset.adminTheme || 'light');
-                });
-            })();
-        </script>
     </body>
 </html>

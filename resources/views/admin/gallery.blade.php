@@ -1,10 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
         <div>
-            <h2 class="text-2xl font-semibold text-gray-900">
+            <h2 class="text-2xl font-semibold text-slate-100">
                 Upload &amp; Sell Your Media
             </h2>
-            <p class="mt-1 text-sm text-gray-500">
+            <p class="mt-1 text-sm text-slate-400">
                 Upload your images or videos to start selling.
             </p>
         </div>
@@ -30,20 +30,20 @@
 
             <div class="mt-6 admin-panel-card overflow-hidden rounded-2xl shadow-sm">
                 <div class="px-6 pt-6">
-                    <div class="border-b border-gray-200">
+                    <div class="border-b border-slate-800">
                         <div class="flex items-end justify-between gap-6">
                             <div class="flex items-center gap-6">
-                                <button type="button" class="pb-3 text-sm font-semibold text-gray-900 border-b-2 border-gray-900">
+                                <button type="button" class="pb-3 text-sm font-semibold text-slate-100 border-b-2 border-orange-400">
                                     All
                                 </button>
-                                <button type="button" class="pb-3 text-sm font-medium text-gray-500">
+                                <button type="button" class="pb-3 text-sm font-medium text-slate-500">
                                     Photos
                                 </button>
-                                <button type="button" class="pb-3 text-sm font-medium text-gray-500">
+                                <button type="button" class="pb-3 text-sm font-medium text-slate-500">
                                     Videos
                                 </button>
                             </div>
-                            <a class="pb-3 text-sm font-semibold text-gray-500 hover:text-gray-900" href="{{ route('gallery') }}" target="_blank" rel="noopener noreferrer">
+                            <a class="pb-3 text-sm font-semibold text-slate-400 transition hover:text-slate-100" href="{{ route('gallery') }}" target="_blank" rel="noopener noreferrer">
                                 Lihat Gallery Repair
                             </a>
                         </div>
@@ -52,23 +52,23 @@
 
                 <div class="p-6">
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                        <div class="rounded-2xl border-2 border-dashed border-gray-300 bg-white p-4 shadow-sm">
+                        <div class="rounded-2xl border-2 border-dashed border-slate-700 bg-slate-950/60 p-4 shadow-sm">
                             <div class="flex h-full flex-col items-center justify-center text-center">
-                                <div class="flex h-14 w-14 items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-gray-50">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-7 w-7 text-gray-400" aria-hidden="true">
+                                <div class="flex h-14 w-14 items-center justify-center rounded-2xl border border-dashed border-slate-700 bg-slate-900">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-7 w-7 text-slate-500" aria-hidden="true">
                                         <path d="M4 7a2 2 0 0 1 2-2h2l1-1h6l1 1h2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7z" stroke-linecap="round" stroke-linejoin="round" />
                                         <path d="M12 10a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
-                                <div class="mt-4 text-base font-semibold text-gray-900">
+                                <div class="mt-4 text-base font-semibold text-slate-100">
                                     Share New Snap
                                 </div>
-                                <div class="mt-1 text-sm text-gray-500">
+                                <div class="mt-1 text-sm text-slate-400">
                                     Upload images or videos to start selling.
                                 </div>
                                 <button
                                     type="button"
-                                    class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gray-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-800"
+                                    class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-orange-500 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-sm transition hover:bg-orange-400"
                                     onclick="window.dispatchEvent(new CustomEvent('open-modal', { detail: 'gallery-upload' }))"
                                 >
                                     <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
@@ -85,10 +85,10 @@
                                 $views = (int) ($image['views'] ?? 0);
                             @endphp
 
-                            <div class="group relative rounded-2xl bg-white p-3 shadow-sm ring-1 ring-black/5">
+                            <div class="group relative rounded-2xl bg-slate-950/70 p-3 shadow-sm ring-1 ring-slate-800">
                                 <button
                                     type="button"
-                                    class="block w-full overflow-hidden rounded-2xl bg-gray-100"
+                                    class="block w-full overflow-hidden rounded-2xl bg-slate-900"
                                     data-gallery-preview
                                     data-url="{{ $image['url'] }}"
                                     data-alt="Gallery repair {{ $image['filename'] }}"
@@ -109,7 +109,7 @@
                                 >
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-red-200 bg-white/90 text-red-600 shadow-sm hover:bg-white" aria-label="Hapus gambar">
+                                    <button type="submit" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-red-500/30 bg-slate-900/90 text-red-400 shadow-sm transition hover:bg-slate-800" aria-label="Hapus gambar">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4" aria-hidden="true">
                                             <path d="M9 3h6m-8 4h10M10 7v14m4-14v14M6 7l1 14a1 1 0 0 0 1 .9h8a1 1 0 0 0 1-.9l1-14" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
@@ -117,12 +117,12 @@
                                 </form>
 
                                 <div class="px-1 pb-2 pt-3">
-                                    <div class="text-sm font-medium text-gray-500">
+                                    <div class="text-sm font-medium text-slate-400">
                                         {{ $dateLabel }}
                                     </div>
-                                    <div class="mt-2 flex items-center justify-between text-xs text-gray-500">
+                                    <div class="mt-2 flex items-center justify-between text-xs text-slate-500">
                                         <div class="flex items-center gap-2">
-                                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-gray-50 text-gray-500">
+                                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-slate-900 text-slate-500">
                                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="h-4 w-4" aria-hidden="true">
                                                     <path d="M2.5 12s3.5-7 9.5-7 9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7z" stroke-linecap="round" stroke-linejoin="round" />
                                                     <path d="M12 9.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z" stroke-linecap="round" stroke-linejoin="round" />
@@ -137,7 +137,7 @@
                     </div>
 
                     @if (count($images) === 0)
-                        <p class="mt-6 text-sm text-gray-500">
+                        <p class="mt-6 text-sm text-slate-400">
                             Belum ada gambar.
                         </p>
                     @endif

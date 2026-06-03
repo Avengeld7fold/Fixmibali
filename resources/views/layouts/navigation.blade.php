@@ -68,33 +68,6 @@
             </a>
         </div>
 
-        <div class="admin-theme-row">
-            <button type="button" class="admin-theme-compact" onclick="window.toggleAdminTheme()" aria-label="Toggle theme">
-                <svg class="admin-theme-icon admin-theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                    <path d="M12 4v2M12 18v2M4 12h2M18 12h2M6.2 6.2l1.4 1.4M16.4 16.4l1.4 1.4M6.2 17.8l1.4-1.4M16.4 7.6l1.4-1.4" stroke-linecap="round" stroke-linejoin="round" />
-                    <circle cx="12" cy="12" r="4" />
-                </svg>
-                <svg class="admin-theme-icon admin-theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                    <path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </button>
-            <div class="admin-theme-full">
-                <span class="admin-theme-label">Dark mode</span>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <svg class="admin-theme-icon admin-theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                        <path d="M12 4v2M12 18v2M4 12h2M18 12h2M6.2 6.2l1.4 1.4M16.4 16.4l1.4 1.4M6.2 17.8l1.4-1.4M16.4 7.6l1.4-1.4" stroke-linecap="round" stroke-linejoin="round" />
-                        <circle cx="12" cy="12" r="4" />
-                    </svg>
-                    <button type="button" class="admin-switch" role="switch" data-theme-indicator onclick="window.toggleAdminTheme()" aria-checked="false">
-                        <span class="admin-switch-thumb"></span>
-                    </button>
-                    <svg class="admin-theme-icon admin-theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                        <path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-
         <div class="admin-bottom">
             <div class="admin-divider"></div>
 

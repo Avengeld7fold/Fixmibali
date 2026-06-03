@@ -13,7 +13,7 @@
 <div class="row g-4">
 <div class="col-lg-5">
 <div class="footer-logo-block footer-block">
-<img alt="FIXMI" class="footer-logo mb-2" src="/assets/img/logo-fixmi.png" data-logo-light="/assets/img/logo-fixmi.png" data-logo-dark="/assets/img/logo-fixmi-darkmode.png" loading="lazy" decoding="async"/>
+<img alt="FIXMI" class="footer-logo mb-2" src="/assets/img/logo-fixmi.png" loading="lazy" decoding="async"/>
 
 </div>
 
@@ -74,10 +74,6 @@
 </div>
 </div>
 </section>
-<button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
-<span class="theme-toggle-icon theme-toggle-sun" aria-hidden="true"><i class="bi bi-sun-fill"></i></span>
-<span class="theme-toggle-icon theme-toggle-moon" aria-hidden="true"><i class="bi bi-moon-stars-fill"></i></span>
-</button>
 <!-- WhatsApp floating button (optional) -->
 <a class="whatsapp-float" id="floatingWhatsappLink" href="{{ $whatsAppLink }}" rel="noopener" target="_blank">
   <img src="/assets/img/whatsapp.svg" alt="WhatsApp" class="whatsapp-float-icon" />

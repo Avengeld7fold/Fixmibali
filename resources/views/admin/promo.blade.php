@@ -1,10 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
         <div>
-            <h2 class="text-2xl font-semibold text-gray-900">
+            <h2 class="text-2xl font-semibold text-slate-100">
                 Kelola Promo
             </h2>
-            <p class="mt-1 text-sm text-gray-500">
+            <p class="mt-1 text-sm text-slate-400">
                 Upload poster promo terbaru, otomatis tampil di halaman Promo.
             </p>
         </div>
@@ -30,17 +30,17 @@
 
             <div class="mt-6 admin-panel-card overflow-hidden rounded-2xl shadow-sm">
                 <div class="px-6 pt-6">
-                    <div class="border-b border-gray-200">
+                    <div class="border-b border-slate-800">
                         <div class="flex items-end justify-between gap-6">
                             <div>
-                                <h3 class="text-base font-semibold text-gray-900">
+                                <h3 class="text-base font-semibold text-slate-100">
                                     Poster Promo
                                 </h3>
-                                <p class="mt-1 text-sm text-gray-500">
+                                <p class="mt-1 text-sm text-slate-400">
                                     Rasio yang disarankan: 9:16.
                                 </p>
                             </div>
-                            <a class="pb-3 text-sm font-semibold text-gray-500 hover:text-gray-900" href="{{ route('promo') }}" target="_blank" rel="noopener noreferrer">
+                            <a class="pb-3 text-sm font-semibold text-slate-400 transition hover:text-slate-100" href="{{ route('promo') }}" target="_blank" rel="noopener noreferrer">
                                 Lihat halaman Promo
                             </a>
                         </div>
@@ -49,23 +49,23 @@
 
                 <div class="p-6">
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                        <div class="rounded-2xl border-2 border-dashed border-gray-300 bg-white p-4 shadow-sm">
+                        <div class="rounded-2xl border-2 border-dashed border-slate-700 bg-slate-950/60 p-4 shadow-sm">
                             <div class="flex h-full flex-col items-center justify-center text-center">
-                                <div class="flex h-14 w-14 items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-gray-50">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-7 w-7 text-gray-400" aria-hidden="true">
+                                <div class="flex h-14 w-14 items-center justify-center rounded-2xl border border-dashed border-slate-700 bg-slate-900">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-7 w-7 text-slate-500" aria-hidden="true">
                                         <path d="M4 7a2 2 0 0 1 2-2h2l1-1h6l1 1h2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7z" stroke-linecap="round" stroke-linejoin="round" />
                                         <path d="M12 10a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
-                                <div class="mt-4 text-base font-semibold text-gray-900">
+                                <div class="mt-4 text-base font-semibold text-slate-100">
                                     Tambah Poster
                                 </div>
-                                <div class="mt-1 text-sm text-gray-500">
+                                <div class="mt-1 text-sm text-slate-400">
                                     Upload gambar promo (JPG, PNG, WEBP).
                                 </div>
                                 <button
                                     type="button"
-                                    class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gray-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-800"
+                                    class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-orange-500 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-sm transition hover:bg-orange-400"
                                     onclick="window.dispatchEvent(new CustomEvent('open-modal', { detail: 'promo-upload' }))"
                                 >
                                     <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4" aria-hidden="true">
@@ -81,10 +81,10 @@
                                 $dateLabel = \Carbon\Carbon::createFromTimestamp($image['last_modified'])->setTimezone('Asia/Makassar')->format('M j, Y');
                             @endphp
 
-                            <div class="group relative rounded-2xl bg-white p-3 shadow-sm ring-1 ring-black/5">
+                            <div class="group relative rounded-2xl bg-slate-950/70 p-3 shadow-sm ring-1 ring-slate-800">
                                 <button
                                     type="button"
-                                    class="block w-full overflow-hidden rounded-2xl bg-gray-100"
+                                    class="block w-full overflow-hidden rounded-2xl bg-slate-900"
                                     data-promo-preview
                                     data-url="{{ $image['url'] }}"
                                     data-alt="Promo {{ $image['filename'] }}"
@@ -105,7 +105,7 @@
                                 >
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-red-200 bg-white/90 text-red-600 shadow-sm hover:bg-white" aria-label="Hapus poster promo">
+                                    <button type="submit" class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-red-500/30 bg-slate-900/90 text-red-400 shadow-sm transition hover:bg-slate-800" aria-label="Hapus poster promo">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4" aria-hidden="true">
                                             <path d="M9 3h6m-8 4h10M10 7v14m4-14v14M6 7l1 14a1 1 0 0 0 1 .9h8a1 1 0 0 0 1-.9l1-14" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
@@ -113,7 +113,7 @@
                                 </form>
 
                                 <div class="px-1 pb-2 pt-3">
-                                    <div class="text-sm font-medium text-gray-500">
+                                    <div class="text-sm font-medium text-slate-400">
                                         {{ $dateLabel }}
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@
                     </div>
 
                     @if (count($images) === 0)
-                        <p class="mt-6 text-sm text-gray-500">
+                        <p class="mt-6 text-sm text-slate-400">
                             Belum ada poster promo.
                         </p>
                     @endif
