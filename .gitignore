@@ -11,6 +11,8 @@
 /.phpunit.cache
 /.vscode
 /.zed
+.agents/
+.gemini/
 /auth.json
 /database/database.sqlite
 /node_modules
