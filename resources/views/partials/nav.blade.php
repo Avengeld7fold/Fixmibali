@@ -41,7 +41,7 @@
 <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" @if(request()->routeIs('contact')) aria-current="page" @endif href="{{ route('contact') }}">{{ __('site.nav.contact') }}</a>
 </li>
 <li class="nav-item">
-<a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" @if(request()->routeIs('about')) aria-current="page" @endif href="{{ route('about') }}">{{ __('site.nav.about') }}</a>
+{{-- <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" @if(request()->routeIs('about')) aria-current="page" @endif href="{{ route('about') }}">{{ __('site.nav.about') }}</a> --}}
 </li>
 </ul>
 </div>
@@ -85,7 +85,7 @@
         <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" @if(request()->routeIs('contact')) aria-current="page" @endif href="{{ route('contact') }}">{{ __('site.nav.contact') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" @if(request()->routeIs('about')) aria-current="page" @endif href="{{ route('about') }}">{{ __('site.nav.about') }}</a>
+        {{-- <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" @if(request()->routeIs('about')) aria-current="page" @endif href="{{ route('about') }}">{{ __('site.nav.about') }}</a> --}}
       </li>
     </ul>
 

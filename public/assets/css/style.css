@@ -4294,6 +4294,56 @@ body.fixmi-home-page .service-price-title {
   padding: 0.55rem 0 0.2rem;
 }
 
+.service-price-swipe-hint {
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+
+  /* Force the table and all columns to perfectly shrink-wrap their content */
+  .service-price-table {
+    width: 1% !important;
+    min-width: 0 !important;
+  }
+  .service-price-table th,
+  .service-price-table td {
+    width: 1%;
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  .service-price-swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.35rem;
+    padding: 0.35rem 0.5rem 0.2rem;
+    font-size: 0.75rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+  .service-price-swipe-hint .swipe-icon {
+    animation: swipeAnim 1.5s infinite ease-in-out;
+  }
+  @keyframes swipeAnim {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+  }
+
+  /* Custom thin scrollbar for mobile */
+  .service-price-table-wrap::-webkit-scrollbar {
+    height: 4px;
+  }
+  .service-price-table-wrap::-webkit-scrollbar-track {
+    background: rgba(150, 150, 150, 0.1);
+    border-radius: 4px;
+  }
+  .service-price-table-wrap::-webkit-scrollbar-thumb {
+    background: rgba(150, 150, 150, 0.4);
+    border-radius: 4px;
+  }
+}
+
 .service-price-table-wrap {
   margin-top: 0.5rem;
   border-radius: 16px;
@@ -4354,6 +4404,8 @@ body.fixmi-home-page .service-price-title {
   margin: 0;
   color: #7c889b;
   font-size: 0.95rem;
+  text-align: center;
+  padding: 1.5rem 0;
 }
 
 .service-price-th-title {
@@ -4432,6 +4484,10 @@ body.fixmi-home-page .service-price-title {
   font-size: 0.75rem;
   line-height: 1;
   color: #9aa4b2;
+}
+
+.service-price-sort-indicator:empty {
+  display: none;
 }
 
 .service-price-table th.is-sort-asc .service-price-sort-indicator::before {

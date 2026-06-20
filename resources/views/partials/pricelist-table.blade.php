@@ -149,6 +149,10 @@
 <input class="service-price-table-search" type="search" inputmode="search" autocomplete="off" spellcheck="false" placeholder="{{ __('site.pricelist.table_search_placeholder') }}" aria-label="{{ __('site.pricelist.table_search_placeholder') }}" data-pricelist-search="{{ $instanceId }}"/>
 </div>
 </div>
+<div class="service-price-swipe-hint">
+    <span class="swipe-text">Geser tabel untuk detail</span>
+    <span class="swipe-icon">➔</span>
+</div>
 <div class="service-price-table-wrap">
 <table class="service-price-table" data-pricelist-table="{{ $instanceId }}">
 <thead>
