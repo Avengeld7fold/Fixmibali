@@ -624,6 +624,86 @@
 </div>
 
 <div class="service-price-item">
+<button class="service-price-trigger" type="button" data-bs-toggle="collapse" data-bs-target="#brandItel" aria-expanded="false" aria-controls="brandItel">
+<span class="service-price-icon is-brand">
+<img src="/assets/img/brands/itel.svg" alt="Itel" class="service-brand-logo"/>
+</span>
+<span class="service-price-title">Itel</span>
+<span class="service-price-toggle">+</span>
+</button>
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="brandItel">
+<div class="service-price-content">
+<div class="service-sublist">
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-itel-lcd" aria-expanded="false" aria-controls="android-itel-lcd">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-itel-lcd">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-itel-lcd'] ?? null])
+</div>
+</div>
+</div>
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-itel-battery" aria-expanded="false" aria-controls="android-itel-battery">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-itel-battery">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-itel-battery'] ?? null])
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="service-price-item">
+<button class="service-price-trigger" type="button" data-bs-toggle="collapse" data-bs-target="#brandTecno" aria-expanded="false" aria-controls="brandTecno">
+<span class="service-price-icon is-brand">
+<img src="/assets/img/brands/tecno.svg" alt="Tecno" class="service-brand-logo"/>
+</span>
+<span class="service-price-title">Tecno</span>
+<span class="service-price-toggle">+</span>
+</button>
+<div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="brandTecno">
+<div class="service-price-content">
+<div class="service-sublist">
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-tecno-lcd" aria-expanded="false" aria-controls="android-tecno-lcd">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-tecno-lcd">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-tecno-lcd'] ?? null])
+</div>
+</div>
+</div>
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-tecno-battery" aria-expanded="false" aria-controls="android-tecno-battery">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-tecno-battery">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-tecno-battery'] ?? null])
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="service-price-item">
 <button class="service-price-trigger" type="button" data-bs-toggle="collapse" data-bs-target="#brandHuawei" aria-expanded="false" aria-controls="brandHuawei">
 <span class="service-price-icon is-brand">
 <img src="/assets/img/brands/huawei.svg" alt="Huawei" class="service-brand-logo"/>

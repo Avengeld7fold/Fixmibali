@@ -225,6 +225,22 @@ class PricelistManagerController extends Controller
                 ]),
             ],
             [
+                'key' => 'itel',
+                'title' => 'Itel',
+                'sections' => $this->buildSectionsForKeys([
+                    'android-itel-lcd',
+                    'android-itel-battery',
+                ]),
+            ],
+            [
+                'key' => 'tecno',
+                'title' => 'Tecno',
+                'sections' => $this->buildSectionsForKeys([
+                    'android-tecno-lcd',
+                    'android-tecno-battery',
+                ]),
+            ],
+            [
                 'key' => 'huawei',
                 'title' => 'Huawei',
                 'series' => [

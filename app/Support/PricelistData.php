@@ -303,6 +303,30 @@ class PricelistData
             'device' => 'android',
             'file_hint' => 'android-google-pixel-battery.csv',
         ],
+        'android-itel-lcd' => [
+            'label' => 'Harga Pergantian LCD Itel',
+            'slug' => 'android-itel-lcd',
+            'device' => 'android',
+            'file_hint' => 'android-itel-lcd.csv',
+        ],
+        'android-itel-battery' => [
+            'label' => 'Harga Pergantian Battery Itel',
+            'slug' => 'android-itel-battery',
+            'device' => 'android',
+            'file_hint' => 'android-itel-battery.csv',
+        ],
+        'android-tecno-lcd' => [
+            'label' => 'Harga Pergantian LCD Tecno',
+            'slug' => 'android-tecno-lcd',
+            'device' => 'android',
+            'file_hint' => 'android-tecno-lcd.csv',
+        ],
+        'android-tecno-battery' => [
+            'label' => 'Harga Pergantian Battery Tecno',
+            'slug' => 'android-tecno-battery',
+            'device' => 'android',
+            'file_hint' => 'android-tecno-battery.csv',
+        ],
         'android-huawei-p-nova-lcd' => [
             'label' => 'Harga Pergantian LCD Huawei P and Nova Series',
             'slug' => 'android-huawei-p-nova-lcd',
