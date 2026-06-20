@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Fixmi Service Center</title>
+        <link rel="icon" type="image/svg+xml" href="/assets/img/favinco.svg"/>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -1047,7 +1048,7 @@
                                 <path d="M3 5h14M3 10h14M3 15h14" />
                             </svg>
                         </button>
-                        <span class="admin-mobile-title">{{ config('app.name', 'Laravel') }}</span>
+                        <span class="admin-mobile-title">Fixmi Service Center</span>
                     </div>
 
                     @isset($header)

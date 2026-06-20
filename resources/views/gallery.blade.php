@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>{{ __('site.gallery.page_title') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <link rel="icon" type="image/png" href="/assets/img/favinco.png"/>
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favinco.svg"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet"/>

@@ -1,3 +1,12 @@
+@php
+    use App\Support\PricelistData;
+    $focusSection = session('focus_section');
+    $focusDevice = null;
+    if ($focusSection && PricelistData::hasSection($focusSection)) {
+        $focusDevice = PricelistData::section($focusSection)['device'] ?? null;
+    }
+@endphp
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-slate-100 leading-tight">
@@ -27,7 +36,8 @@
 
                     <div class="mt-6">
                         @foreach ($priceSectionGroups as $group)
-                            <details class="admin-accordion {{ $loop->first ? '' : 'mt-4' }}">
+                            @php $deviceOpen = $focusDevice === ($group['key'] ?? ''); @endphp
+                            <details class="admin-accordion {{ $loop->first ? '' : 'mt-4' }}" {{ $deviceOpen ? 'open' : '' }}>
                                 <summary class="admin-accordion-summary">
                                     <span class="admin-accordion-title">{{ $group['title'] }}</span>
                                     <span class="admin-accordion-hint">Klik untuk buka</span>
@@ -40,7 +50,8 @@
                                     @if (($group['key'] ?? '') === 'android')
                                         @if (!empty($group['brands']))
                                             @foreach ($group['brands'] as $brand)
-                                                <details class="admin-accordion admin-accordion--nested {{ $loop->first ? '' : 'mt-3' }}">
+                                                @php $brandOpen = $deviceOpen && $focusSection && str_starts_with($focusSection, 'android-'.$brand['key']); @endphp
+                                                <details class="admin-accordion admin-accordion--nested {{ $loop->first ? '' : 'mt-3' }}" {{ $brandOpen ? 'open' : '' }}>
                                                     <summary class="admin-accordion-summary">
                                                         <span class="admin-accordion-title">{{ $brand['title'] }}</span>
                                                         <span class="admin-accordion-hint">Klik untuk buka</span>
@@ -48,7 +59,8 @@
                                                     <div class="admin-accordion-content">
                                                         @if (!empty($brand['series']))
                                                             @foreach ($brand['series'] as $series)
-                                                                <details class="admin-accordion admin-accordion--nested {{ $loop->first ? '' : 'mt-3' }}">
+                                                                @php $seriesOpen = $brandOpen && $focusSection && str_starts_with($focusSection, 'android-'.$series['key']); @endphp
+                                                                <details class="admin-accordion admin-accordion--nested {{ $loop->first ? '' : 'mt-3' }}" {{ $seriesOpen ? 'open' : '' }}>
                                                                     <summary class="admin-accordion-summary">
                                                                         <span class="admin-accordion-title">{{ $series['title'] }}</span>
                                                                         <span class="admin-accordion-hint">Klik untuk buka</span>
@@ -88,4 +100,5 @@
             </div>
         </div>
     </div>
+</div>
 </x-app-layout>

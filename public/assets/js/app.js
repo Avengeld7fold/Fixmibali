@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   var defaultWhatsAppMessage =
-    "Halo Fixmi Bali, saya mau tanya service.\nNama:\nNomor WhatsApp:\nPerangkat:\nModel: Iphone\nKeluhan:";
+    "Halo Fixmi Service Center, saya mau tanya service.\nNama:\nNomor WhatsApp:\nPerangkat:\nModel: Iphone\nKeluhan:";
 
   var heroWhatsappLink = document.getElementById("heroWhatsappLink");
   var stickyWhatsappLink = document.getElementById("stickyWhatsappLink");

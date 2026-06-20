@@ -227,10 +227,48 @@ class PricelistManagerController extends Controller
             [
                 'key' => 'huawei',
                 'title' => 'Huawei',
-                'sections' => $this->buildSectionsForKeys([
-                    'android-huawei-lcd',
-                    'android-huawei-battery',
-                ]),
+                'series' => [
+                    [
+                        'key' => 'huawei-p-nova',
+                        'title' => 'P and Nova Series',
+                        'sections' => $this->buildSectionsForKeys([
+                            'android-huawei-p-nova-lcd',
+                            'android-huawei-p-nova-battery',
+                        ]),
+                    ],
+                    [
+                        'key' => 'huawei-y',
+                        'title' => 'Y Series',
+                        'sections' => $this->buildSectionsForKeys([
+                            'android-huawei-y-lcd',
+                            'android-huawei-y-battery',
+                        ]),
+                    ],
+                    [
+                        'key' => 'huawei-matebook-matepad',
+                        'title' => 'Matebook and Matepad',
+                        'sections' => $this->buildSectionsForKeys([
+                            'android-huawei-matebook-matepad-lcd',
+                            'android-huawei-matebook-matepad-battery',
+                        ]),
+                    ],
+                    [
+                        'key' => 'huawei-honor',
+                        'title' => 'Honor Series',
+                        'sections' => $this->buildSectionsForKeys([
+                            'android-huawei-honor-lcd',
+                            'android-huawei-honor-battery',
+                        ]),
+                    ],
+                    [
+                        'key' => 'huawei-mate',
+                        'title' => 'Huawei Mate',
+                        'sections' => $this->buildSectionsForKeys([
+                            'android-huawei-mate-lcd',
+                            'android-huawei-mate-battery',
+                        ]),
+                    ],
+                ],
             ],
         ];
     }

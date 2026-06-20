@@ -51,7 +51,9 @@ class PricelistImportController extends Controller
 
         return redirect()
             ->route('admin.pricelist.index')
-            ->with('status', 'Pricelist berhasil diimport.');
+            ->with('status', 'Pricelist berhasil diimport.')
+            ->with('focus_section', $section)
+            ->withFragment('section-'.$section);
     }
 
     public function destroy(string $section)
@@ -61,7 +63,9 @@ class PricelistImportController extends Controller
 
         return redirect()
             ->route('admin.pricelist.index')
-            ->with('status', 'Pricelist berhasil dihapus.');
+            ->with('status', 'Pricelist berhasil dihapus.')
+            ->with('focus_section', $section)
+            ->withFragment('section-'.$section);
     }
 
     public function undo(string $section)
@@ -71,12 +75,16 @@ class PricelistImportController extends Controller
         if (! PricelistData::restoreBackup($section)) {
             return redirect()
                 ->route('admin.pricelist.index')
-                ->with('status', 'Tidak ada data sebelumnya untuk di-undo.');
+                ->with('status', 'Tidak ada data sebelumnya untuk di-undo.')
+                ->with('focus_section', $section)
+                ->withFragment('section-'.$section);
         }
 
         return redirect()
             ->route('admin.pricelist.index')
-            ->with('status', 'Pricelist berhasil dikembalikan ke data sebelumnya.');
+            ->with('status', 'Pricelist berhasil dikembalikan ke data sebelumnya.')
+            ->with('focus_section', $section)
+            ->withFragment('section-'.$section);
     }
 
     private function resolveSection(?string $section): string

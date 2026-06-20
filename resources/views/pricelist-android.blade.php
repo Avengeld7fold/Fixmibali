@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>{{ __('site.pricelist.page_title_android') }}</title>
-<link rel="icon" type="image/png" href="/assets/img/favinco.png"/>
+<link rel="icon" type="image/svg+xml" href="/assets/img/favinco.svg"/>
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
 <!-- Google Fonts + Icons for hero -->
@@ -634,27 +634,178 @@
 <div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="brandHuawei">
 <div class="service-price-content">
 <div class="service-sublist">
+<div class="service-sublist-group">
+<button class="service-sublist-item service-sublist-item--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#huaweiPNovaSeries" aria-expanded="false" aria-controls="huaweiPNovaSeries">
+<span class="service-sublist-icon"><i class="bi bi-arrow-right"></i></span>
+<span class="service-sublist-text">P and Nova Series</span>
+<span class="service-sublist-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="huaweiPNovaSeries">
+<div class="service-sublist-panel-inner">
 <div class="service-sublist-block">
-<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-lcd" aria-expanded="false" aria-controls="android-huawei-lcd">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-p-nova-lcd" aria-expanded="false" aria-controls="android-huawei-p-nova-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
 <span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
-<div class="collapse service-sublist-panel" id="android-huawei-lcd">
+<div class="collapse service-sublist-panel" id="android-huawei-p-nova-lcd">
 <div class="service-sublist-table">
-@include('partials.pricelist-table', ['table' => $priceTables['android-huawei-lcd'] ?? null])
+@include('partials.pricelist-table', ['table' => $priceTables['android-huawei-p-nova-lcd'] ?? null])
 </div>
 </div>
 </div>
 <div class="service-sublist-block">
-<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-battery" aria-expanded="false" aria-controls="android-huawei-battery">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-p-nova-battery" aria-expanded="false" aria-controls="android-huawei-p-nova-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
 <span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
-<div class="collapse service-sublist-panel" id="android-huawei-battery">
+<div class="collapse service-sublist-panel" id="android-huawei-p-nova-battery">
 <div class="service-sublist-table">
-@include('partials.pricelist-table', ['table' => $priceTables['android-huawei-battery'] ?? null])
+@include('partials.pricelist-table', ['table' => $priceTables['android-huawei-p-nova-battery'] ?? null])
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="service-sublist-group">
+<button class="service-sublist-item service-sublist-item--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#huaweiYSeries" aria-expanded="false" aria-controls="huaweiYSeries">
+<span class="service-sublist-icon"><i class="bi bi-arrow-right"></i></span>
+<span class="service-sublist-text">Y Series</span>
+<span class="service-sublist-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="huaweiYSeries">
+<div class="service-sublist-panel-inner">
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-y-lcd" aria-expanded="false" aria-controls="android-huawei-y-lcd">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-huawei-y-lcd">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-huawei-y-lcd'] ?? null])
+</div>
+</div>
+</div>
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-y-battery" aria-expanded="false" aria-controls="android-huawei-y-battery">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-huawei-y-battery">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-huawei-y-battery'] ?? null])
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="service-sublist-group">
+<button class="service-sublist-item service-sublist-item--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#huaweiMatebookMatepadSeries" aria-expanded="false" aria-controls="huaweiMatebookMatepadSeries">
+<span class="service-sublist-icon"><i class="bi bi-arrow-right"></i></span>
+<span class="service-sublist-text">Matebook and Matepad</span>
+<span class="service-sublist-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="huaweiMatebookMatepadSeries">
+<div class="service-sublist-panel-inner">
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-matebook-matepad-lcd" aria-expanded="false" aria-controls="android-huawei-matebook-matepad-lcd">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-huawei-matebook-matepad-lcd">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-huawei-matebook-matepad-lcd'] ?? null])
+</div>
+</div>
+</div>
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-matebook-matepad-battery" aria-expanded="false" aria-controls="android-huawei-matebook-matepad-battery">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-huawei-matebook-matepad-battery">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-huawei-matebook-matepad-battery'] ?? null])
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="service-sublist-group">
+<button class="service-sublist-item service-sublist-item--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#huaweiHonorSeries" aria-expanded="false" aria-controls="huaweiHonorSeries">
+<span class="service-sublist-icon"><i class="bi bi-arrow-right"></i></span>
+<span class="service-sublist-text">Honor Series</span>
+<span class="service-sublist-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="huaweiHonorSeries">
+<div class="service-sublist-panel-inner">
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-honor-lcd" aria-expanded="false" aria-controls="android-huawei-honor-lcd">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-huawei-honor-lcd">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-huawei-honor-lcd'] ?? null])
+</div>
+</div>
+</div>
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-honor-battery" aria-expanded="false" aria-controls="android-huawei-honor-battery">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-huawei-honor-battery">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-huawei-honor-battery'] ?? null])
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="service-sublist-group">
+<button class="service-sublist-item service-sublist-item--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#huaweiMateSeries" aria-expanded="false" aria-controls="huaweiMateSeries">
+<span class="service-sublist-icon"><i class="bi bi-arrow-right"></i></span>
+<span class="service-sublist-text">Huawei Mate</span>
+<span class="service-sublist-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="huaweiMateSeries">
+<div class="service-sublist-panel-inner">
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-mate-lcd" aria-expanded="false" aria-controls="android-huawei-mate-lcd">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-huawei-mate-lcd">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-huawei-mate-lcd'] ?? null])
+</div>
+</div>
+</div>
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-huawei-mate-battery" aria-expanded="false" aria-controls="android-huawei-mate-battery">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-huawei-mate-battery">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-huawei-mate-battery'] ?? null])
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

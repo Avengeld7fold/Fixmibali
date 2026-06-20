@@ -1,4 +1,4 @@
-<div class="admin-section-block">
+<div class="admin-section-block" id="section-{{ $section['key'] }}">
     <div class="flex flex-col gap-1">
         <p class="admin-section-title">{{ $section['label'] }}</p>
     </div>

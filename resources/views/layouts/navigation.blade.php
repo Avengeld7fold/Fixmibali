@@ -20,9 +20,9 @@
                 aria-label="Expand menu"
                 @click="if (sidebarCollapsed) { sidebarCollapsed = false; localStorage.setItem('admin-sidebar-collapsed', 'false'); }"
             >
-                <img src="{{ asset('assets/img/favinco.png') }}" alt="Fixmi Bali" class="admin-brand-image">
+                <img src="{{ asset('assets/img/favinco.svg') }}" alt="Fixmi Service Center" class="admin-brand-image">
             </button>
-            <span class="admin-brand-text">Fixmi Bali</span>
+            <span class="admin-brand-text">Fixmi Service Center</span>
             <button
                 type="button"
                 class="admin-collapse"

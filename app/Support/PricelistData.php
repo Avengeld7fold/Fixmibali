@@ -303,17 +303,65 @@ class PricelistData
             'device' => 'android',
             'file_hint' => 'android-google-pixel-battery.csv',
         ],
-        'android-huawei-lcd' => [
-            'label' => 'Harga Pergantian LCD Huawei',
-            'slug' => 'android-huawei-lcd',
+        'android-huawei-p-nova-lcd' => [
+            'label' => 'Harga Pergantian LCD Huawei P and Nova Series',
+            'slug' => 'android-huawei-p-nova-lcd',
             'device' => 'android',
-            'file_hint' => 'android-huawei-lcd.csv',
+            'file_hint' => 'android-huawei-p-nova-lcd.csv',
         ],
-        'android-huawei-battery' => [
-            'label' => 'Harga Pergantian Battery Huawei',
-            'slug' => 'android-huawei-battery',
+        'android-huawei-p-nova-battery' => [
+            'label' => 'Harga Pergantian Battery Huawei P and Nova Series',
+            'slug' => 'android-huawei-p-nova-battery',
             'device' => 'android',
-            'file_hint' => 'android-huawei-battery.csv',
+            'file_hint' => 'android-huawei-p-nova-battery.csv',
+        ],
+        'android-huawei-y-lcd' => [
+            'label' => 'Harga Pergantian LCD Huawei Y Series',
+            'slug' => 'android-huawei-y-lcd',
+            'device' => 'android',
+            'file_hint' => 'android-huawei-y-lcd.csv',
+        ],
+        'android-huawei-y-battery' => [
+            'label' => 'Harga Pergantian Battery Huawei Y Series',
+            'slug' => 'android-huawei-y-battery',
+            'device' => 'android',
+            'file_hint' => 'android-huawei-y-battery.csv',
+        ],
+        'android-huawei-matebook-matepad-lcd' => [
+            'label' => 'Harga Pergantian LCD Matebook and Matepad',
+            'slug' => 'android-huawei-matebook-matepad-lcd',
+            'device' => 'android',
+            'file_hint' => 'android-huawei-matebook-matepad-lcd.csv',
+        ],
+        'android-huawei-matebook-matepad-battery' => [
+            'label' => 'Harga Pergantian Battery Matebook and Matepad',
+            'slug' => 'android-huawei-matebook-matepad-battery',
+            'device' => 'android',
+            'file_hint' => 'android-huawei-matebook-matepad-battery.csv',
+        ],
+        'android-huawei-honor-lcd' => [
+            'label' => 'Harga Pergantian LCD Honor Series',
+            'slug' => 'android-huawei-honor-lcd',
+            'device' => 'android',
+            'file_hint' => 'android-huawei-honor-lcd.csv',
+        ],
+        'android-huawei-honor-battery' => [
+            'label' => 'Harga Pergantian Battery Honor Series',
+            'slug' => 'android-huawei-honor-battery',
+            'device' => 'android',
+            'file_hint' => 'android-huawei-honor-battery.csv',
+        ],
+        'android-huawei-mate-lcd' => [
+            'label' => 'Harga Pergantian LCD Huawei Mate',
+            'slug' => 'android-huawei-mate-lcd',
+            'device' => 'android',
+            'file_hint' => 'android-huawei-mate-lcd.csv',
+        ],
+        'android-huawei-mate-battery' => [
+            'label' => 'Harga Pergantian Battery Huawei Mate',
+            'slug' => 'android-huawei-mate-battery',
+            'device' => 'android',
+            'file_hint' => 'android-huawei-mate-battery.csv',
         ],
     ];
 

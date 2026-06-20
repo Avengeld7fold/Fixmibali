@@ -42,7 +42,8 @@ class PricelistImportHeaderFormattingTest extends TestCase
                 'pricelist_file' => $file,
             ]);
 
-        $response->assertRedirect(route('admin.pricelist.index', absolute: false));
+        $response->assertRedirect();
+        $this->assertStringContainsString(route('admin.pricelist.index', absolute: false), $response->headers->get('Location'));
 
         $data = PricelistData::get('lcd');
         $this->assertIsArray($data);
@@ -76,7 +77,8 @@ class PricelistImportHeaderFormattingTest extends TestCase
                 'pricelist_file' => $file,
             ]);
 
-        $response->assertRedirect(route('admin.pricelist.index', absolute: false));
+        $response->assertRedirect();
+        $this->assertStringContainsString(route('admin.pricelist.index', absolute: false), $response->headers->get('Location'));
 
         $data = PricelistData::get('lcd');
         $this->assertIsArray($data);
@@ -110,7 +112,8 @@ class PricelistImportHeaderFormattingTest extends TestCase
                 'pricelist_file' => $file,
             ]);
 
-        $response->assertRedirect(route('admin.pricelist.index', absolute: false));
+        $response->assertRedirect();
+        $this->assertStringContainsString(route('admin.pricelist.index', absolute: false), $response->headers->get('Location'));
 
         $data = PricelistData::get('lcd');
         $this->assertIsArray($data);

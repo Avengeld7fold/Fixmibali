@@ -5,7 +5,7 @@
 
             <div class="relative">
                 <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-slate-700 bg-slate-900 shadow-[0_12px_25px_rgba(15,23,42,0.28)] auth-float">
-                    <img src="{{ asset('assets/img/favinco.png') }}" alt="Fixmi" class="h-7 w-7 object-contain" />
+                    <img src="{{ asset('assets/img/favinco.svg') }}" alt="Fixmi" class="h-7 w-7 object-contain" />
                 </div>
 
                 <div class="mt-6 text-center">

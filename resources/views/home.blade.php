@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>{{ __('site.home.page_title') }}</title>
-<link rel="icon" type="image/png" href="/assets/img/favinco.png"/>
+<link rel="icon" type="image/svg+xml" href="/assets/img/favinco.svg"/>
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
 <!-- Google Fonts + Icons for hero -->
@@ -51,7 +51,7 @@
 <div class="row align-items-center gy-4">
 <!-- Left copy -->
 <div class="col-lg-6 hero-left">
-<h1 class="hero-title-main mb-1 hero-reveal delay-1"><span class="hero-title-word">FIXMI</span><span class="hero-title-word">BALI</span></h1>
+<h1 class="hero-title-main mb-1 hero-reveal delay-1"><span class="hero-title-word">FIXMI</span><span class="hero-title-word">SERVICE</span><span class="hero-title-word">CENTER</span></h1>
 <h2 class="hero-title-sub mb-3 hero-reveal delay-2">{{ __('site.hero.subtitle') }}</h2>
 <p class="hero-text mb-3 hero-reveal delay-3">
             {{ __('site.hero.description') }}
@@ -594,7 +594,7 @@
 <div class="fixmi-popup-overlay" id="servicePopup" aria-hidden="true">
   <div class="fixmi-popup-dialog">
     <div class="fixmi-popup-brand">
-      <img src="/assets/img/logo-fixmi.png" alt="FIXMI Bali logo" class="fixmi-popup-brand-logo" />
+      <img src="/assets/img/logo-fixmi.png" alt="Fixmi Service Center logo" class="fixmi-popup-brand-logo" />
     </div>
     <button
       type="button"

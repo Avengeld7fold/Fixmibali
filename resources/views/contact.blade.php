@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>{{ __('site.contact.page_title') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <link rel="icon" type="image/png" href="/assets/img/favinco.png"/>
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favinco.svg"/>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -372,7 +372,7 @@
         // Store Locations
         const locations = [
             { 
-                title: "Fixmi Bali", 
+                title: "Fixmi Service Center", 
                 lat: -8.759229543631317, 
                 lng: 115.17628628769123,
                 address: "Link. Kubu Alit Kedonganan, Jl. Raya Uluwatu, Kedonganan, Kec. Kuta, Kabupaten Badung, Bali 80361",
@@ -381,7 +381,7 @@
                 reviews: "1,240"
             },
             { 
-                title: "Fixmi Bali Phone Taman Griya", 
+                title: "Fixmi Service Center Phone Taman Griya", 
                 lat: -8.795211286730995, 
                 lng: 115.18692765700816,
                 address: "Taman Griya, Jl. Nuansa Utama No.33, Jimbaran, South Kuta, Badung Regency, Bali 80361",
