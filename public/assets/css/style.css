@@ -4300,16 +4300,19 @@ body.fixmi-home-page .service-price-title {
 
 @media (max-width: 767.98px) {
 
-  /* Force the table and all columns to perfectly shrink-wrap their content */
+  /* Let table fill the screen, but force all columns EXCEPT the last one to shrink-wrap */
   .service-price-table {
-    width: 1% !important;
+    width: 100% !important;
     min-width: 0 !important;
   }
   .service-price-table th,
   .service-price-table td {
-    width: 1%;
     white-space: nowrap;
     text-align: left;
+  }
+  .service-price-table th:not(:last-child),
+  .service-price-table td:not(:last-child) {
+    width: 1%;
   }
 
   .service-price-swipe-hint {
@@ -4324,10 +4327,16 @@ body.fixmi-home-page .service-price-title {
   }
   .service-price-swipe-hint .swipe-icon {
     animation: swipeAnim 1.5s infinite ease-in-out;
+    color: #f97316; /* Orange color for the arrow only */
   }
   @keyframes swipeAnim {
     0%, 100% { transform: translateX(0); }
     50% { transform: translateX(5px); }
+  }
+
+  /* Shift table to the left to align with brand icon */
+  .service-price-table-wrap {
+    margin-left: -0.9rem;
   }
 
   /* Custom thin scrollbar for mobile */
