@@ -279,17 +279,35 @@ class PricelistData
             'device' => 'android',
             'file_hint' => 'android-vivo-battery.csv',
         ],
-        'android-asus-lcd' => [
-            'label' => 'Harga Pergantian LCD Asus',
-            'slug' => 'android-asus-lcd',
+        'android-asus-zenfone-lcd' => [
+            'label' => 'Harga Pergantian LCD Asus Zenfone',
+            'slug' => 'android-asus-zenfone-lcd',
             'device' => 'android',
-            'file_hint' => 'android-asus-lcd.csv',
+            'file_hint' => 'android-asus-zenfone-lcd.csv',
         ],
-        'android-asus-battery' => [
-            'label' => 'Harga Pergantian Battery Asus',
-            'slug' => 'android-asus-battery',
+        'android-asus-zenfone-battery' => [
+            'label' => 'Harga Pergantian Battery Asus Zenfone',
+            'slug' => 'android-asus-zenfone-battery',
             'device' => 'android',
-            'file_hint' => 'android-asus-battery.csv',
+            'file_hint' => 'android-asus-zenfone-battery.csv',
+        ],
+        'android-asus-rog-lcd' => [
+            'label' => 'Harga Pergantian LCD Asus ROG',
+            'slug' => 'android-asus-rog-lcd',
+            'device' => 'android',
+            'file_hint' => 'android-asus-rog-lcd.csv',
+        ],
+        'android-asus-rog-battery' => [
+            'label' => 'Harga Pergantian Battery Asus ROG',
+            'slug' => 'android-asus-rog-battery',
+            'device' => 'android',
+            'file_hint' => 'android-asus-rog-battery.csv',
+        ],
+        'android-asus-rog-backglass' => [
+            'label' => 'Harga Pergantian Backglass Asus ROG',
+            'slug' => 'android-asus-rog-backglass',
+            'device' => 'android',
+            'file_hint' => 'android-asus-rog-backglass.csv',
         ],
         'android-google-pixel-lcd' => [
             'label' => 'Harga Pergantian LCD Google Pixel',

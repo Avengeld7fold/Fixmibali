@@ -554,27 +554,85 @@
 <div class="collapse service-price-body" data-bs-parent="#servicePricelistAccordion" id="brandAsus">
 <div class="service-price-content">
 <div class="service-sublist">
+<div class="service-sublist-group">
+<button class="service-sublist-item service-sublist-item--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#asusZenfone" aria-expanded="false" aria-controls="asusZenfone">
+<span class="service-sublist-icon"><i class="bi bi-arrow-right"></i></span>
+<span class="service-sublist-text">Asus Zenfone</span>
+<span class="service-sublist-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="asusZenfone">
+<div class="service-sublist-panel-inner">
 <div class="service-sublist-block">
-<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-asus-lcd" aria-expanded="false" aria-controls="android-asus-lcd">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-asus-zenfone-lcd" aria-expanded="false" aria-controls="android-asus-zenfone-lcd">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
 <span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
-<div class="collapse service-sublist-panel" id="android-asus-lcd">
+<div class="collapse service-sublist-panel" id="android-asus-zenfone-lcd">
 <div class="service-sublist-table">
-@include('partials.pricelist-table', ['table' => $priceTables['android-asus-lcd'] ?? null])
+@include('partials.pricelist-table', ['table' => $priceTables['android-asus-zenfone-lcd'] ?? null])
 </div>
 </div>
 </div>
 <div class="service-sublist-block">
-<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-asus-battery" aria-expanded="false" aria-controls="android-asus-battery">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-asus-zenfone-battery" aria-expanded="false" aria-controls="android-asus-zenfone-battery">
 <span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
 <span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
 <span class="service-sublist-entry-toggle">+</span>
 </button>
-<div class="collapse service-sublist-panel" id="android-asus-battery">
+<div class="collapse service-sublist-panel" id="android-asus-zenfone-battery">
 <div class="service-sublist-table">
-@include('partials.pricelist-table', ['table' => $priceTables['android-asus-battery'] ?? null])
+@include('partials.pricelist-table', ['table' => $priceTables['android-asus-zenfone-battery'] ?? null])
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="service-sublist-group">
+<button class="service-sublist-item service-sublist-item--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#asusRog" aria-expanded="false" aria-controls="asusRog">
+<span class="service-sublist-icon"><i class="bi bi-arrow-right"></i></span>
+<span class="service-sublist-text">Asus ROG</span>
+<span class="service-sublist-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="asusRog">
+<div class="service-sublist-panel-inner">
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-asus-rog-lcd" aria-expanded="false" aria-controls="android-asus-rog-lcd">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.lcd_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-asus-rog-lcd">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-asus-rog-lcd'] ?? null])
+</div>
+</div>
+</div>
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-asus-rog-battery" aria-expanded="false" aria-controls="android-asus-rog-battery">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.battery_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-asus-rog-battery">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-asus-rog-battery'] ?? null])
+</div>
+</div>
+</div>
+<div class="service-sublist-block">
+<button class="service-sublist-entry service-sublist-entry--toggle" type="button" data-bs-toggle="collapse" data-bs-target="#android-asus-rog-backglass" aria-expanded="false" aria-controls="android-asus-rog-backglass">
+<span class="service-sublist-entry-icon"><i class="bi bi-arrow-return-right"></i></span>
+<span class="service-sublist-entry-text">{{ __('site.pricelist.android.backglass_replacement') }}</span>
+<span class="service-sublist-entry-toggle">+</span>
+</button>
+<div class="collapse service-sublist-panel" id="android-asus-rog-backglass">
+<div class="service-sublist-table">
+@include('partials.pricelist-table', ['table' => $priceTables['android-asus-rog-backglass'] ?? null])
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

@@ -425,6 +425,7 @@ return [
         'android' => [
             'lcd_replacement' => 'Harga Pergantian LCD',
             'battery_replacement' => 'Harga Pergantian Battery',
+            'backglass_replacement' => 'Harga Pergantian Backglass',
         ],
         'cards' => [
             'iphone' => 'Service iPhone',

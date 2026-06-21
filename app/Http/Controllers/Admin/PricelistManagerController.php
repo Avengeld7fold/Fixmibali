@@ -211,10 +211,25 @@ class PricelistManagerController extends Controller
             [
                 'key' => 'asus',
                 'title' => 'Asus',
-                'sections' => $this->buildSectionsForKeys([
-                    'android-asus-lcd',
-                    'android-asus-battery',
-                ]),
+                'series' => [
+                    [
+                        'key' => 'asus-zenfone',
+                        'title' => 'Asus Zenfone',
+                        'sections' => $this->buildSectionsForKeys([
+                            'android-asus-zenfone-lcd',
+                            'android-asus-zenfone-battery',
+                        ]),
+                    ],
+                    [
+                        'key' => 'asus-rog',
+                        'title' => 'Asus ROG',
+                        'sections' => $this->buildSectionsForKeys([
+                            'android-asus-rog-lcd',
+                            'android-asus-rog-battery',
+                            'android-asus-rog-backglass',
+                        ]),
+                    ],
+                ],
             ],
             [
                 'key' => 'google-pixel',

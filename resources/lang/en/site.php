@@ -425,6 +425,7 @@ return [
         'android' => [
             'lcd_replacement' => 'LCD Replacement Price',
             'battery_replacement' => 'Battery Replacement Price',
+            'backglass_replacement' => 'Backglass Replacement Price',
         ],
         'cards' => [
             'iphone' => 'Service iPhone',
