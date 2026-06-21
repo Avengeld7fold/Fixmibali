@@ -4532,11 +4532,16 @@ body.fixmi-home-page .service-price-title {
   color: #d95510;
 }
 
-.service-price-table td.is-sticky {
-  text-align: left;
-  font-weight: 600;
-  white-space: nowrap;
+.service-price-table td.is-sticky,
+.service-price-table th.is-sticky {
+   box-shadow: 2px 0 0 0 #d4d7de;
 }
+
+ .service-price-table td.is-sticky {
+   text-align: left;
+   font-weight: 600;
+   white-space: nowrap;
+ }
 
 .service-price-badges {
   display: inline-flex;
@@ -5696,9 +5701,14 @@ html[data-theme="dark"] .service-price-th-sub {
   color: #a3b0c2;
 }
 
-html[data-theme="dark"] .service-price-table td.is-sticky {
-  background: #141a23;
+html[data-theme="dark"] .service-price-table td.is-sticky,
+html[data-theme="dark"] .service-price-table th.is-sticky {
+   box-shadow: 2px 0 0 0 #2b3646;
 }
+
+ html[data-theme="dark"] .service-price-table td.is-sticky {
+   background: #141a23;
+ }
 
 html[data-theme="dark"] .service-price-table th.is-price {
   background: #18212c;
