@@ -4511,6 +4511,7 @@ body.fixmi-home-page .service-price-title {
 .service-price-table td.is-sticky {
   position: sticky;
   left: 0;
+  border-right: none;
 }
 
 .service-price-table th.is-sticky {
@@ -4518,9 +4519,21 @@ body.fixmi-home-page .service-price-title {
 }
 
 .service-price-table td.is-sticky {
-  z-index: 1;
-  background: #ffffff;
-}
+   z-index: 1;
+   background: #ffffff;
+ }
+
+ .service-price-table td.is-sticky::after,
+ .service-price-table th.is-sticky::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   width: 1px;
+   background: #d4d7de;
+   pointer-events: none;
+ }
 
 .service-price-table th.is-price {
   background: #fff7ef;
@@ -5697,8 +5710,13 @@ html[data-theme="dark"] .service-price-th-sub {
 }
 
 html[data-theme="dark"] .service-price-table td.is-sticky {
-  background: #141a23;
-}
+   background: #141a23;
+ }
+
+ html[data-theme="dark"] .service-price-table td.is-sticky::after,
+ html[data-theme="dark"] .service-price-table th.is-sticky::after {
+   background: #2b3646;
+ }
 
 html[data-theme="dark"] .service-price-table th.is-price {
   background: #18212c;
