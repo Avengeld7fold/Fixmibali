@@ -215,7 +215,8 @@ return [
         'image_alt' => 'Smartphone motherboard repair at Fixmi Service Center',
         'tagline' => 'Is your device damaged?',
         'desc' => 'Bring it to Fixmi Service Center for service. Free inspection and checked by certified technicians in the smartphone repair field. Do not wait, bring it in now.',
-        'title' => 'Hardware / Android / Apple<br />Software Expert Service',
+        'title_line1' => 'Hardware / Android / Apple',
+        'title_line2' => 'Software Expert Service',
         'list' => [
             'cpu' => 'CPU Reballing',
             'dead' => 'Dead Phone',
@@ -398,7 +399,7 @@ return [
         'iphone' => [
             'lcd' => 'iPhone LCD Price',
             'battery' => 'iPhone Battery Price',
-            'charger' => 'iPhone Charger Price',
+            'charger' => 'iPhone Flexible Charger Price',
             'camera' => 'iPhone Camera Price',
             'face_id' => 'iPhone Face ID Price',
             'housing' => 'iPhone Housing & Backglass Price',

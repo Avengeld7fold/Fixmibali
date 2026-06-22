@@ -215,7 +215,8 @@ return [
         'image_alt' => 'Perbaikan motherboard smartphone di Fixmi Service Center',
         'tagline' => 'Device Anda rusak?',
         'desc' => 'Buruan bawa ke Fixmi Service Center untuk di-service. Free biaya pengecekan dan akan dicek oleh teknisi bersertifikat di dunia perbaikan smartphone. Tunggu apa lagi, yuk buruan kak.',
-        'title' => 'Hardware / Android / Apple<br />Ahli Service Software',
+        'title_line1' => 'Hardware / Android / Apple',
+        'title_line2' => 'Ahli Service Software',
         'list' => [
             'cpu' => 'CPU Reballing',
             'dead' => 'Mati Total',
@@ -398,7 +399,7 @@ return [
         'iphone' => [
             'lcd' => 'Harga LCD iPhone',
             'battery' => 'Harga Battery iPhone',
-            'charger' => 'Harga Charger iPhone',
+            'charger' => 'Harga Flexible Charger iPhone',
             'camera' => 'Harga Kamera iPhone',
             'face_id' => 'Harga Face ID iPhone',
             'housing' => 'Harga Housing & Backglass iPhone',

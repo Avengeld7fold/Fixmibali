@@ -39,7 +39,16 @@ class CurrencyFormatter
             $fallback = (float) config('fixmi.currency.fallback_rate', 0.000065);
             $url = (string) config('fixmi.currency.rate_url');
 
+            // ponytail: security — restrict fetch to http(s) hosts only to prevent
+            // file_get_contents from reading local files (file://) or hitting
+            // internal metadata endpoints if config is ever manipulated.
             if ($url === '') {
+                return $fallback;
+            }
+
+            $scheme = strtolower((string) parse_url($url, PHP_URL_SCHEME));
+            $host = (string) parse_url($url, PHP_URL_HOST);
+            if (! in_array($scheme, ['http', 'https'], true) || $host === '') {
                 return $fallback;
             }
 

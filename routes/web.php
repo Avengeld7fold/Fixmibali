@@ -44,59 +44,52 @@ Route::view('/about', 'placeholder', [
     'description_key' => 'site.placeholder.about_desc',
 ])->name('about');
 
+// ponytail: security — every /dashboard/* route requires an authenticated admin.
+// The outer 'auth','admin' gate covers the index pages; the group below covers
+// mutations. 'verified' is retained for email-verified state on top of admin.
 Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'admin'])
     ->name('dashboard');
 Route::get('/dashboard/pricelist', [PricelistManagerController::class, 'index'])
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'admin'])
     ->name('admin.pricelist.index');
 Route::get('/dashboard/gallery', [AdminGalleryRepairController::class, 'index'])
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'admin'])
     ->name('admin.gallery.index');
 Route::get('/dashboard/promo', [AdminPromoController::class, 'index'])
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'admin'])
     ->name('admin.promo.index');
+// ponytail: security — throttle public endpoint to prevent view-count inflation / bot abuse.
+// 30 requests/minute per IP. Upgrade: switch to per-gallery throttling if abuse shifts.
 Route::post('/gallery/view/{filename}', [GalleryRepairController::class, 'trackView'])
+    ->middleware('throttle:30,1')
     ->name('gallery.view');
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/dashboard/pricelist-import/{section}', [PricelistImportController::class, 'store'])
-        ->middleware(['verified'])
         ->name('admin.pricelist.import');
     Route::delete('/dashboard/pricelist-import/{section}', [PricelistImportController::class, 'destroy'])
-        ->middleware(['verified'])
         ->name('admin.pricelist.delete');
     Route::post('/dashboard/pricelist-import/{section}/undo', [PricelistImportController::class, 'undo'])
-        ->middleware(['verified'])
         ->name('admin.pricelist.undo');
     Route::post('/dashboard/gallery', [AdminGalleryRepairController::class, 'store'])
-        ->middleware(['verified'])
         ->name('admin.gallery.store');
     Route::post('/dashboard/gallery/temp', [AdminGalleryRepairController::class, 'storeTemp'])
-        ->middleware(['verified'])
         ->name('admin.gallery.temp');
     Route::post('/dashboard/gallery/temp/clear', [AdminGalleryRepairController::class, 'clearTemp'])
-        ->middleware(['verified'])
         ->name('admin.gallery.temp.clear');
     Route::post('/dashboard/gallery/commit', [AdminGalleryRepairController::class, 'commitTemp'])
-        ->middleware(['verified'])
         ->name('admin.gallery.commit');
     Route::delete('/dashboard/gallery/{filename}', [AdminGalleryRepairController::class, 'destroy'])
-        ->middleware(['verified'])
         ->name('admin.gallery.destroy');
     Route::post('/dashboard/promo', [AdminPromoController::class, 'store'])
-        ->middleware(['verified'])
         ->name('admin.promo.store');
     Route::post('/dashboard/promo/temp', [AdminPromoController::class, 'storeTemp'])
-        ->middleware(['verified'])
         ->name('admin.promo.temp');
     Route::post('/dashboard/promo/temp/clear', [AdminPromoController::class, 'clearTemp'])
-        ->middleware(['verified'])
         ->name('admin.promo.temp.clear');
     Route::post('/dashboard/promo/commit', [AdminPromoController::class, 'commitTemp'])
-        ->middleware(['verified'])
         ->name('admin.promo.commit');
     Route::delete('/dashboard/promo/{filename}', [AdminPromoController::class, 'destroy'])
-        ->middleware(['verified'])
         ->name('admin.promo.destroy');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

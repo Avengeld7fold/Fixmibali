@@ -628,7 +628,7 @@
       <!-- Kanan: judul dan list layanan -->
       <div class="fixmi-popup-right">
         <h3 class="fixmi-popup-title fixmi-popup-title-blackops">
-          {!! __('site.popup.title') !!}
+          {{ __('site.popup.title_line1') }}<br />{{ __('site.popup.title_line2') }}
         </h3>
 
         <ul class="fixmi-popup-service-list">

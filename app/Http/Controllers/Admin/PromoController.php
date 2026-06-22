@@ -72,6 +72,16 @@ class PromoController extends Controller
             $map = [];
         }
 
+        // ponytail: abuse-limit — cap uncommitted temp uploads per session so a
+        // client that never commits cannot bloat the session row indefinitely.
+        // Upgrade: add a scheduled purge for orphaned temp files on disk.
+        if (count($map) >= 50) {
+            return response()->json([
+                'ok' => false,
+                'message' => 'Too many pending uploads. Commit or clear the current batch first.',
+            ], 422);
+        }
+
         $items = [];
         foreach ($validated['images'] as $file) {
             $extension = strtolower($file->getClientOriginalExtension() ?: $file->guessExtension() ?: '');
@@ -152,9 +162,15 @@ class PromoController extends Controller
                 continue;
             }
 
-            $publicDisk->put($finalPath, $stream);
+            // ponytail: data-loss — verify the write succeeded before deleting the
+            // temp source, otherwise a failed put (disk full / perms) would lose
+            // the upload silently.
+            $putOk = $publicDisk->put($finalPath, $stream);
             if (is_resource($stream)) {
                 fclose($stream);
+            }
+            if ($putOk === false) {
+                continue;
             }
 
             $tempDisk->delete($path);
